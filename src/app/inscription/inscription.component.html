@@ -1,0 +1,47 @@
+<div class="container text-center">
+    <br>
+</div>
+<div class="card" style="box-shadow: 0 5px 5px darkgray">
+    <div class="card-header">
+    </div>
+</div>
+<br>
+
+<div class="text-center">
+    <img src="" width="100px">
+</div>
+<br>
+
+<div class="col d-flex justify-content-center">
+    <div class="card text-center" style="width: 20rem; height: 22rem; 
+                             box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30)">
+        <div class="card-header" style="background-color: tomato; color: white">
+            Formulaire d'inscription
+        </div>
+        <div class="card-body">
+            <br>
+            <form (ngSubmit)="connexion()">
+                <div class="form-group">
+                    <input type="text" placeholder="mail" required="" name="mail" class="form-control text-center"
+                        [(ngModel)]="user.mail">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="text" placeholder="pseudo" required="" name="pseudo" class="form-control text-center"
+                        [(ngModel)]="user.pseudo">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="password" placeholder="mot de passe" required="" name="mdp"
+                        class="form-control text-center" [(ngModel)]="user.mdp">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-login" (click)="inscription();">
+                    Inscription
+                </button>
+                <button type="button" class="btn btn-danger"> Retour </button>
+            </form>
+        </div>
+        <p class="text-danger">{{ mys.msgErr }}</p>
+    </div>
+</div>

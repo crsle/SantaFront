@@ -4,8 +4,8 @@ import { ConnexionComponent } from './connexion/connexion.component';
 
 
 const routes: Routes = [ 
-  {path:'login', component:ConnexionComponent},
-  {path:'', redirectTo:'/login', pathMatch:'full'},];
+  //{path:'login', component:ConnexionComponent},
+  /*{path:'', redirectTo:'/login', pathMatch:'full'},*/];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

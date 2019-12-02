@@ -1,41 +1,108 @@
 <div>
-    <nav class=" navbar fixed-top navbar-expand-lg navbar-light  menu">
-        <a class="navbar-brand" href="#" style="color: lightcyan;">Menu</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item ">
-              <a class="nav-link" >Mes Secret Santa </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Mes messages</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Historique</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Profil
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Voir/Modifier Profil</a>
-                <a class="dropdown-item" href="#">Déconnecter</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    
-      <br><br><br><br>
-      <h2>test test </h2>
-      <br><br><br><br>
-      <br><br><br><br>
-      <br><br><br><br>
-      <h2>test test </h2>
-      <br><br><br><br>
-      <br><br><br><br>
-      <br><br><br><br>
-      <h2>test test </h2>
+  <!--debut menu-->
+  <nav class=" navbar fixed-top navbar-expand-lg navbar-light  menu">
+    <a class="navbar-brand" href="#" style="color: lightcyan;">Menu</a>
+    <button (click)="bartoide()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item ">
+          <a class="nav-link">Mes Secret Santa </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Mes messages</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Historique</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Profil
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Voir/Modifier Profil</a>
+            <a class="dropdown-item" href="#">Déconnecter</a>
+          </div>
+        </li>
+      </ul>
     </div>
+  </nav>
+  <!--fin menu-->
+
+  <br><br><br><br>
+  <!--debut bt + (create)-->
+
+  <div class="text-center fixed-top" style="margin-top: 70px;" *ngIf="bartoi">
+      <button mat-fab color="primary" style="color: lightgray; background-color: rgb(230, 100, 77);"><mat-icon>add</mat-icon></button>
+  </div>
+
+
+
+
+
+
+  <!--fin bt + (create)-->
+
+  <br><br>
+
+  <!--debut card-->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="card">
+          <a href="#">
+            <!-- Image à la une -->
+            <div class="card-image"><img
+                src="https://damienflandrin.fr/storage/tutoriel-realiser-une-carte-en-css/card-image.jpg"
+                alt="Orange" />
+            </div>
+            <!-- Fin de l'image à la une -->
+
+            <!-- Corp de notre carte -->
+            <div class="card-body">
+
+              <!-- Date de publication de l'article-->
+              <div class="card-date">
+                <time>20 Novembre 1992</time>
+              </div>
+
+              <!-- Titre de l'article -->
+              <div class="card-title">
+                <h3>Lorem Ipsum</h3>
+              </div>
+              <!-- Extrait de l'article -->
+              <div class="card-excerpt">
+                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam voluptatibus autem consectetur
+                  .</p>
+              </div>
+
+            </div>
+            <!-- Fin du corp de notre carte -->
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!--fin card-->
+
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p>test</p>
+</div>

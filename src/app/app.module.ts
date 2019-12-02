@@ -9,7 +9,11 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+<<<<<<< HEAD
 >>>>>>> 48cd40f5b7057a193e6ff7d2afb89891ca2571bd
+=======
+import { HomeComponent } from './home/home.component';
+>>>>>>> d347b7cbbcb12f35632c1b4c414c31899ef613dc
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
     InscriptionComponent
 =======
     ConnexionComponent,
+<<<<<<< HEAD
 >>>>>>> 48cd40f5b7057a193e6ff7d2afb89891ca2571bd
+=======
+    HomeComponent,
+>>>>>>> d347b7cbbcb12f35632c1b4c414c31899ef613dc
   ],
   imports: [
     BrowserModule,
@@ -29,4 +37,4 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

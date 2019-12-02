@@ -26,10 +26,14 @@ user: User = new User();
       if (this.u.mail != null) {
         this.mys.user=this.u;
         localStorage.setItem('UserConect', this.u);             //Utilisateur mis en session
-        this.route.navigate(['home']);                    //On retourne vers home
+        this.route.navigate(['home']);                          //On retourne vers home
       }else{
         this.mys.msgErr='Veuillez vous connecter svp';
       }
     })
+  }
+
+  goInscription() {
+    this.route.navigate(['user']);
   }
 }

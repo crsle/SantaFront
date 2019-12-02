@@ -24,6 +24,8 @@ inscription(){
     this.err = 'erreur';
   });
 
-  
+  this.route.navigate(['/login']);
+
+
 }
 }

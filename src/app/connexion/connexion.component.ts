@@ -25,7 +25,7 @@ user: User = new User();
       this.u = data;
       if (this.u.mail != null) {
         this.mys.user=this.u;
-        this.route.navigate(['memoperso']);
+        this.route.navigate(['home']);
       }else{
         this.mys.msgErr='Veuillez vous connecter svp';
       }

@@ -19,21 +19,28 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Historique</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Profil
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Voir/Modifier Profil</a>
-                        <button type="button" class="btn btn-danger" (click)="goDeco()"> Se déconnecter </button>
-                    </div>
-                </li>
+                
             </ul>
             
         </div>
-        <button mat-mini-fab color="primary" style="color: rgb(230, 100, 77);; background-color: lightgray;">
+        <button mat-mini-fab color="primary" [matMenuTriggerFor]="menu" style="color: rgb(230, 100, 77);; background-color: lightgray;">
                 <mat-icon>account_circle </mat-icon>
             </button>
     </nav>
+
+
+    <mat-menu #menu="matMenu">
+            <button mat-menu-item style="color: lightgray" >
+              <mat-icon style="color: rgb(230, 100, 77);">people</mat-icon>
+              <span>Profil</span>
+            </button>
+            <button mat-menu-item >
+              <mat-icon style="color: rgb(230, 100, 77);">info</mat-icon>
+              <span>About </span>
+            </button>
+            <button mat-menu-item (click)="goDeco()">
+              <mat-icon style="color: rgb(230, 100, 77);">power_settings_new</mat-icon>
+              <span>Deco </span>
+            </button>
+          </mat-menu>
 </div>

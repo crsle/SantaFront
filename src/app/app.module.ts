@@ -16,6 +16,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SantaComponent } from './santa/santa.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +40,8 @@ import {MatListModule} from '@angular/material/list';
     MatDialogModule, 
     MatTabsModule,
     BrowserAnimationsModule,
-    MatListModule
+    MatListModule,
+    MatMenuModule,
 
   ],
   providers: [],

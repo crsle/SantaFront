@@ -50,7 +50,7 @@ events;
   }
 
   isProprio(u: User, s:SSanta ){
-    if(u.id = s.user.id){
+    if(u.id = s.createur.id){
       return true;
     }
     else {

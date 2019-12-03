@@ -22,6 +22,7 @@ export class AppComponent {
   }
 
   goDeco() {
+    localStorage.clear();
     this.route.navigate(['login']);
     this.myserv.menuVisible=false;
   }

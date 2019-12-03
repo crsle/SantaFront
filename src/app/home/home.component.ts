@@ -14,6 +14,7 @@ import { PopupCreaSantaComponent } from '../popup-crea-santa/popup-crea-santa.co
 export class HomeComponent implements OnInit {
 bartoi = true;
 ssanta : SSanta = new SSanta();
+events;
   constructor(private myback: MybackService,private route :Router,private http: HttpClient,private dialog: MatDialog) {
     
      if(myback.user.mail != null){
@@ -25,11 +26,10 @@ ssanta : SSanta = new SSanta();
    }
 
   ngOnInit() {
-    console.log(this.myback.lienHTTP+'santa/'+ this.myback.user.id);
     this.http.get(this.myback.lienHTTP+'santa/'+ this.myback.user.id)
     .subscribe(data => {
       console.log('data', data)
-      //this.events = data;
+      this.events = data;
     }, err => {
       console.log(err);
     });

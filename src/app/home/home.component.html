@@ -1,16 +1,19 @@
 <div>
   <!--debut menu-->
-  
+
   <!--fin menu-->
 
   <br><br><br><br>
   <!--debut bt + (create)-->
 
   <div class="text-center fixed-top" style="margin-top: 70px;" *ngIf="bartoi">
-      <button mat-fab  color="primary" (click)="openPopupCreaSanta()" style="color: lightgray; background-color: rgb(230, 100, 77);"><mat-icon>add</mat-icon></button>
+    <button mat-fab color="primary" (click)="openPopupCreaSanta()"
+      style="color: lightgray; background-color: rgb(230, 100, 77);">
+      <mat-icon>add</mat-icon>
+    </button>
   </div>
 
-   
+
 
 
 
@@ -22,27 +25,34 @@
   <!--debut card-->
   <div class="container">
     <div class="row">
-      <div  class="col-sm-2"> <!--*ngFor="let e of events"-->
-        <div class="card">
-          <a href="#">
-            <div class="card-image"><img
-                src="https://damienflandrin.fr/storage/tutoriel-realiser-une-carte-en-css/card-image.jpg"
-                alt="Orange" />
-            </div>
-            <div class="card-body">
-              <div class="card-date">
-                <time>20 Novembre 1992</time>
+      
+        <div *ngFor="let e of events" >
+            <div class="col-sm-2">
+          <div class="card">
+            <a href="#">
+              <div class="card-image"><img
+                  src="https://damienflandrin.fr/storage/tutoriel-realiser-une-carte-en-css/card-image.jpg"
+                  alt="Orange" />
               </div>
-              <div class="card-title">
-                <h3>Lorem Ipsum</h3>
+              <div class="card-body">
+                <div class="card-date">
+                  <time>20 Novembre 1992</time>
+                </div>
+                <div class="card-title">
+                  <h3>Lorem Ipsum</h3>
+                </div>
+                <div class="card-excerpt">
+                  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam voluptatibus autem consectetur
+                  </p>
+                </div>
               </div>
-              <div class="card-excerpt">
-                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam voluptatibus autem consectetur</p>
-              </div>
-            </div>
-          </a>
+            </a>
+          </div>
+          </div>
+          <br><br>
         </div>
-      </div>
+
+     
     </div>
 
   </div>

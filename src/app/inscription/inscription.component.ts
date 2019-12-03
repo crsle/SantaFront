@@ -25,7 +25,7 @@ inscription(){
       this.mys.msgErr = 'mail déjà utilisé'
     } else {
        this.route.navigate(['/login']); 
-       this.mys.msgErr='Bien enregirstré';
+       this.mys.msgErr='Bien enregistré';
     }
 
   }, err =>{

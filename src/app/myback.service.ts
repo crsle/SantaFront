@@ -6,7 +6,7 @@ import { User } from './model/User';
 })
 export class MybackService {
   
-
+  menuVisible = false;
   user :User =new User();
   lienHTTP='http://localhost:8090/';
   msgErr;

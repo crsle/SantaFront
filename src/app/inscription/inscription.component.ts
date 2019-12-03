@@ -12,6 +12,7 @@ import { User } from '../model/User';
 export class InscriptionComponent implements OnInit {
   user: User = new User();
   err;
+  bool;
 
   constructor(private mys: MybackService, private route: Router, private http: HttpClient) { }
 
@@ -19,13 +20,22 @@ export class InscriptionComponent implements OnInit {
   }
 inscription(){
   this.http.post(this.mys.lienHTTP + 'user', this.user).subscribe( data =>{
+    console.log(data)
+    if (data==true){
+      this.mys.msgErr = 'mail déjà utilisé'
+    } else {
+       this.route.navigate(['/login']); 
+       this.mys.msgErr='Bien enregirstré';
+    }
 
   }, err =>{
-    this.err = 'erreur';
+    this.mys.msgErr = 'erreur';
   });
 
-  this.route.navigate(['/login']); 
+ 
 }
+
+
 
 goPagePrincipale() {
     this.route.navigate(['login']);

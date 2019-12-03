@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreaSantaComponent } from './crea-santa.component';
+import { PopupCreaSantaComponent } from './popup-crea-santa.component';
 
-describe('CreaSantaComponent', () => {
-  let component: CreaSantaComponent;
-  let fixture: ComponentFixture<CreaSantaComponent>;
+describe('PopupCreaSantaComponent', () => {
+  let component: PopupCreaSantaComponent;
+  let fixture: ComponentFixture<PopupCreaSantaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreaSantaComponent ]
+      declarations: [ PopupCreaSantaComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreaSantaComponent);
+    fixture = TestBed.createComponent(PopupCreaSantaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

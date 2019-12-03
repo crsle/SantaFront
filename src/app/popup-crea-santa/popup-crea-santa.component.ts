@@ -5,19 +5,20 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-crea-santa',
-  templateUrl: './crea-santa.component.html',
-  styleUrls: ['./crea-santa.component.css']
+  selector: 'app-popup-crea-santa',
+  templateUrl: './popup-crea-santa.component.html',
+  styleUrls: ['./popup-crea-santa.component.css']
 })
-export class CreaSantaComponent implements OnInit {
+export class PopupCreaSantaComponent implements OnInit {
   ssanta : SSanta = new SSanta();
   constructor(private mys :MybackService,private route :Router,private http: HttpClient) { }
 
   ngOnInit() {
   }
 
-  addSSanta(){
+  creaSanta(){
     this.ssanta.user =this.mys.user;
+    this.ssanta.enCours=true;
     this.http.post(this.mys.lienHTTP + '/createSSanta', this.ssanta).subscribe(data=>{
       this.ngOnInit();      
     },err => {

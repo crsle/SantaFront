@@ -24,8 +24,10 @@ inscription(){
     this.err = 'erreur';
   });
 
-  this.route.navigate(['/login']);
-
-
+  this.route.navigate(['/login']); 
 }
+
+goPagePrincipale() {
+    this.route.navigate(['login']);
+  }
 }

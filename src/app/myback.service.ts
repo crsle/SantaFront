@@ -15,6 +15,10 @@ export class MybackService {
  
   }
 
+  kilSes(){
+    this.user.mail = null;
+  }
+
   recupSes() {
     // this.user = localStorage.getItem('UserConect') as any;
 

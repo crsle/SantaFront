@@ -16,30 +16,27 @@ user: User = new User();
   constructor(private mys: MybackService, private route: Router, private http: HttpClient) { }
 
   ngOnInit() {
-    this.mys.recupSes();
-    if (this.mys.user.mail != null) {
-      
-      this.route.navigate(['home']);                          //On retourne vers home
-    }else{
-      
-    }
-
+   
   }
 
   connexion() {
-    console.log(this.user.mail);
+   // console.log(this.user.mail);
     this.http.post(this.mys.lienHTTP + '/connexion', this.user).subscribe(data => {
-      console.log('data', data);
-      this.u = data;
-      if (this.u.mail != null) {
-        this.mys.user=this.u;
-        localStorage.setItem('UserConect', JSON.stringify(this.u));             //Utilisateur mis en session
-        this.mys.recupSes();
-        this.route.navigate(['home']);                          //On retourne vers home
-      }else{
-        this.mys.msgErr='Veuillez vous connecter svp';
-      }
+     // console.log('data', data);
+      this.verifCo(data);
     })
+  }
+
+  verifCo(data) {
+    this.u = data;
+    if (this.u.mail != null) {
+      this.mys.user=this.u;
+      localStorage.setItem('UserConect', JSON.stringify(this.u));             //Utilisateur mis en session
+      this.mys.recupSes();
+      this.route.navigate(['home']);                          //On retourne vers home
+    }else{
+      this.mys.msgErr='Veuillez vous connecter svp';
+    }
   }
 
   goInscription() {

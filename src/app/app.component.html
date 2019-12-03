@@ -1,5 +1,5 @@
 <router-outlet></router-outlet>
-<div>
+<div *ngIf="myserv.menuVisible">
     <nav class=" navbar fixed-top navbar-expand-lg navbar-light  menu">
         <a class="navbar-brand" href="#" style="color: lightcyan;">Menu</a>
         <button (click)="bartoide()" class="navbar-toggler" type="button" data-toggle="collapse"

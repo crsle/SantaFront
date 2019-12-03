@@ -20,7 +20,7 @@ user: User = new User();
 
   connexion() {
     console.log(this.user);
-    this.http.post(this.mys.lienHTTP + 'connexion', this.user).subscribe(data => {
+    this.http.post(this.mys.lienHTTP + '/connexion', this.user).subscribe(data => {
       console.log('data', data);
       this.u = data;
       if (this.u.mail != null) {

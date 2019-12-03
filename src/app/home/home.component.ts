@@ -10,11 +10,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
 bartoi = true;
+events;
   constructor(private myback: MybackService, private route: Router, private http: HttpClient) {
     this.myback.menuVisible=true
    }
 
   ngOnInit() {
+    console.log(this.myback.lienHTTP+'santa/'+ this.myback.user.id);
+    this.http.get(this.myback.lienHTTP+'santa/'+ this.myback.user.id)
+    .subscribe(data => {
+      console.log('data', data)
+      //this.events = data;
+    }, err => {
+      console.log(err);
+    });
   }
 
   bartoide() {

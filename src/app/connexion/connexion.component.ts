@@ -16,6 +16,14 @@ user: User = new User();
   constructor(private mys: MybackService, private route: Router, private http: HttpClient) { }
 
   ngOnInit() {
+    this.mys.recupSes();
+    if (this.mys.user.mail != null) {
+      
+      this.route.navigate(['home']);                          //On retourne vers home
+    }else{
+      
+    }
+
   }
 
   connexion() {
@@ -25,7 +33,8 @@ user: User = new User();
       this.u = data;
       if (this.u.mail != null) {
         this.mys.user=this.u;
-        localStorage.setItem('UserConect', this.u);             //Utilisateur mis en session
+        localStorage.setItem('UserConect', JSON.stringify(this.u));             //Utilisateur mis en session
+        this.mys.recupSes();
         this.route.navigate(['home']);                          //On retourne vers home
       }else{
         this.mys.msgErr='Veuillez vous connecter svp';

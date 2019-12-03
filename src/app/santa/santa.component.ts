@@ -11,6 +11,7 @@ import { SSanta } from '../model/SSanta';
 })
 export class SantaComponent implements OnInit {
   participants;
+  souhaits;
 
   constructor(private myback: MybackService, private route: Router, private http: HttpClient) {
 
@@ -24,9 +25,19 @@ export class SantaComponent implements OnInit {
     this.http.get(this.myback.lienHTTP + 'santa/participants/' + this.myback.santa.id)
       .subscribe(data => {
         this.participants = data;
-        console.log('participants', this.participants);
       }, err => {
         console.log(err);
+      });
+  }
+
+  recupSouhaits() {
+    this.http.get(this.myback.lienHTTP + 'user/santa/souhaits/' + this.myback.user.id + '/' + this.myback.santa.id)
+      .subscribe(data => {
+        this.souhaits = data;
+        console.log('souhaits', this.souhaits);
+      }, err => {
+        console.log(err);
+
       });
   }
 

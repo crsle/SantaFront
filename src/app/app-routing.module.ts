@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { HomeComponent } from './home/home.component';
+import { SantaComponent } from './santa/santa.component';
 
 
 
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path:'home', component:HomeComponent},
   {path:'login', component:ConnexionComponent},
   {path:'user', component:InscriptionComponent},
+  {path:'santa', component:SantaComponent},
   {path:'', redirectTo:'/login', pathMatch:'full'},];
 
 @NgModule({

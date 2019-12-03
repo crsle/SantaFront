@@ -37,6 +37,9 @@ ssanta : SSanta = new SSanta();
 
   openPopupCreaSanta() {
     const mydial =this.dialog.open(PopupCreaSantaComponent);
+  }
 
+  goDeco() {
+    this.route.navigate(['login']);
   }
 }

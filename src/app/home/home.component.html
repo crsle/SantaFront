@@ -32,7 +32,8 @@
             <div class="card" >
               <a>
                 <div class="card-image">
-                  <img src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000/https://www.shopmaman.com/wp-content/uploads/2019/07/7427763_Nos-conseils-pour-des-cadeaux-de-No%C3%ABl-sympas-et-pas-chers_1000x625.jpg">
+                  <img
+                    src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000/https://www.shopmaman.com/wp-content/uploads/2019/07/7427763_Nos-conseils-pour-des-cadeaux-de-No%C3%ABl-sympas-et-pas-chers_1000x625.jpg">
                 </div>
                 <div class="card-body">
                   <div class="card-date">
@@ -63,46 +64,44 @@
   <!--fin card-->
 
   <div class="modal fade" id="invitationMembre" role="dialog">
-      <div class="modal-dialog">
+    <div class="modal-dialog">
 
-          <!-- Modal content-->
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h4 class="modal-title">Création d'un conseiller</h4>
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Invitation</h4>
+        </div>
+        <div class="modal-body">
+          <form method="POST"(ngSubmit)="invitation">
+            <div class="form-group">
+              <input required="required" name="nomC" type="text" placeholder="nom" class="form-control">
+            </div>
+            <div class="form-group">
+              <input required="required" name="prenomC" type="text" placeholder="prenom" class="form-control">
+            </div>
+            <div class="form-group">
+              <input required="required" name="loginC" type="mail" placeholder="mail" class="form-control" [(ngModel)]="user.mail">
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6">
+                <button type="submit" class="btn btn-block btn-success">Valider</button>
+
               </div>
-              <div class="modal-body">
-                  <form action="InscriptionConseiller" method="POST">
-                      <div class="form-group">
-                          <input required="required" name="nomC" type="text" placeholder="nom" class="form-control">
-                      </div>
-                      <div class="form-group">
-                          <input required="required" name="prenomC" type="text" placeholder="prenom" class="form-control">
-                      </div>
-                      <div class="form-group">
-                          <input required="required" name="loginC" type="text" placeholder="login" class="form-control">
-                      </div>
-                      <div class="form-group">
-                          <input required="required" name="mdpC" type="password" placeholder="password" class="form-control">
-                      </div>
-
-                      <div class="row">
-                          <div class="col-sm-6">
-                              <button type="button" class="btn btn-block btn-danger" data-dismiss="modal">Fermer</button>
-                          </div>
-                          <div class="col-sm-6">
-                              <button type="submit" class="btn btn-block btn-success">Valider</button>
-
-                          </div>
-
-                      </div>
-                  </form>
+              <div class="col-sm-6">
+                <button type="button" class="btn btn-block btn-danger" data-dismiss="modal">Fermer</button>
               </div>
-          </div>
 
+
+            </div>
+          </form>
+        </div>
       </div>
+
+    </div>
   </div>
 
-  
-  
+
+
 
 </div>

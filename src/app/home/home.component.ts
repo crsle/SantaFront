@@ -15,6 +15,7 @@ import { User } from '../model/User';
 export class HomeComponent implements OnInit {
 //bartoi = true;
 ssanta : SSanta = new SSanta();
+user : User = new User();
 events;
   constructor(private myback: MybackService,private route :Router,private http: HttpClient,private dialog: MatDialog) {
     
@@ -28,7 +29,7 @@ events;
    }
 
   ngOnInit() {
-    this.http.get(this.myback.lienHTTP+'santa/'+ this.myback.user.id)
+    this.http.get(this.myback.lienHTTP+'participantsanta/'+ this.myback.user.id)
     .subscribe(data => {
       this.events = data;
     }, err => {
@@ -36,10 +37,20 @@ events;
     });
   }
 
-  
+  invitation(){
+    this.http.get(this.myback.lienHTTP+'invitation').subscribe(date =>{
+
+    }, err =>{
+      
+    });
+
+  }
 
   openPopupCreaSanta() {
     const mydial =this.dialog.open(PopupCreaSantaComponent);
+    mydial.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
   }
 
   isProprio(u: User, s:SSanta ){

@@ -1,13 +1,16 @@
 <div>
   <!--debut menu-->
-  
+
   <!--fin menu-->
 
   <br><br><br><br>
   <!--debut bt + (create)-->
 
-  <div class="text-center fixed-top" style="margin-top: 70px;" *ngIf="bartoi">
-      <button mat-fab color="primary" style="color: lightgray; background-color: rgb(230, 100, 77);"><mat-icon>add</mat-icon></button>
+  <div class="text-center fixed-top" style="margin-top: 70px;" *ngIf="myback.bartoi">
+    <button mat-fab color="primary" (click)="openPopupCreaSanta()"
+      style="color: lightgray; background-color: rgb(230, 100, 77);">
+      <mat-icon>add</mat-icon>
+    </button>
   </div>
 
 
@@ -22,59 +25,41 @@
   <!--debut card-->
   <div class="container">
     <div class="row">
-      <div class="col-sm-2">
-        <div class="card">
-          <a href="#">
-            <!-- Image à la une -->
-            <div class="card-image"><img
-                src="https://damienflandrin.fr/storage/tutoriel-realiser-une-carte-en-css/card-image.jpg"
-                alt="Orange" />
+
+      <div *ngFor="let e of events">
+        <div class="text-center">
+          <div class="col-sm-2">
+            <div class="card">
+              <a>
+                <div class="card-image">
+                  <img src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000/https://www.shopmaman.com/wp-content/uploads/2019/07/7427763_Nos-conseils-pour-des-cadeaux-de-No%C3%ABl-sympas-et-pas-chers_1000x625.jpg">
+                </div>
+                <div class="card-body">
+                  <div class="card-date">
+                    <time>Date</time>
+                  </div>
+                  <div class="card-title">
+                    <h3>{{e.evenement.nomSSanta}}</h3>
+                  </div>
+                  <div class="card-excerpt">
+                    <p> Créateur de l'évènement : {{e.participant.pseudo}}
+                    </p>
+                  </div>
+                </div>
+              </a>
             </div>
-            <!-- Fin de l'image à la une -->
-
-            <!-- Corp de notre carte -->
-            <div class="card-body">
-
-              <!-- Date de publication de l'article-->
-              <div class="card-date">
-                <time>20 Novembre 1992</time>
-              </div>
-
-              <!-- Titre de l'article -->
-              <div class="card-title">
-                <h3>Lorem Ipsum</h3>
-              </div>
-              <!-- Extrait de l'article -->
-              <div class="card-excerpt">
-                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam voluptatibus autem consectetur
-                  .</p>
-              </div>
-
-            </div>
-            <!-- Fin du corp de notre carte -->
-          </a>
+          </div>
         </div>
+        <br><br>
       </div>
+
+
     </div>
 
   </div>
   <!--fin card-->
 
-  <p>test</p>
-  <button type="button" class="btn btn-danger" (click)="goDeco()"> Se déconnecter </button>
-  <p>test</p>
-  <p>test</p>
-  <p>test</p>
-  <p>test</p>
-  <p>test</p>
-  <p>test</p>
-  <p>test</p>
-  <p>test</p>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <p>test</p>
+  
+  
+
 </div>

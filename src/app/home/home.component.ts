@@ -29,7 +29,7 @@ events;
    }
 
   ngOnInit() {
-    this.http.get(this.myback.lienHTTP+'santa/'+ this.myback.user.id)
+    this.http.get(this.myback.lienHTTP+'participantsanta/'+ this.myback.user.id)
     .subscribe(data => {
       this.events = data;
     }, err => {
@@ -48,6 +48,9 @@ events;
 
   openPopupCreaSanta() {
     const mydial =this.dialog.open(PopupCreaSantaComponent);
+    mydial.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
   }
 
   isProprio(u: User, s:SSanta ){

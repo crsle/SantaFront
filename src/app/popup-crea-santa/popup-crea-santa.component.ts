@@ -3,6 +3,7 @@ import { SSanta } from '../model/SSanta';
 import { MybackService } from '../myback.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-popup-crea-santa',
@@ -11,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PopupCreaSantaComponent implements OnInit {
   ssanta : SSanta = new SSanta();
-  constructor(private mys :MybackService,private route :Router,private http: HttpClient) { }
+  constructor(private mys :MybackService,private route :Router,private http: HttpClient, private dialogRef: MatDialogRef<PopupCreaSantaComponent>) { }
 
   ngOnInit() {
   }
@@ -25,7 +26,7 @@ export class PopupCreaSantaComponent implements OnInit {
 
     this.http.post(this.mys.lienHTTP + '/createSSanta', this.ssanta).subscribe(data=>{
       console.log('data', data);
-      this.ngOnInit();      
+      this.dialogRef.close(); 
     },err => {
       console.log(err);
       

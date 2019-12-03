@@ -19,7 +19,8 @@ user : User = new User();
 events;
   constructor(private myback: MybackService,private route :Router,private http: HttpClient,private dialog: MatDialog) {
     
-     if(myback.user.mail != null){
+     if(myback.recupUserC().mail != null){
+       this.myback.user = this.myback.recupUserC();
       this.myback.menuVisible=true;
     }else{
       this.myback.msgErr='Vous devez vous connectez';

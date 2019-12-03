@@ -12,14 +12,14 @@
 <br>
 
 <div class="col d-flex justify-content-center">
-    <div class="card text-center" style="width: 20rem; height: 25rem; 
+    <div class="card text-center" style="width: 20rem; height: 26rem; 
                              box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30)">
         <div class="card-header" style="background-color: tomato; color: white">
             Formulaire d'inscription
         </div>
         <div class="card-body">
             <br>
-            <form (ngSubmit)="inscription()">
+            <form #forme = "ngForm" (ngSubmit)="inscription()">
                 <div class="form-group">
                     <input type="mail" placeholder="mail" required="" name="mail" class="form-control text-center"
                         [(ngModel)]="user.mail">
@@ -35,12 +35,12 @@
                         class="form-control text-center" [(ngModel)]="user.mdp">
                 </div>
                 <br>
-                <button type="submit" class="btn btn-danger">
-                    Inscription
+                <button [disabled]="!forme.form.valid" type="submit" class="btn btn-danger">
+                    valider
                 </button>
-                <button type="button" class="btn btn-link" (click)="goPagePrincipale()"> Se Connecter ? </button>
+                <button  type="button" class="btn btn-link" (click)="goPagePrincipale()"> Se Connecter ? </button>
             </form>
+            <p class="text-danger">{{ msg }} <strong class="text-success">{{ msgV }}</strong></p>
         </div>
-        <p class="text-danger">{{ mys.msgErr }}</p>
     </div>
 </div>

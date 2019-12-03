@@ -17,9 +17,14 @@ export class PopupCreaSantaComponent implements OnInit {
   }
 
   creaSanta(){
-    this.ssanta.user =this.mys.user;
-    this.ssanta.enCours=true;
+    console.log('curentuser', this.mys.user);
+    this.ssanta.createur =this.mys.user;
+    console.log('curentsanta', this.ssanta);
+    this.ssanta.enCours=true;    
+    console.log('curentsanta2', this.ssanta);
+
     this.http.post(this.mys.lienHTTP + '/createSSanta', this.ssanta).subscribe(data=>{
+      console.log('data', data);
       this.ngOnInit();      
     },err => {
       console.log(err);

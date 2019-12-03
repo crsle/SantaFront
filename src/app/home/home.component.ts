@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupCreaSantaComponent } from '../popup-crea-santa/popup-crea-santa.component';
+import { User } from '../model/User';
 
 @Component({
   selector: 'app-home',
@@ -29,9 +30,7 @@ events;
   ngOnInit() {
     this.http.get(this.myback.lienHTTP+'santa/'+ this.myback.user.id)
     .subscribe(data => {
-      console.log('data', data)
       this.events = data;
-      console.log('event', this.events);
     }, err => {
       console.log(err);
     });
@@ -41,6 +40,20 @@ events;
 
   openPopupCreaSanta() {
     const mydial =this.dialog.open(PopupCreaSantaComponent);
+  }
+
+  isProprio(u: User, s:SSanta ){
+    if(u.id = s.createur.id){
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+  goSanta(s:SSanta) {
+    this.myback.santa=s;
+    this.route.navigate(['santa']);
   }
 
   

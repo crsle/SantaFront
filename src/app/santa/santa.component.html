@@ -1,0 +1,42 @@
+<p>santa works!</p>
+<br><br>
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <mat-tab-group mat-align-tabs="center" >
+            <mat-tab label="Liste des participants">
+                <mat-nav-list>
+                    <mat-list-item *ngFor="let p of participants">
+                        <a matLine >
+                            <div class="row" >
+                                <div class="col-sm-1">
+                                    <mat-icon class="example-tab-icon">face icon</mat-icon>
+                                </div>
+                                <div class="col-sm-6"><strong> {{p.participant.pseudo}}</strong></div>
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-1"></div>
+
+                                <div class="col-sm-1">
+                                    <button mat-icon-button>
+                                        <mat-icon>view_list</mat-icon>
+                                    </button>
+                                </div>
+                                <div class="col-sm-1">
+                                    <button mat-icon-button>
+                                        <mat-icon>info</mat-icon>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </a>
+                    </mat-list-item>
+                </mat-nav-list>
+            </mat-tab>
+            <mat-tab label="Ma liste de souhaits"> Ma liste de souhaits </mat-tab>
+            <mat-tab label="Mur du Santa"> Mur du Santa </mat-tab>
+        </mat-tab-group>
+
+    </div>
+
+</div>

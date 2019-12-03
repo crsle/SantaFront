@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import { CreaSantaComponent } from './crea-santa/crea-santa.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import {MatCardModule} from '@angular/material/card';
     InscriptionComponent,
     ConnexionComponent,
     HomeComponent,
+    CreaSantaComponent,
   ],
   imports: [
     BrowserModule,

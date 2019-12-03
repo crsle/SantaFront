@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupCreaSantaComponent } from '../popup-crea-santa/popup-crea-santa.component';
+import { User } from '../model/User';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ import { PopupCreaSantaComponent } from '../popup-crea-santa/popup-crea-santa.co
 export class HomeComponent implements OnInit {
 //bartoi = true;
 ssanta : SSanta = new SSanta();
+user : User = new User();
 events;
   constructor(private myback: MybackService,private route :Router,private http: HttpClient,private dialog: MatDialog) {
     
@@ -36,7 +38,14 @@ events;
     });
   }
 
-  
+  invitation(){
+    this.http.get(this.myback.lienHTTP+'invitation').subscribe(date =>{
+
+    }, err =>{
+      
+    });
+
+  }
 
   openPopupCreaSanta() {
     const mydial =this.dialog.open(PopupCreaSantaComponent);

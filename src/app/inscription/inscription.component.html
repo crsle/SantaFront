@@ -19,7 +19,7 @@
         </div>
         <div class="card-body">
             <br>
-            <form (ngSubmit)="connexion()">
+            <form (ngSubmit)="inscription()">
                 <div class="form-group">
                     <input type="mail" placeholder="mail" required="" name="mail" class="form-control text-center"
                         [(ngModel)]="user.mail">
@@ -35,7 +35,7 @@
                         class="form-control text-center" [(ngModel)]="user.mdp">
                 </div>
                 <br>
-                <button type="submit" class="btn btn-danger" (click)="inscription();">
+                <button type="submit" class="btn btn-danger">
                     Inscription
                 </button>
                 <button type="button" class="btn btn-login" (click)="goPagePrincipale()"> Revenir à la connexion </button>

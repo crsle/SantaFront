@@ -30,7 +30,7 @@
 
 
 <div class="col d-flex justify-content-center">
-    <div class="card text-center" style="width: 20rem; height: 20rem; 
+    <div class="card text-center" style="width: 20rem; height: 21rem; 
                  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30)">
         <div class="card-header" style="background-color: rgb(230, 100, 77); color: white">
             Login
@@ -40,12 +40,12 @@
 
             <form (ngSubmit)="connexion()">
                 <div class="form-group">
-                    <input type="text" placeholder="mail" required="" name="mail" class="form-control"
+                    <input type="text" placeholder="mail" required="" name="mail" class="form-control text-center"
                         [(ngModel)]="user.mail">
                 </div>
                 <br>
                 <div class="form-group">
-                    <input type="password" placeholder="mot de passe" required="" name="mdp" class="form-control"
+                    <input type="password" placeholder="mot de passe" required="" name="mdp" class="form-control text-center"
                         [(ngModel)]="user.mdp">
                 </div>
                 <br>

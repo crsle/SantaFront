@@ -29,4 +29,17 @@ export class MybackService {
 
     console.log('tes af ses 3' , u);
   }
+
+  recupUserC() {
+    let u :User = JSON.parse(localStorage.getItem('UserConect'));
+
+    if(u != null){
+
+      return u;
+    }
+    else{
+      return this.user;
+    }
+
+  }
 }

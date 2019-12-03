@@ -1,14 +1,15 @@
 <router-outlet></router-outlet>
 <div *ngIf="myserv.menuVisible">
     <nav class=" navbar fixed-top navbar-expand-lg navbar-light  menu">
-        <a class="navbar-brand" href="#" style="color: lightcyan;">Menu</a>
+        <a class="navbar-brand" style="color: lightcyan;">Menu</a>
+        
         <button (click)="bartoide()" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+            <ul class="navbar-nav ">
                 <li class="nav-item ">
                     <a class="nav-link">Mes Secret Santa </a>
                 </li>
@@ -25,11 +26,14 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">Voir/Modifier Profil</a>
-                        <a class="dropdown-item" href="#">Déconnecter</a>
                         <button type="button" class="btn btn-danger" (click)="goDeco()"> Se déconnecter </button>
                     </div>
                 </li>
             </ul>
+            
         </div>
+        <button mat-mini-fab color="primary" style="color: rgb(230, 100, 77);; background-color: lightgray;">
+                <mat-icon>account_circle </mat-icon>
+            </button>
     </nav>
 </div>

@@ -14,30 +14,43 @@ export class InscriptionComponent implements OnInit {
   err;
   bool;
 
+  msg;
+  msgV;
+
   constructor(private mys: MybackService, private route: Router, private http: HttpClient) { }
 
   ngOnInit() {
   }
-inscription(){
-  this.http.post(this.mys.lienHTTP + 'user', this.user).subscribe( data =>{
-    console.log(data)
-    if (data==true){
-      this.mys.msgErr = 'mail déjà utilisé'
-    } else {
-       this.route.navigate(['/login']); 
-       this.mys.msgErr='Bien enregistré';
-    }
+  inscription() {
+    this.http.post(this.mys.lienHTTP + 'user', this.user).subscribe(data => {
+      console.log(data)
+      if (data == true) {
+        this.msg = 'mail déjà utilisé'
+      } else {
+        this.msg = ''
+        this.msgV = 'Bien enregistré';
 
-  }, err =>{
-    this.mys.msgErr = 'erreur';
-  });
+        // setTimeout('this.redirectLogin()', 1000);
 
- 
-}
+        setTimeout(() => {    //<<<---    using ()=> syntax
+          this.redirectLogin();
+        }, 2000);
+      }
+
+    }, err => {
+      // this.mys.msgErr = 'erreur';
+    });
+
+
+  }
+
+  redirectLogin() {
+    this.route.navigate(['/login']);
+  }
 
 
 
-goPagePrincipale() {
+  goPagePrincipale() {
     this.route.navigate(['login']);
   }
 }

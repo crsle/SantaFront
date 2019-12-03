@@ -16,7 +16,13 @@ user: User = new User();
   constructor(private mys: MybackService, private route: Router, private http: HttpClient) { }
 
   ngOnInit() {
-   
+   this.dejaCo();
+  }
+
+  dejaCo() {
+    if(this.mys.recupUserC().mail != null){
+      this.route.navigate(['home']);
+   }
   }
 
   connexion() {
@@ -32,10 +38,10 @@ user: User = new User();
     if (this.u.mail != null) {
       this.mys.user=this.u;
       localStorage.setItem('UserConect', JSON.stringify(this.u));             //Utilisateur mis en session
-      this.mys.recupSes();
+     // this.mys.recupSes();
       this.route.navigate(['home']);                          //On retourne vers home
     }else{
-      this.mys.msgErr='Veuillez vous connecter svp';
+      this.mys.msgErr=' identifiant ou mot de passe  incorrect';
     }
   }
 

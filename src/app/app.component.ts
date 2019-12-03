@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {MybackService} from './myback.service';
 import { Router } from '@angular/router';
+import { User } from './model/User';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,7 @@ export class AppComponent {
   }
 
   goDeco() {
+    this.myserv.user = new User();
     localStorage.clear();
     this.route.navigate(['login']);
     this.myserv.menuVisible=false;

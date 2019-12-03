@@ -29,7 +29,7 @@
       <div *ngFor="let e of events">
         <div class="text-center">
           <div class="col-sm-2">
-            <div class="card">
+            <div class="card" >
               <a>
                 <div class="card-image">
                   <img src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000/https://www.shopmaman.com/wp-content/uploads/2019/07/7427763_Nos-conseils-pour-des-cadeaux-de-No%C3%ABl-sympas-et-pas-chers_1000x625.jpg">
@@ -45,6 +45,7 @@
                     <p> Créateur de l'évènement : {{e.participant.pseudo}}
                     </p>
                     <button class="btn btn-block text-center" data-toggle="modal" data-target="#invitationMembre">Inviter des membres</button>
+                    <button class="btn btn-block text-center" (click)="goSanta(e.evenement)" >Voir ce Secret Santa</button>
                   </div>
                 </div>
               </a>

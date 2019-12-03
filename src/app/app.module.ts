@@ -13,6 +13,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PopupCreaSantaComponent } from './popup-crea-santa/popup-crea-santa.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SantaComponent } from './santa/santa.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatListModule} from '@angular/material/list';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ConnexionComponent,
     HomeComponent,
     PopupCreaSantaComponent,
+    SantaComponent,
   ],
   entryComponents: [PopupCreaSantaComponent],
   imports: [
@@ -31,7 +35,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatIconModule,
     MatCardModule,
     MatDialogModule, 
-    BrowserAnimationsModule
+    MatTabsModule,
+    BrowserAnimationsModule,
+    MatListModule
 
   ],
   providers: [],

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MybackService } from '../myback.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 bartoi = true;
-  constructor() { }
+  constructor(private myback: MybackService) {
+    this.myback.menuVisible=true
+   }
 
   ngOnInit() {
   }

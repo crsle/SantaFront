@@ -1,0 +1,12 @@
+
+ 
+        <div class="">
+          <form #forme="ngForm" (ngSubmit)="invitation()">
+          
+            <div class="form-group">
+              <input required="required" name="loginC" type="email" placeholder="mail" class="form-control" [(ngModel)]="user.mail">
+            </div>
+                <button [disabled]="!forme.form.valid" type="submit" class="btn btn-block btn-success">inviter</button>
+            <!--    <button type="button" class="btn btn-block btn-danger" >Fermer</button>-->
+          </form>
+        </div>

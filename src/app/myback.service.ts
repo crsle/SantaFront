@@ -13,6 +13,8 @@ export class MybackService {
   santa : SSanta = new SSanta();
   lienHTTP='http://localhost:8090/';
   msgErr;
+
+  idEventClickInv;
   constructor() {
  
   }

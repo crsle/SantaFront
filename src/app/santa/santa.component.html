@@ -23,7 +23,7 @@
                                 </th>
                                 <th><strong> {{p.participant.pseudo}}</strong></th>
 
-                                <th> <button mat-icon-button>
+                                <th> <button mat-icon-button (click)=afficherSouhaits(p.participant.id)>
                                         <mat-icon>view_list</mat-icon>
                                     </button></th>
                                 <th> <button mat-icon-button>

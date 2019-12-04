@@ -3,6 +3,8 @@ import { MybackService } from '../myback.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { SSanta } from '../model/SSanta';
+import { MatDialog } from '@angular/material/dialog';
+import { PopupsouhaitComponent } from '../popupsouhait/popupsouhait.component';
 
 @Component({
   selector: 'app-santa',
@@ -13,7 +15,7 @@ export class SantaComponent implements OnInit {
   participants;
   souhaits;
 
-  constructor(private myback: MybackService, private route: Router, private http: HttpClient) {
+  constructor(private myback: MybackService, private route: Router, private http: HttpClient,private dialog: MatDialog) {
 
     if (myback.user.mail == null) {
       this.myback.msgErr = 'Vous devez vous connectez';
@@ -47,6 +49,14 @@ export class SantaComponent implements OnInit {
         console.log(err);
 
       });
+  }
+
+  afficherSouhaits(id){
+    //const mydial =this.dialog.open(PopupsouhaitComponent);
+    // mydial.afterClosed().subscribe(result => {
+    //   this.ngOnInit();
+    // });
+
   }
 
 }

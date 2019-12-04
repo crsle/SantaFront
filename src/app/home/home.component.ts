@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupCreaSantaComponent } from '../popup-crea-santa/popup-crea-santa.component';
 import { User } from '../model/User';
+import { PopupInvitationComponent } from '../popup-invitation/popup-invitation.component';
 
 @Component({
   selector: 'app-home',
@@ -32,10 +33,6 @@ eventsenAttente;
   ngOnInit() {
     this.recupSanta();
     this.recupSantaenAttente();
-    
-
-
-
   }
 
   recupSanta(){
@@ -58,25 +55,6 @@ eventsenAttente;
 
   }
 
-
-
-
-  /*invitation(){
-    this.http.get(this.myback.lienHTTP+'invitation').subscribe(date =>{
-
-    }, err =>{
-      console.log(err);
-    }
-    this.invitationParticipant();
-    );
-
-
-  }
-  invitationParticipant(){
-    this.http.get(this.myback.lienHTTP+'inv', this.user).subscribe (data )
-  }*/
-
-
   openPopupCreaSanta() {
     const mydial =this.dialog.open(PopupCreaSantaComponent);
     mydial.afterClosed().subscribe(result => {
@@ -96,6 +74,15 @@ eventsenAttente;
   goSanta(s:SSanta) {
     this.myback.santa=s;
     this.route.navigate(['santa']);
+  }
+
+
+  callPopupInv(id) {
+    this.myback.idEventClickInv = id;
+    const mydial =this.dialog.open(PopupInvitationComponent);
+    mydial.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
   }
 
   

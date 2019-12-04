@@ -3,8 +3,10 @@ import { MybackService } from '../myback.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { SSanta } from '../model/SSanta';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { PopupsouhaitComponent } from '../popupsouhait/popupsouhait.component';
+import { Souhait } from '../model/Souhait';
+import { PopupcreationsouhaitComponent } from '../popupcreationsouhait/popupcreationsouhait.component';
 
 @Component({
   selector: 'app-santa',
@@ -14,6 +16,8 @@ import { PopupsouhaitComponent } from '../popupsouhait/popupsouhait.component';
 export class SantaComponent implements OnInit {
   participants;
   souhaits;
+  souhaitOrdreChange = new Souhait;
+  ordre;
 
   constructor(private myback: MybackService, private route: Router, private http: HttpClient,private dialog: MatDialog) {
 
@@ -33,7 +37,6 @@ export class SantaComponent implements OnInit {
       this.http.get(this.myback.lienHTTP + 'user/santa/souhaits/' + this.myback.user.id + '/' + this.myback.santa.id)
       .subscribe(data => {
         this.souhaits = data;
-        console.log('souhaits', this.souhaits);
       }, err => {
         console.log(err);
 
@@ -52,10 +55,42 @@ export class SantaComponent implements OnInit {
   }
 
   afficherSouhaits(id){
-    //const mydial =this.dialog.open(PopupsouhaitComponent);
-    // mydial.afterClosed().subscribe(result => {
-    //   this.ngOnInit();
-    // });
+    this.myback.idParticipantSelectionne = id;
+    const mydial =this.dialog.open(PopupsouhaitComponent);
+  }
+
+  supprSouhait(s){
+    this.http.delete(this.myback.lienHTTP+'souhait/'+s.id)
+    .subscribe(data => {
+      console.log('suppression souhait : ',data)
+      this.ngOnInit();
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  changerOrdre(s){
+    this.souhaitOrdreChange.description = s.description;
+    this.souhaitOrdreChange.id = s.id;
+    this.souhaitOrdreChange.personne = s.personne;
+    this.souhaitOrdreChange.santa=s.santa;
+    this.ordre = document.getElementById("nouvelOrdre");
+    this.souhaitOrdreChange.ordre = this.ordre.value;
+    console.log('souhait changé', this.souhaitOrdreChange);
+    this.http.post(this.myback.lienHTTP+'souhait',this.souhaitOrdreChange)
+    .subscribe(data => {
+      this.ngOnInit();
+    }, err => {
+      console.log(err);
+    });
+    
+  }
+
+  openPopupCreaSouhait(){
+    const mydial =this.dialog.open(PopupcreationsouhaitComponent);
+    mydial.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
 
   }
 

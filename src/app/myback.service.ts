@@ -12,7 +12,10 @@ export class MybackService {
   user :User =new User();
   santa : SSanta = new SSanta();
   lienHTTP='http://localhost:8090/';
+  idParticipantSelectionne;
   msgErr;
+
+  idEventClickInv;
   constructor() {
  
   }

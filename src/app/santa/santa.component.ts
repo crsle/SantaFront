@@ -52,10 +52,14 @@ export class SantaComponent implements OnInit {
   }
 
   afficherSouhaits(id){
-    //const mydial =this.dialog.open(PopupsouhaitComponent);
+    const mydial =this.dialog.open(PopupsouhaitComponent);
     // mydial.afterClosed().subscribe(result => {
     //   this.ngOnInit();
     // });
+
+  }
+
+  supprimerParticipant(id){
 
   }
 

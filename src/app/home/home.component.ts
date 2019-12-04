@@ -61,14 +61,21 @@ eventsenAttente;
 
 
 
-  invitation(){
+  /*invitation(){
     this.http.get(this.myback.lienHTTP+'invitation').subscribe(date =>{
 
     }, err =>{
-      
-    });
+      console.log(err);
+    }
+    this.invitationParticipant();
+    );
+
 
   }
+  invitationParticipant(){
+    this.http.get(this.myback.lienHTTP+'inv', this.user).subscribe (data )
+  }*/
+
 
   openPopupCreaSanta() {
     const mydial =this.dialog.open(PopupCreaSantaComponent);

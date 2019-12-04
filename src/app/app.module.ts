@@ -19,6 +19,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import { PopupsouhaitComponent } from './popupsouhait/popupsouhait.component';
 import { PopupInvitationComponent } from './popup-invitation/popup-invitation.component';
+import { PopupcreationsouhaitComponent } from './popupcreationsouhait/popupcreationsouhait.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { PopupInvitationComponent } from './popup-invitation/popup-invitation.co
     PopupsouhaitComponent,
     PopupInvitationComponent,
   ],
-  entryComponents: [PopupCreaSantaComponent, PopupInvitationComponent],
+  
+  entryComponents: [PopupCreaSantaComponent,PopupsouhaitComponent,PopupcreationsouhaitComponent, PopupInvitationComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

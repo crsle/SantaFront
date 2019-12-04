@@ -18,6 +18,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import { PopupsouhaitComponent } from './popupsouhait/popupsouhait.component';
+import { PopupcreationsouhaitComponent } from './popupcreationsouhait/popupcreationsouhait.component';
 
 
 @NgModule({
@@ -29,8 +30,9 @@ import { PopupsouhaitComponent } from './popupsouhait/popupsouhait.component';
     PopupCreaSantaComponent,
     SantaComponent,
     PopupsouhaitComponent,
+    PopupcreationsouhaitComponent,
   ],
-  entryComponents: [PopupCreaSantaComponent],
+  entryComponents: [PopupCreaSantaComponent,PopupsouhaitComponent,PopupcreationsouhaitComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

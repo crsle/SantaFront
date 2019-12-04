@@ -25,7 +25,7 @@
                                 <th> <button mat-icon-button (click)=afficherSouhaits(p.participant.id)>
                                         <mat-icon>view_list</mat-icon>
                                     </button></th>
-                                <th> <button mat-icon-button  >
+                                <th> <button mat-icon-button>
                                         <mat-icon>delete</mat-icon>
                                     </button></th>
                             </tr>
@@ -47,15 +47,26 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let s of souhaits">
-                                <th><mat-icon class="example-tab-icon">card_giftcard</mat-icon></th>
+                                <th>{{s.ordre}}</th>
                                 <th><strong> {{s.description}}</strong></th>
-                                <th><input type="text" placeholder="#" size="2"></th>
-                                <th><button mat-icon-button><mat-icon>info</mat-icon></button></th>
+                                <th>
+                                    <form (ngSubmit)="changerOrdre(s)"><input on type="number"
+                                            style="width: 50px;" name="nouvelOrdre" [(ngModel)]="souhaitOrdreChange.nouvelOrdre"></form>
+                                </th>
+                                <th><button mat-icon-button (click)="supprSouhait(s)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button></th>
                             </tr>
                         </tbody>
-                        
+
                     </table>
-                    
+                    <div class="text-center">
+                        <button mat-mini-fab color="primary" (click)="openPopupCreaSouhait()"
+                            style="color: lightgray; background-color: rgb(0, 0, 0);">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </div>
+
                 </mat-nav-list>
             </mat-tab>
             <!-- Mur du santa -->

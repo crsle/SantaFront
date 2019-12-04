@@ -17,6 +17,7 @@ export class SantaComponent implements OnInit {
   participants;
   souhaits;
   souhaitOrdreChange = new Souhait;
+  ordre;
 
   constructor(private myback: MybackService, private route: Router, private http: HttpClient,private dialog: MatDialog) {
 
@@ -73,7 +74,15 @@ export class SantaComponent implements OnInit {
     this.souhaitOrdreChange.id = s.id;
     this.souhaitOrdreChange.personne = s.personne;
     this.souhaitOrdreChange.santa=s.santa;
+    this.ordre = document.getElementById("nouvelOrdre");
+    this.souhaitOrdreChange.ordre = this.ordre.value;
     console.log('souhait changé', this.souhaitOrdreChange);
+    this.http.post(this.myback.lienHTTP+'souhait',this.souhaitOrdreChange)
+    .subscribe(data => {
+      this.ngOnInit();
+    }, err => {
+      console.log(err);
+    });
     
   }
 

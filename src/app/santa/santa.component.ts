@@ -28,6 +28,14 @@ export class SantaComponent implements OnInit {
       }, err => {
         console.log(err);
       });
+      this.http.get(this.myback.lienHTTP + 'user/santa/souhaits/' + this.myback.user.id + '/' + this.myback.santa.id)
+      .subscribe(data => {
+        this.souhaits = data;
+        console.log('souhaits', this.souhaits);
+      }, err => {
+        console.log(err);
+
+      });
   }
 
   recupSouhaits() {

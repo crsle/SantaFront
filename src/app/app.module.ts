@@ -17,6 +17,7 @@ import { SantaComponent } from './santa/santa.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
+import { PopupsouhaitComponent } from './popupsouhait/popupsouhait.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {MatMenuModule} from '@angular/material/menu';
     HomeComponent,
     PopupCreaSantaComponent,
     SantaComponent,
+    PopupsouhaitComponent,
   ],
   entryComponents: [PopupCreaSantaComponent],
   imports: [

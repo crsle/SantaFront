@@ -1,0 +1,22 @@
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Ma liste de souhaits">
+        <mat-nav-list>
+            <table class="table">
+                <thead>
+                    <th>Ordre</th>
+                    <th>Idée</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let s of psouhaits">
+                        <th>
+                            <mat-icon class="example-tab-icon">card_giftcard</mat-icon>
+                        </th>
+                        <th><strong> {{s.description}}</strong></th>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </mat-nav-list>
+    </mat-tab>
+</mat-tab-group>

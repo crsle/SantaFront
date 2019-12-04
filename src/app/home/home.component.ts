@@ -15,8 +15,9 @@ import { User } from '../model/User';
 export class HomeComponent implements OnInit {
 //bartoi = true;
 ssanta : SSanta = new SSanta();
-user : User = new User();
+user: User = new User();
 events;
+invite;
   constructor(private myback: MybackService,private route :Router,private http: HttpClient,private dialog: MatDialog) {
     
      if(myback.recupUserC().mail != null){
@@ -37,14 +38,22 @@ events;
     });
   }
 
-  invitation(){
-    this.http.get(this.myback.lienHTTP+'invitation').subscribe(date =>{
+  /*invitationUser(){
+    this.http.get(this.myback.lienHTTP+'invitation', this.user).subscribe(data =>{
+      this.invite = data;
 
     }, err =>{
-      
-    });
+      console.log(err);
+    }
+    this.invitationParticipant();
+    );
+
 
   }
+  invitationParticipant(){
+    this.http.get(this.myback.lienHTTP+'inv', this.user).subscribe (data )
+  }*/
+
 
   openPopupCreaSanta() {
     const mydial =this.dialog.open(PopupCreaSantaComponent);

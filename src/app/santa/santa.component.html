@@ -4,36 +4,65 @@
 <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
-        <mat-tab-group mat-align-tabs="center" >
+        <mat-tab-group mat-align-tabs="center">
+            <!-- Liste des participants -->
             <mat-tab label="Liste des participants">
                 <mat-nav-list>
-                    <mat-list-item *ngFor="let p of participants">
-                        <a matLine >
-                            <div class="row" >
-                                <div class="col-sm-1">
+                    <table class="table">
+                        <thead>
+                            <th scope="col"></th>
+                            <th scope="col">Pseudo</th>
+                            <th scope="col">Liste de souhait</th>
+                            <th scope="col">Coordonnées</th>
+                            <th scope="col">Supprimer</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let p of participants">
+                                <th>
                                     <mat-icon class="example-tab-icon">face icon</mat-icon>
-                                </div>
-                                <div class="col-sm-6"><strong> {{p.participant.pseudo}}</strong></div>
-                                <div class="col-sm-2"></div>
-                                <div class="col-sm-1"></div>
+                                </th>
+                                <th><strong> {{p.participant.pseudo}}</strong></th>
 
-                                <div class="col-sm-1">
-                                    <button mat-icon-button>
+                                <th> <button mat-icon-button (click)=afficherSouhaits(p.participant.id)>
                                         <mat-icon>view_list</mat-icon>
-                                    </button>
-                                </div>
-                                <div class="col-sm-1">
-                                    <button mat-icon-button>
+                                    </button></th>
+                                <th> <button mat-icon-button>
                                         <mat-icon>info</mat-icon>
-                                    </button>
-                                </div>
+                                    </button></th>
+                                <th> <button mat-icon-button>
+                                        <mat-icon>delete</mat-icon>
+                                    </button></th>
+                            </tr>
 
-                            </div>
-                        </a>
-                    </mat-list-item>
+                        </tbody>
+
+                    </table>
                 </mat-nav-list>
             </mat-tab>
-            <mat-tab label="Ma liste de souhaits"> Ma liste de souhaits </mat-tab>
+            <!-- Liste de souhaits -->
+            <mat-tab label="Ma liste de souhaits">
+                <mat-nav-list>
+                    <table class="table">
+                        <thead>
+                            <th>Ordre</th>
+                            <th>Mon souhait</th>
+                            <th>Changer ordre</th>
+                            <th>Supprimer</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let s of souhaits">
+                                <th><mat-icon class="example-tab-icon">card_giftcard</mat-icon></th>
+                                <th><strong> {{s.description}}</strong></th>
+                                <th><input type="text" placeholder="#" size="2"></th>
+                                <th><button mat-icon-button><mat-icon>info</mat-icon></button></th>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+                    
+                </mat-nav-list>
+            </mat-tab>
+            <!-- Mur du santa -->
             <mat-tab label="Mur du Santa"> Mur du Santa </mat-tab>
         </mat-tab-group>
 

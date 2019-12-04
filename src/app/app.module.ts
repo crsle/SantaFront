@@ -32,6 +32,7 @@ import { PopupcreationsouhaitComponent } from './popupcreationsouhait/popupcreat
     SantaComponent,
     PopupsouhaitComponent,
     PopupInvitationComponent,
+    PopupcreationsouhaitComponent
   ],
   
   entryComponents: [PopupCreaSantaComponent,PopupsouhaitComponent,PopupcreationsouhaitComponent, PopupInvitationComponent],

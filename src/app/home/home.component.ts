@@ -16,7 +16,8 @@ export class HomeComponent implements OnInit {
 //bartoi = true;
 ssanta : SSanta = new SSanta();
 user : User = new User();
-events;
+eventsAccepte;
+eventsenAttente;
   constructor(private myback: MybackService,private route :Router,private http: HttpClient,private dialog: MatDialog) {
     
      if(myback.recupUserC().mail != null){
@@ -29,13 +30,36 @@ events;
    }
 
   ngOnInit() {
-    this.http.get(this.myback.lienHTTP+'participantsanta/'+ this.myback.user.id)
+    this.recupSanta();
+    this.recupSantaenAttente();
+    
+
+
+
+  }
+
+  recupSanta(){
+    this.http.get(this.myback.lienHTTP+'participantsanta/'+ this.myback.user.id + '/' + true)
     .subscribe(data => {
-      this.events = data;
+      this.eventsAccepte = data;
     }, err => {
       console.log(err);
     });
+
   }
+
+  recupSantaenAttente(){
+    this.http.get(this.myback.lienHTTP+'participantsanta/'+ this.myback.user.id + '/' + false)
+    .subscribe(data => {
+      this.eventsenAttente = data;
+    }, err => {
+      console.log(err);
+    });
+
+  }
+
+
+
 
   invitation(){
     this.http.get(this.myback.lienHTTP+'invitation').subscribe(date =>{

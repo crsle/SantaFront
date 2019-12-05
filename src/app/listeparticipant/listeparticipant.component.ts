@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupsouhaitComponent } from '../popupsouhait/popupsouhait.component';
+import { PopupdetailparticipantComponent } from '../popupdetailparticipant/popupdetailparticipant.component';
 
 @Component({
   selector: 'app-listeparticipant',
@@ -12,6 +13,7 @@ import { PopupsouhaitComponent } from '../popupsouhait/popupsouhait.component';
 })
 export class ListeparticipantComponent implements OnInit {
   participants;
+  cible;
 
   constructor(private myback: MybackService, private route: Router, private http: HttpClient, private dialog: MatDialog) {
     if (myback.user.mail == null) {
@@ -41,6 +43,11 @@ export class ListeparticipantComponent implements OnInit {
   afficherSouhaits(id) {
     this.myback.idParticipantSelectionne = id;
     const mydial = this.dialog.open(PopupsouhaitComponent);
+  }
+
+  afficherDetails(id:number){
+    this.myback.idParticipantSelectionne=id;
+    const mydial = this.dialog.open(PopupdetailparticipantComponent);
   }
 
 }

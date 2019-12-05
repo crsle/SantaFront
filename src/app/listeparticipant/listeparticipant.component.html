@@ -8,11 +8,11 @@
                 <th scope="col">Supprimer</th>
             </thead>
             <tbody>
-                <tr *ngFor="let p of participants">
+                <tr *ngFor="let p of participants" >
                     <th>
                         <mat-icon class="example-tab-icon">face icon</mat-icon>
                     </th>
-                    <th><strong> {{p.participant.pseudo}}</strong></th>
+                    <th (click)=afficherDetails(p.participant.id)><strong> {{p.participant.pseudo}}</strong></th>
 
                     <th> <button mat-icon-button (click)=afficherSouhaits(p.participant.id)>
                             <mat-icon>view_list</mat-icon>

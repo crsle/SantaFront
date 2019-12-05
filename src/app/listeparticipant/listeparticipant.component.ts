@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ListeparticipantComponent implements OnInit {
   participants;
+  cible;
 
   constructor(private myback: MybackService, private route: Router, private http: HttpClient, private dialog: MatDialog) {
     if (myback.user.mail == null) {

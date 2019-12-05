@@ -8,6 +8,7 @@ import { PopupCreaSantaComponent } from '../popup-crea-santa/popup-crea-santa.co
 import { User } from '../model/User';
 import { Participation } from '../model/Participation';
 import { PopupInvitationComponent } from '../popup-invitation/popup-invitation.component';
+import { SantaComponent } from '../santa/santa.component';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,9 @@ user : User = new User();
 eventsAccepte;
 eventsenAttente;
 parti;
- p :Participation= new Participation();
+p :Participation= new Participation();
+boutonInviterMembreVisible;
+
   constructor(private myback: MybackService,private route :Router,private http: HttpClient,private dialog: MatDialog) {
     
      if(myback.recupUserC().mail != null){
@@ -65,8 +68,10 @@ parti;
     });
   }
 
-  isProprio(u: User, s:SSanta ){
-    if(u.id = s.createur.id){
+  isProprio(s:Participation ){
+    this.ssanta = s.evenement;
+    console.log(s);
+    if(this.myback.user.id == this.ssanta.createur.id){
       return true;
     }
     else {

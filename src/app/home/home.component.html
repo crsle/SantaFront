@@ -29,7 +29,7 @@
       <div *ngFor="let e of eventsAccepte">
         <div class="text-center">
           <div class="col-sm-2">
-            <div class="card" >
+            <div class="card">
               <a>
                 <div class="card-image">
                   <img
@@ -45,7 +45,7 @@
                   <div class="card-excerpt">
                     <p> Créateur de l'évènement : {{e.evenement.createur.pseudo}}
                     </p>
-                    <button class="btn btn-success btn-block text-center" (click)="callPopupInv(e.evenement.id)" >Inviter des membres</button>
+                    <button class="btn btn-success btn-block text-center" (click)="callPopupInv(e.evenement.id)" *ngIf=isProprio(e) >Inviter des membres</button>
                     <button class="btn btn-block text-center" (click)="goSanta(e.evenement)" >Voir ce Secret Santa</button>
                   </div>
                 </div>

@@ -5,7 +5,7 @@
                 <th scope="col"></th>
                 <th scope="col">Pseudo</th>
                 <th scope="col">Souhaits</th>
-                <th scope="col">Supprimer</th>
+                <th scope="col" *ngIf="myback.utilisateurProprio">Supprimer</th>
             </thead>
             <tbody>
                 <tr *ngFor="let p of participants">
@@ -17,7 +17,7 @@
                     <th> <button mat-icon-button (click)=afficherSouhaits(p.participant.id)>
                             <mat-icon>view_list</mat-icon>
                         </button></th>
-                    <th> <button mat-icon-button>
+                    <th> <button mat-icon-button *ngIf="myback.utilisateurProprio">
                             <mat-icon>delete</mat-icon>
                         </button></th>
                 </tr>

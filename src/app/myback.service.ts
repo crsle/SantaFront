@@ -14,6 +14,7 @@ export class MybackService {
   lienHTTP='http://localhost:8090/';
   idParticipantSelectionne;
   msgErr;
+  utilisateurProprio = false
 
   idEventClickInv;
   constructor() {

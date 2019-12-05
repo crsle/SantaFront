@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupsouhaitComponent } from '../popupsouhait/popupsouhait.component';
 import { PopupdetailparticipantComponent } from '../popupdetailparticipant/popupdetailparticipant.component';
+import { SSanta } from '../model/SSanta';
 
 @Component({
   selector: 'app-listeparticipant',
@@ -13,12 +14,14 @@ import { PopupdetailparticipantComponent } from '../popupdetailparticipant/popup
 })
 export class ListeparticipantComponent implements OnInit {
   participants;
+  santa;
 
   constructor(private myback: MybackService, private route: Router, private http: HttpClient, private dialog: MatDialog) {
     if (myback.user.mail == null) {
       this.myback.msgErr = 'Vous devez vous connectez';
       this.route.navigate(['login']);
     }
+    this.isProprio();
   
    }
 
@@ -47,6 +50,15 @@ export class ListeparticipantComponent implements OnInit {
   afficherDetails(id:number){
     this.myback.idParticipantSelectionne=id;
     const mydial = this.dialog.open(PopupdetailparticipantComponent);
+  }
+
+  isProprio(){
+    if(this.myback.user.id == this.myback.santa.createur.id){
+      this.myback.utilisateurProprio = true;
+    }
+    else {
+      this.myback.utilisateurProprio = false;
+    }
   }
 
 }

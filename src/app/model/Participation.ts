@@ -5,8 +5,8 @@ export class Participation{
     id : number;
     participant :User;
     evenement : SSanta;
-    participe : boolean;
-    
+    present : boolean;
+
 }
 
 

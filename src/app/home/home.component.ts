@@ -20,6 +20,7 @@ ssanta : SSanta = new SSanta();
 user : User = new User();
 eventsAccepte;
 eventsenAttente;
+parti;
  p :Participation= new Participation();
   constructor(private myback: MybackService,private route :Router,private http: HttpClient,private dialog: MatDialog) {
     
@@ -77,15 +78,32 @@ eventsenAttente;
     this.myback.santa=s;
     this.route.navigate(['santa']);
   }
-  confirmParticipation(ev:Participation){
-    //this.p.participant=this.user;
-    //this.p.evenement=s;
-    this.http.put(this.myback.lienHTTP+'/validParticipation',ev)
+
+
+  confirmParticipation(s:SSanta){
+    this.http.get(this.myback.lienHTTP+'/participation/'+this.myback.user.id+'/'+s.id)
     .subscribe(data => {
-  this.ngOnInit();
+      this.parti=data;
+      this.p=this.parti;
+      
+      this.p.present=true;
+      
+      this.http.post(this.myback.lienHTTP+'/participation/valider', data)
+      .subscribe(data2 => {
+        this.ngOnInit();
+        
+
+      },err => {
+        console.log(err);
+      });
+
+
+
     }, err => {
       console.log(err);
     });
+    console.log(this.p);
+
   }
 
 

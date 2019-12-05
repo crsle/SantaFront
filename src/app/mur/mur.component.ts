@@ -12,7 +12,7 @@ import { UploadimageComponent } from '../uploadimage/uploadimage.component';
   styleUrls: ['./mur.component.css']
 })
 export class MurComponent implements OnInit {
-
+  
   mursanta;
   parti;
   test;
@@ -66,9 +66,27 @@ export class MurComponent implements OnInit {
 }
 
 
-changeImForm(img){
-  return window.atob(img);
+changeImForm(img){  
+    return window.atob(img);
 }
+imageExist(img){
+  if (img==null){
+    return false;
+  }else{
+    return true;
+  }
+
+}
+
+msgExist(msg){
+  if (msg==null){
+    return false;
+  }else{
+    return true;
+  }
+
+}
+  
 
 openUploadImage() {
   const mydial =this.dialog.open(UploadimageComponent);

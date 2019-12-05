@@ -6,25 +6,25 @@
 </div>
 <table class="table">
     <thead>
-        <th scope="col"></th>
+        
         <th scope="col">Pseudo</th>
         <th scope="col">Message</th>
         <th scope="col">Image</th>
     </thead>
     <tbody>
         <tr *ngFor="let m of mursanta">
-            <th>
-                <mat-icon class="example-tab-icon">face icon</mat-icon>
-            </th>
-            <th><strong> {{m.participation.participant.pseudo}}</strong></th>
-            <th>{{m.message}}</th>
-            <!--<th><img  src={{m.image}} 
-             width="220" height="300"></th> -->
+            
+            <th ><strong> {{m.participation.participant.pseudo}}</strong></th>
 
-            <th>
-                    <img [src]="changeImForm(m.image)">
-            </th>
+            <th >{{m.message}}</th>
+            
 
+            
+
+            <th >
+                    <img [src]="changeImForm(m.image)" width="200px" *ngIf="imageExist(m.image)">
+            </th>
+       
 
 
         </tr>
@@ -32,5 +32,3 @@
     </tbody>
 </table>
 
-
-<img [src]="imgConv">

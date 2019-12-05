@@ -49,6 +49,12 @@ export class UploadimageComponent implements OnInit {
 
     this.import.message = messageimage;
     this.import.image = window.btoa(this.ok);
+    //if (this.import.image ==null){
+
+    //}else{
+    //  this.import.image = window.btoa(this.ok);
+   // }
+    
     
     console.log(this.myback.user);
     console.log(this.myback.santa);

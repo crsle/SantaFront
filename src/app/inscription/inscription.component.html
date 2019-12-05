@@ -12,14 +12,14 @@
 <br>
 
 <div class="col d-flex justify-content-center">
-    <div class="card text-center" style="width: 20rem; height: 26rem; 
+    <div class="card text-center" style="width: 20rem; height: 30rem; 
                              box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30)">
         <div class="card-header" style="background-color: tomato; color: white">
             Formulaire d'inscription
         </div>
         <div class="card-body">
             <br>
-            <form #forme = "ngForm" (ngSubmit)="inscription()">
+            <form #forme="ngForm" (ngSubmit)="inscription()">
                 <div class="form-group">
                     <input type="mail" placeholder="mail" required="" name="mail" class="form-control text-center"
                         [(ngModel)]="user.mail">
@@ -28,6 +28,14 @@
                 <div class="form-group">
                     <input type="text" placeholder="pseudo" required="" name="pseudo" class="form-control text-center"
                         [(ngModel)]="user.pseudo">
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="nom" required="" name="nom" class="form-control text-center"
+                        [(ngModel)]="user.nom">
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="prenom" required="" name="prenom" class="form-control text-center"
+                        [(ngModel)]="user.prenom">
                 </div>
                 <br>
                 <div class="form-group">
@@ -38,7 +46,7 @@
                 <button [disabled]="!forme.form.valid" type="submit" class="btn btn-danger">
                     valider
                 </button>
-                <button  type="button" class="btn btn-link" (click)="redirectLogin()"> Se Connecter ? </button>
+                <button type="button" class="btn btn-link" (click)="redirectLogin()"> Se Connecter ? </button>
             </form>
             <p class="text-danger">{{ msg }} <strong class="text-success">{{ msgV }}</strong></p>
         </div>

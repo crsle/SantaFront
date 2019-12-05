@@ -1,5 +1,5 @@
 <mat-nav-list>
-        <table class="table" style="zoom: 85%;">
+        <!-- <table class="table" style="zoom: 85%;">
             <thead>
                 <th style="max-width: 10px;">#</th>
                 <th style="width: fit-content;"></th>
@@ -24,15 +24,15 @@
                 </tr>
             </tbody>
 
-        </table>
-        <!-- <div cdkDropList id = "droplist" class="example-list" (cdkDropListDropped)="drop($event)">
+        </table> -->
+        <div cdkDropList id = "droplist" class="example-list" (cdkDropListDropped)="drop($event)">
             <div class="example-box" *ngFor="let s of souhaits" cdkDrag>
                 <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
                 {{s.ordre}}.
                 <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
                  {{s.description}}
             </div>
-        </div> -->
+        </div>
 
         <br>
         <hr>

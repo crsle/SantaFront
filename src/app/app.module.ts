@@ -22,6 +22,11 @@ import { PopupInvitationComponent } from './popup-invitation/popup-invitation.co
 import { PopupcreationsouhaitComponent } from './popupcreationsouhait/popupcreationsouhait.component';
 import { MurComponent } from './mur/mur.component';
 import { UploadimageComponent } from './uploadimage/uploadimage.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { ListeparticipantComponent } from './listeparticipant/listeparticipant.component';
+import { ListesouhaitComponent } from './listesouhait/listesouhait.component';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +41,8 @@ import { UploadimageComponent } from './uploadimage/uploadimage.component';
     PopupcreationsouhaitComponent,
     MurComponent,
     UploadimageComponent,
+    ListeparticipantComponent,
+    ListesouhaitComponent
   ],
   
   entryComponents: [PopupCreaSantaComponent,PopupsouhaitComponent,PopupcreationsouhaitComponent, PopupInvitationComponent,UploadimageComponent],
@@ -52,7 +59,7 @@ import { UploadimageComponent } from './uploadimage/uploadimage.component';
     BrowserAnimationsModule,
     MatListModule,
     MatMenuModule,
-
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -52,7 +52,7 @@ parti;
     this.http.get(this.myback.lienHTTP+'participantsanta/'+ this.myback.user.id + '/' + false)
     .subscribe(data => {
       this.eventsenAttente = data;
-    }, err => {
+    }, err => { 
       console.log(err);
     });
 

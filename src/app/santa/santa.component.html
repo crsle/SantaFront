@@ -6,72 +6,13 @@
     <div class="col-sm-8">
         <mat-tab-group mat-align-tabs="center">
             <!-- Liste des participants -->
+            
             <mat-tab label="Liste des participants">
-                <mat-nav-list>
-                    <table class="table">
-                        <thead>
-                            <th scope="col"></th>
-                            <th scope="col">Pseudo</th>
-                            <th scope="col">Souhaits</th>
-                            <th scope="col">Supprimer</th>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let p of participants">
-                                <th>
-                                    <mat-icon class="example-tab-icon">face icon</mat-icon>
-                                </th>
-                                <th><strong> {{p.participant.pseudo}}</strong></th>
-
-                                <th> <button mat-icon-button (click)=afficherSouhaits(p.participant.id)>
-                                        <mat-icon>view_list</mat-icon>
-                                    </button></th>
-                                <th> <button mat-icon-button>
-                                        <mat-icon>delete</mat-icon>
-                                    </button></th>
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-                </mat-nav-list>
-            </mat-tab>
+                    <app-listeparticipant></app-listeparticipant>
+            </mat-tab> 
             <!-- Liste de souhaits -->
             <mat-tab label="Ma liste de souhaits">
-                <mat-nav-list>
-                    <table class="table" style="zoom: 85%;">
-                        <thead>
-                            <th style="max-width: 10px;">#</th>
-                            <th style="width: fit-content;"></th>
-                            <th>Souhait</th>
-                            <th style="max-width: 30px;">Supprimer</th>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let s of souhaits">
-                                <th> {{s.ordre}} </th>
-                                <th>
-                                    <button mat-icon-button><mat-icon>keyboard_arrow_up</mat-icon></button>
-                                    <button mat-icon-button><mat-icon>keyboard_arrow_down</mat-icon></button>
-                                </th>
-                                <th>{{s.description}}</th>
-                                <!-- <th>
-                                    <form (ngSubmit)="changerOrdre(s)"><input on type="number"
-                                            style="width: 50px;" id="nouvelOrdre"></form>
-                                </th> -->
-                                <th><button mat-icon-button (click)="supprSouhait(s)">
-                                        <mat-icon>delete</mat-icon>
-                                    </button></th>
-                            </tr>
-                        </tbody>
-
-                    </table>
-                    <div class="text-center">
-                        <button mat-mini-fab color="primary" (click)="openPopupCreaSouhait()"
-                            style="color: lightgray; background-color: rgb(0, 0, 0);">
-                            <mat-icon>add</mat-icon>
-                        </button>
-                    </div>
-
-                </mat-nav-list>
+                <app-listesouhait></app-listesouhait>
             </mat-tab>
             <!-- Mur du santa -->
             <mat-tab label="Mur du Santa"> Mur du Santa </mat-tab>

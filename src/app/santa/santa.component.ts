@@ -7,6 +7,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { PopupsouhaitComponent } from '../popupsouhait/popupsouhait.component';
 import { Souhait } from '../model/Souhait';
 import { PopupcreationsouhaitComponent } from '../popupcreationsouhait/popupcreationsouhait.component';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-santa',
@@ -14,12 +15,11 @@ import { PopupcreationsouhaitComponent } from '../popupcreationsouhait/popupcrea
   styleUrls: ['./santa.component.css']
 })
 export class SantaComponent implements OnInit {
-  participants;
-  souhaits;
-  souhaitOrdreChange = new Souhait;
-  ordre;
+  
 
-  constructor(private myback: MybackService, private route: Router, private http: HttpClient,private dialog: MatDialog) {
+
+
+  constructor(private myback: MybackService, private route: Router, private http: HttpClient, private dialog: MatDialog) {
 
     if (myback.user.mail == null) {
       this.myback.msgErr = 'Vous devez vous connectez';
@@ -28,70 +28,8 @@ export class SantaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get(this.myback.lienHTTP + 'santa/participants/' + this.myback.santa.id)
-      .subscribe(data => {
-        this.participants = data;
-      }, err => {
-        console.log(err);
-      });
-      this.http.get(this.myback.lienHTTP + 'user/santa/souhaits/' + this.myback.user.id + '/' + this.myback.santa.id)
-      .subscribe(data => {
-        this.souhaits = data;
-      }, err => {
-        console.log(err);
-
-      });
-  }
-
-  recupSouhaits() {
-    this.http.get(this.myback.lienHTTP + 'user/santa/souhaits/' + this.myback.user.id + '/' + this.myback.santa.id)
-      .subscribe(data => {
-        this.souhaits = data;
-        console.log('souhaits', this.souhaits);
-      }, err => {
-        console.log(err);
-
-      });
-  }
-
-  afficherSouhaits(id){
-    this.myback.idParticipantSelectionne = id;
-    const mydial =this.dialog.open(PopupsouhaitComponent);
-  }
-
-  supprSouhait(s){
-    this.http.delete(this.myback.lienHTTP+'souhait/'+s.id)
-    .subscribe(data => {
-      console.log('suppression souhait : ',data)
-      this.ngOnInit();
-    }, err => {
-      console.log(err);
-    });
-  }
-
-  changerOrdre(s){
-    this.souhaitOrdreChange.description = s.description;
-    this.souhaitOrdreChange.id = s.id;
-    this.souhaitOrdreChange.personne = s.personne;
-    this.souhaitOrdreChange.santa=s.santa;
-    this.ordre = document.getElementById("nouvelOrdre");
-    this.souhaitOrdreChange.ordre = this.ordre.value;
-    console.log('souhait changé', this.souhaitOrdreChange);
-    this.http.post(this.myback.lienHTTP+'souhait',this.souhaitOrdreChange)
-    .subscribe(data => {
-      this.ngOnInit();
-    }, err => {
-      console.log(err);
-    });
-    
-  }
-
-  openPopupCreaSouhait(){
-    const mydial =this.dialog.open(PopupcreationsouhaitComponent);
-    mydial.afterClosed().subscribe(result => {
-      this.ngOnInit();
-    });
 
   }
+
 
 }

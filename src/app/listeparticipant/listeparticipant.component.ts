@@ -29,5 +29,13 @@ export class ListeparticipantComponent implements OnInit {
         console.log(err);
       });
   }
+  tirage(){
+    this.http.get(this.myback.lienHTTP + 'santa/tirage/' + this.myback.santa.id)
+    .subscribe(data =>{
+      console.log('data',data)
+    },err =>{
+      console.log(err);
+    });
+  }
 
 }

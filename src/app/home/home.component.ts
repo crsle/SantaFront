@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupCreaSantaComponent } from '../popup-crea-santa/popup-crea-santa.component';
 import { User } from '../model/User';
+import { Participation } from '../model/Participation';
 import { PopupInvitationComponent } from '../popup-invitation/popup-invitation.component';
 
 @Component({
@@ -19,6 +20,8 @@ ssanta : SSanta = new SSanta();
 user : User = new User();
 eventsAccepte;
 eventsenAttente;
+parti;
+ p :Participation= new Participation();
   constructor(private myback: MybackService,private route :Router,private http: HttpClient,private dialog: MatDialog) {
     
      if(myback.recupUserC().mail != null){
@@ -74,6 +77,33 @@ eventsenAttente;
   goSanta(s:SSanta) {
     this.myback.santa=s;
     this.route.navigate(['santa']);
+  }
+
+
+  confirmParticipation(s:SSanta){
+    this.http.get(this.myback.lienHTTP+'/participation/'+this.myback.user.id+'/'+s.id)
+    .subscribe(data => {
+      this.parti=data;
+      this.p=this.parti;
+      
+      this.p.present=true;
+      
+      this.http.post(this.myback.lienHTTP+'/participation/valider', data)
+      .subscribe(data2 => {
+        this.ngOnInit();
+        
+
+      },err => {
+        console.log(err);
+      });
+
+
+
+    }, err => {
+      console.log(err);
+    });
+    console.log(this.p);
+
   }
 
 

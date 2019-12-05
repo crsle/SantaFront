@@ -23,26 +23,26 @@ export class InscriptionComponent implements OnInit {
   }
   inscription() {
     this.http.post(this.mys.lienHTTP + 'user', this.user).subscribe(data => {
-      console.log(data)
-      if (data == true) {
-        this.msg = 'mail déjà utilisé'
-      } else {
-        this.msg = ''
-        this.msgV = 'Bien enregistré';
+      this.verifIncription(data);
+      })
+    }
 
-        // setTimeout('this.redirectLogin()', 1000);
+  verifIncription(data){
+    if (data == true) {
+      this.msg = 'mail déjà utilisé'
+    } else {
+      this.msg = ''
+      this.msgV = 'Bien enregistré';  
+      setTimeout(() => {    //<<<---    using ()=> syntax
+        this.redirectLogin();
+      }, 2000);
+    }}
 
-        setTimeout(() => {    //<<<---    using ()=> syntax
-          this.redirectLogin();
-        }, 2000);
-      }
+ 
 
-    }, err => {
-      // this.mys.msgErr = 'erreur';
-    });
+  
 
 
-  }
 
   redirectLogin() {
     this.route.navigate(['/login']);

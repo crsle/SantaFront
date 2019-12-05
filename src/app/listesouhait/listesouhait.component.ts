@@ -23,7 +23,7 @@ export class ListesouhaitComponent implements OnInit {
   ordre;
   souhaitbis;
 
-  constructor(private myback: MybackService, private route: Router, private http: HttpClient, private dialog: MatDialog) { 
+  constructor(private myback: MybackService, private route: Router, private http: HttpClient, private dialog: MatDialog) {
     if (myback.user.mail == null) {
       this.myback.msgErr = 'Vous devez vous connectez';
       this.route.navigate(['login']);
@@ -51,10 +51,7 @@ export class ListesouhaitComponent implements OnInit {
       });
   }
 
-  afficherSouhaits(id) {
-    this.myback.idParticipantSelectionne = id;
-    const mydial = this.dialog.open(PopupsouhaitComponent);
-  }
+  
 
   supprSouhait(s) {
     this.http.delete(this.myback.lienHTTP + 'souhait/' + s.id)
@@ -99,7 +96,7 @@ export class ListesouhaitComponent implements OnInit {
 
     if (this.ancienOrdre >= 2) {
 
-      this.souhaitInitial.ordre = this.nouvelOrdre;
+      
       this.http.get(this.myback.lienHTTP + 'souhait/' + this.myback.user.id + '/' + this.myback.santa.id + '/' + this.nouvelOrdre)
         .subscribe(data => {
           if (data != null) {
@@ -117,62 +114,39 @@ export class ListesouhaitComponent implements OnInit {
           console.log(err);
         });
       console.log('souhait quon a changé juste avznt envoie en bdd :', this.souhaitInitial);
+      this.souhaitInitial.ordre = this.nouvelOrdre;
       this.http.post(this.myback.lienHTTP + 'souhait', this.souhaitInitial)
         .subscribe(data => {
 
           console.log('Le souhait a bien été monté')
-          this.ngOnInit();
+          console.log('Le souhait a bien été baissé')
+          setTimeout(() => { 
+            this.ngOnInit();
+          }, 100);
         }, err => {
           console.log(err);
         })
     }
   }
+  
+  baisserSouhait(s: Souhait) {
 
-  drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.souhaits, event.previousIndex, event.currentIndex);
-
-    this.ancienOrdre = event.previousIndex + 1;
-    this.nouvelOrdre = event.currentIndex + 1;
-
-    //console.log('SITUATION INITIALE :');
-    //console.log('Ordre de lélément selectionné :' +this.ancienOrdre);
-    //console.log('Ordre darrivé :' +this.nouvelOrdre)
-
-    if(this.ancienOrdre> this.nouvelOrdre){
-      //console.log('ON A MONTE NOTRE SOUHAIT');
-      for (let i = this.nouvelOrdre; i < this.ancienOrdre; i++) {
-        //console.log('Echange entre le souhait dordre ' + i + ' et le souhait dordre ' + (i+1));
-        this.echangeDeuxSouhaitsALaSuite(i,i+1)
-      }
-    } else{
-      console.log('ON A BAISSE NOTRE SOUHAIT');
-      for (let i = this.ancienOrdre; i < this.nouvelOrdre; i++) {
-        //console.log('Echange entre le souhait dordre ' + i + ' et le souhait dordre ' + (i+1));
-        this.echangeDeuxSouhaitsALaSuite(i,i+1)
-      }
-    }
-    this.ngOnInit();
+    this.souhaitInitial = s;
+    this.ancienOrdre = this.souhaitInitial.ordre;
+    this.nouvelOrdre = this.souhaitInitial.ordre + 1;
 
     
 
-
-  }
-
-  echangeDeuxSouhaitsALaSuite(ordreOrigine : number, ordreArrive : number){
-    console.log('Ordre Origine : ' + ordreOrigine);
-    console.log('Ordre Arrive : ' + ordreArrive);
-    this.souhaitInitial.ordre = ordreArrive;
-      this.http.get(this.myback.lienHTTP + 'souhait/' + this.myback.user.id + '/' + this.myback.santa.id + '/' + ordreArrive)
+      
+      this.http.get(this.myback.lienHTTP + 'souhait/' + this.myback.user.id + '/' + this.myback.santa.id + '/' + this.nouvelOrdre)
         .subscribe(data => {
-          console.log('////////// DATA /////////', data)
           if (data != null) {
-            this.souhaitbis = data;
+            this.souhaitbis = data
             this.souhaitArrive = this.souhaitbis;
-            this.souhaitArrive.ordre = ordreOrigine;
-            console.log('SOUHAIT BOUGE IMPLICITEMENT : ', this.souhaitArrive)
+            this.souhaitArrive.ordre = this.ancienOrdre;
             this.http.post(this.myback.lienHTTP + 'souhait', this.souhaitArrive)
               .subscribe(data2 => {
-
+                console.log('Le souhait à la place choisie a été déplacé')
               }, err2 => {
                 console.log(err2);
               });
@@ -180,16 +154,95 @@ export class ListesouhaitComponent implements OnInit {
         }, err => {
           console.log(err);
         });
-        console.log('SOUHAIT BOUGE VOLOTAIREMENT : ', this.souhaitInitial)
+      console.log('souhait quon a changé juste avznt envoie en bdd :', this.souhaitInitial);
+      this.souhaitInitial.ordre = this.nouvelOrdre;
       this.http.post(this.myback.lienHTTP + 'souhait', this.souhaitInitial)
         .subscribe(data => {
 
+          console.log('Le souhait a bien été baissé')
+          setTimeout(() => { 
+            this.ngOnInit();
+          }, 100);
+          
         }, err => {
           console.log(err);
-        });
+        })
+    
   }
 
-  recupSouhaitSelonSonOrdre(ordre:number){
+
+
+
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.souhaits, event.previousIndex, event.currentIndex);
+
+    this.ancienOrdre = event.previousIndex + 1;
+    this.nouvelOrdre = event.currentIndex + 1;
+
+    if (this.ancienOrdre > this.nouvelOrdre) {
+      //console.log('ON A MONTE NOTRE SOUHAIT');
+      for (let i = this.nouvelOrdre; i < this.ancienOrdre; i++) {
+        //console.log('Echange entre le souhait dordre ' + i + ' et le souhait dordre ' + (i+1));
+        this.echangeDeuxSouhaitsALaSuite(i, i + 1)
+      }
+    } else {
+      //console.log('ON A BAISSE NOTRE SOUHAIT');
+      for (let i = this.ancienOrdre; i < this.nouvelOrdre; i++) {
+        //console.log('Echange entre le souhait dordre ' + i + ' et le souhait dordre ' + (i+1));
+        setTimeout(() => { 
+          this.echangeDeuxSouhaitsALaSuite(i, i + 1)
+        }, 1000);
+        
+      }
+    }
+    setTimeout(() => { 
+      this.ngOnInit();
+    }, 1000);
+    
+  }
+
+  echangeDeuxSouhaitsALaSuite(ordreOrigine: number, ordreArrive: number) {
+    console.log('Ordre Origine : ' + ordreOrigine);
+    console.log('Ordre Arrive : ' + ordreArrive);
+    this.http.get(this.myback.lienHTTP + 'souhait/' + this.myback.user.id + '/' + this.myback.santa.id + '/' + ordreArrive)
+      .subscribe(data => {
+        console.log('////////// DATA /////////', data)
+        this.souhaitbis = data;
+        this.souhaitArrive = this.souhaitbis;
+        console.log('SOUHAIT BOUGE IMPLICITEMENT : ', this.souhaitArrive.ordre)
+        this.souhaitArrive.ordre = ordreOrigine;
+        
+        this.http.post(this.myback.lienHTTP + 'souhait', this.souhaitArrive)
+          .subscribe(data2 => {
+
+          }, err2 => {
+            console.log(err2);
+          });
+      }, err => {
+        console.log(err);
+      });
+      
+    // this.http.get(this.myback.lienHTTP + 'souhait/' + this.myback.user.id + '/' + this.myback.santa.id + '/' + ordreOrigine)
+    //   .subscribe(data => {
+    //     console.log('////////// DATA /////////', data)
+    //     this.souhaitbis = data;
+    //     this.souhaitInitial = this.souhaitbis;
+    //     console.log('SOUHAIT BOUGE VOLONTAIREMENT : ', this.souhaitInitial.ordre)
+    //     this.souhaitInitial.ordre = ordreArrive;
+        
+    //     this.http.post(this.myback.lienHTTP + 'souhait', this.souhaitInitial)
+    //       .subscribe(data2 => {
+
+    //       }, err2 => {
+    //         console.log(err2);
+    //       });
+    //   }, err => {
+    //     console.log(err);
+    //   });
+  }
+
+  recupSouhaitSelonSonOrdre(ordre: number) {
 
   }
 

@@ -3,6 +3,7 @@ import { MybackService } from '../myback.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
+import { PopupsouhaitComponent } from '../popupsouhait/popupsouhait.component';
 
 @Component({
   selector: 'app-listeparticipant',
@@ -23,11 +24,15 @@ export class ListeparticipantComponent implements OnInit {
   ngOnInit() {
     this.http.get(this.myback.lienHTTP + 'santa/participants/' + this.myback.santa.id)
       .subscribe(data => {
-        console.log('data',data)
         this.participants = data;
       }, err => {
         console.log(err);
       });
+  }
+
+  afficherSouhaits(id) {
+    this.myback.idParticipantSelectionne = id;
+    const mydial = this.dialog.open(PopupsouhaitComponent);
   }
 
 }

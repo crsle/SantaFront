@@ -22,25 +22,23 @@ export class InscriptionComponent implements OnInit {
   ngOnInit() {
   }
   inscription() {
-    this.http.post(this.mys.lienHTTP + 'user', this.user).subscribe(data => {
-      this.verifIncription(data);
-      })
-    }
+    this.http.post(this.mys.lienHTTP + 'inscription', this.user).subscribe(data => {
+      console.log(data)
+      if (data == true) {
+        this.msg = 'mail déjà utilisé'
+      } else {
+        this.msg = ''
+        this.msgV = 'Bien enregistré';
 
-  verifIncription(data){
-    if (data == true) {
-      this.msg = 'mail déjà utilisé'
-    } else {
-      this.msg = ''
-      this.msgV = 'Bien enregistré';  
-      setTimeout(() => {    //<<<---    using ()=> syntax
-        this.redirectLogin();
-      }, 2000);
-    }}
+        setTimeout(() => { 
+          this.redirectLogin();
+        }, 1500);
+      }
 
- 
-
-  
+    }, err => {
+      console.log(err);
+    });
+  }
 
 
 
@@ -49,8 +47,4 @@ export class InscriptionComponent implements OnInit {
   }
 
 
-
-  goPagePrincipale() {
-    this.route.navigate(['login']);
-  }
 }

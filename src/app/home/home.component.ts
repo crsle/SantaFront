@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { PopupCreaSantaComponent } from '../popup-crea-santa/popup-crea-santa.component';
 import { User } from '../model/User';
 import { Participation } from '../model/Participation';
+import { PopupInvitationComponent } from '../popup-invitation/popup-invitation.component';
 
 @Component({
   selector: 'app-home',
@@ -34,10 +35,6 @@ eventsenAttente;
   ngOnInit() {
     this.recupSanta();
     this.recupSantaenAttente();
-    
-
-
-
   }
 
   recupSanta(){
@@ -56,15 +53,6 @@ eventsenAttente;
       this.eventsenAttente = data;
     }, err => {
       console.log(err);
-    });
-
-  }
-
-  invitation(){
-    this.http.get(this.myback.lienHTTP+'invitation').subscribe(date =>{
-
-    }, err =>{
-      
     });
 
   }
@@ -98,9 +86,16 @@ eventsenAttente;
     }, err => {
       console.log(err);
     });
-
-    
-
   }
+
+
+  callPopupInv(id) {
+    this.myback.idEventClickInv = id;
+    const mydial =this.dialog.open(PopupInvitationComponent);
+    mydial.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
+  }
+
   
 }

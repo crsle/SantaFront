@@ -20,6 +20,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import { PopupsouhaitComponent } from './popupsouhait/popupsouhait.component';
 import { PopupInvitationComponent } from './popup-invitation/popup-invitation.component';
 import { PopupcreationsouhaitComponent } from './popupcreationsouhait/popupcreationsouhait.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { ListeparticipantComponent } from './listeparticipant/listeparticipant.component';
+import { ListesouhaitComponent } from './listesouhait/listesouhait.component';
 
 
 @NgModule({
@@ -32,7 +36,9 @@ import { PopupcreationsouhaitComponent } from './popupcreationsouhait/popupcreat
     SantaComponent,
     PopupsouhaitComponent,
     PopupInvitationComponent,
-    PopupcreationsouhaitComponent
+    PopupcreationsouhaitComponent,
+    ListeparticipantComponent,
+    ListesouhaitComponent
   ],
   
   entryComponents: [PopupCreaSantaComponent,PopupsouhaitComponent,PopupcreationsouhaitComponent, PopupInvitationComponent],
@@ -49,7 +55,7 @@ import { PopupcreationsouhaitComponent } from './popupcreationsouhait/popupcreat
     BrowserAnimationsModule,
     MatListModule,
     MatMenuModule,
-
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

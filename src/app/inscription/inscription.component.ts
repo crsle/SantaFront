@@ -38,9 +38,9 @@ export class InscriptionComponent implements OnInit {
     }, err => {
       console.log(err);
     });
-
-
   }
+
+
 
   redirectLogin() {
     this.route.navigate(['/login']);

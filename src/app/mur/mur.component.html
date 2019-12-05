@@ -1,0 +1,32 @@
+<div class="text-center fixed-top" style="margin-top: 70px;" >
+        <button mat-fab color="primary" (click)="openUploadImage()"
+          style="color: lightgray; background-color: rgb(230, 100, 77);">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+<table class="table">
+    <thead>
+        <th scope="col"></th>
+        <th scope="col">Pseudo</th>
+        <th scope="col">Message</th>
+        <th scope="col">Image</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let m of mursanta">
+            <th>
+                <mat-icon class="example-tab-icon">face icon</mat-icon>
+            </th>
+            <th><strong> {{m.participation.participant.pseudo}}</strong></th>
+            <th>{{m.message}}</th>
+           <!--<th><img mat-card-image src={{m.image}} 
+             width="220" height="300"></th> --> 
+          
+             <th>{{m.image}} 
+                </th> 
+
+
+
+        </tr>
+
+    </tbody>
+</table>

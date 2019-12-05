@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from './model/User';
 import { SSanta } from './model/SSanta';
+import { Participation } from './model/Participation';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class MybackService {
   menuVisible = false;
   user :User =new User();
   santa : SSanta = new SSanta();
+  participation : Participation = new Participation();
   lienHTTP='http://localhost:8090/';
   idParticipantSelectionne;
   msgErr;

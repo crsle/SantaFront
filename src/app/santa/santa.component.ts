@@ -32,4 +32,14 @@ export class SantaComponent implements OnInit {
   }
 
 
+
+  goMur() {
+    
+    //console.log(s);
+    //this.myback.santa=s;
+    
+    //console.log(this.myback.santa);
+    this.route.navigate(['mur']);
+  }
+
 }

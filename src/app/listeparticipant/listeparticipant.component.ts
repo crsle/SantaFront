@@ -15,6 +15,7 @@ import { SSanta } from '../model/SSanta';
 export class ListeparticipantComponent implements OnInit {
   participants;
   santa;
+  cible;
 
   constructor(private myback: MybackService, private route: Router, private http: HttpClient, private dialog: MatDialog) {
     if (myback.user.mail == null) {

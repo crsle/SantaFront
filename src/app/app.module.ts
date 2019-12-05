@@ -20,6 +20,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import { PopupsouhaitComponent } from './popupsouhait/popupsouhait.component';
 import { PopupInvitationComponent } from './popup-invitation/popup-invitation.component';
 import { PopupcreationsouhaitComponent } from './popupcreationsouhait/popupcreationsouhait.component';
+import { MurComponent } from './mur/mur.component';
+import { UploadimageComponent } from './uploadimage/uploadimage.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import { ListeparticipantComponent } from './listeparticipant/listeparticipant.component';
@@ -38,12 +40,14 @@ import { PopupdetailparticipantComponent } from './popupdetailparticipant/popupd
     PopupsouhaitComponent,
     PopupInvitationComponent,
     PopupcreationsouhaitComponent,
+    MurComponent,
+    UploadimageComponent,
     ListeparticipantComponent,
     ListesouhaitComponent,
     PopupdetailparticipantComponent
   ],
   
-  entryComponents: [PopupCreaSantaComponent,PopupsouhaitComponent,PopupcreationsouhaitComponent, PopupInvitationComponent,PopupdetailparticipantComponent],
+  entryComponents: [PopupCreaSantaComponent,PopupsouhaitComponent,PopupcreationsouhaitComponent, PopupInvitationComponent,PopupdetailparticipantComponent,UploadimageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -44,7 +44,16 @@ boutonInviterMembreVisible;
   recupSanta(){
     this.http.get(this.myback.lienHTTP+'participantsanta/'+ this.myback.user.id + '/' + true+ '/' + true)
     .subscribe(data => {
-      this.eventsAccepte = data;
+      console.log('data', data)
+      if (data==null) {
+        console.log('data', data)
+        this.myback.aucunEvenement = true;
+      }
+      else {
+        this.myback.aucunEvenement = false;
+        this.eventsAccepte = data;
+      }
+      
     }, err => {
       console.log(err);
     });

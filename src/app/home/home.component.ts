@@ -119,6 +119,14 @@ boutonInviterMembreVisible;
       this.ngOnInit();
     });
   }
+  nonConfirmParticipation(s:SSanta){
 
+    this.http.delete(this.myback.lienHTTP + '/SupprimerParticipation/' +this.myback.user.id+'/'+ s.id)
+    .subscribe(data =>{
+      this.ngOnInit()
+    },err =>{
+      console.log(err);
+    });
+  }
   
 }

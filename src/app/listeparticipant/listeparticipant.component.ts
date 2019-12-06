@@ -108,6 +108,16 @@ export class ListeparticipantComponent implements OnInit {
     }
   }
 
-  
+
+  delete(idparticipant){
+    this.http.delete(this.myback.lienHTTP + '/SupprimerParticipation/' +idparticipant+'/'+ this.myback.santa.id)
+    .subscribe(data =>{
+      this.ngOnInit()
+    },err =>{
+      console.log(err);
+    });
+  //this.route.navigate(['santa']);
+    
+  }
 
 }

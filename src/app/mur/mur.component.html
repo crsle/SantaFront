@@ -1,9 +1,4 @@
-<div class="text-center fixed-top" style="margin-top: 70px;">
-    <button mat-fab color="primary" (click)="openUploadImage()"
-        style="color: lightgray; background-color: rgb(230, 100, 77);">
-        <mat-icon>add</mat-icon>
-    </button>
-</div>
+
 <table class="table">
     <thead>
         
@@ -19,10 +14,10 @@
             <th >{{m.message}}</th>
             
 
-            
+            <!-- *ngIf="imageExist(m.image)"   -->
 
             <th >
-                    <img [src]="changeImForm(m.image)" width="200px" *ngIf="imageExist(m.image)">
+                    <img [src]="changeImForm(m.image)" width="200px" *ngIf="imageExist(m.image)" >
             </th>
        
 
@@ -32,3 +27,9 @@
     </tbody>
 </table>
 
+<div class="text-center " >
+    <button mat-fab color="primary" (click)="openUploadImage()"
+        style="color: lightgray; background-color: rgb(230, 100, 77);">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>

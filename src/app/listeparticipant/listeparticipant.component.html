@@ -26,13 +26,16 @@
     </table>
     <div>
         <div class="text-center">
-            <form #forme="ngForm" (ngSubmit)="tirage()"><button mat-raised-button style="color: lightgray; background-color: rgb(230, 100, 77); width: fit-content;" type="submit"
+            <form #forme="ngForm" (ngSubmit)="tirage()"><button mat-raised-button
+                    style="color: lightgray; background-color: rgb(230, 100, 77); width: fit-content;" type="submit"
                     id="boutontirage" class="btn btn-block" *ngIf="myback.boutonTirageVisible">
                     <mat-icon>check_circle_outline</mat-icon>Lancer le tirage
                 </button></form>
         </div>
 
-    
+
         <br>
-        <form #forme = "ngForm" (ngSubmit)="cloture()"><button type="submit" id="boutoncloture" class="btn btn-danger" *ngIf="myback.utilisateurProprio">Fermer un Santa</button></form>
-    </mat-nav-list>
+        <form #forme="ngForm" (ngSubmit)="cloture()"><button type="submit" id="boutoncloture" class="btn btn-danger"
+                *ngIf="myback.utilisateurProprio">Fermer un Santa</button></form>
+    </div>
+</mat-nav-list>

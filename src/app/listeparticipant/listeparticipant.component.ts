@@ -38,7 +38,6 @@ export class ListeparticipantComponent implements OnInit {
     
     this.recupParticipants();
     this.verificationTirageFait();
-    console.log(this.myback.boutonTirageVisible);
     
     
   }
@@ -57,8 +56,6 @@ export class ListeparticipantComponent implements OnInit {
       .subscribe(data => {
         this.santa = data;
         this.tirageFait = this.santa.tirageFait;
-        console.log('titage fait' + this.tirageFait);
-        console.log('proprio ' + this.myback.utilisateurProprio);
         if (this.myback.utilisateurProprio && this.tirageFait==false) {
           this.myback.boutonTirageVisible = true;
         }
@@ -123,9 +120,17 @@ export class ListeparticipantComponent implements OnInit {
       this.ngOnInit()
     },err =>{
       console.log(err);
-    });
-  //this.route.navigate(['santa']);
-    
+    });    
+  }
+
+  cloture(){
+    this.http.post(this.myback.lienHTTP + '/clotureSanta' , this.myback.santa)
+    .subscribe(data =>{
+      this.ngOnInit()
+    },err =>{
+      console.log(err);
+    });  
+
   }
 
 }

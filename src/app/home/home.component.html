@@ -25,66 +25,82 @@
   <!--debut card-->
   <div class="container">
     <div class="row">
+        <div class="card text-center" *ngIf="myback.aucunEvenement">
+            <a>
+              <div class="card-image">
+                <img
+                  src="https://cdn.laredoute.com/products/362by362/0/3/a/03acba92d2a8ec71e59b9b0ca79d05ef.jpg">
+              </div>
+              <div class="card-body">
+                 
+                <div class="card-title">
+                  <h4>Bienvenue sur Secret Santa !</h4>
+                </div>
+                <div class="card-excerpt">
+                  <p> Vous n'avez aucun Secret Santa en cours actuellement. Vous pouvez en créer un via la bouton + ci-dessus, ou bien attendre une invitation qui s'affichera ici-même !
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
 
-      <div *ngFor="let e of eventsAccepte">
-        <div class="text-center">
-          <div class="col-sm-2">
-            <div class="card">
-              <a>
-                <div class="card-image">
-                  <img
-                    src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000/https://www.shopmaman.com/wp-content/uploads/2019/07/7427763_Nos-conseils-pour-des-cadeaux-de-No%C3%ABl-sympas-et-pas-chers_1000x625.jpg">
-                </div>
-                <div class="card-body">
-                   <!--<div class="card-date">
-                    <time>Date</time>
-                  </div>-->
-                  <div class="card-title">
-                    <h3>{{e.evenement.nomSSanta}}</h3>
+          <div *ngFor="let e of eventsAccepte">
+              <div class="text-center">
+                <div class="col-sm-2">
+                  <div class="card">
+                    <a>
+                      <div class="card-image">
+                        <img
+                          src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000/https://www.shopmaman.com/wp-content/uploads/2019/07/7427763_Nos-conseils-pour-des-cadeaux-de-No%C3%ABl-sympas-et-pas-chers_1000x625.jpg">
+                      </div>
+                      <div class="card-body">
+                         
+                        <div class="card-title">
+                          <h3>{{e.evenement.nomSSanta}}</h3>
+                        </div>
+                        <div class="card-excerpt">
+                          <p> Créateur de l'évènement : {{e.evenement.createur.pseudo}}
+                          </p>
+                          <button class="btn btn-success btn-block text-center" (click)="callPopupInv(e.evenement.id)" *ngIf=isProprio(e) >Inviter des membres</button>
+                          <button class="btn btn-block text-center" (click)="goSanta(e.evenement)" >Voir ce Secret Santa</button>
+                        </div>
+                      </div>
+                    </a>
                   </div>
-                  <div class="card-excerpt">
-                    <p> Créateur de l'évènement : {{e.evenement.createur.pseudo}}
-                    </p>
-                    <button class="btn btn-success btn-block text-center" (click)="callPopupInv(e.evenement.id)" *ngIf=isProprio(e) >Inviter des membres</button>
-                    <button class="btn btn-block text-center" (click)="goSanta(e.evenement)" >Voir ce Secret Santa</button>
-                  </div>
                 </div>
-              </a>
+              </div>
+              <br><br>
             </div>
-          </div>
-        </div>
-        <br><br>
-      </div>
-      <div *ngFor="let e of eventsenAttente">
-        <div class="text-center">
-          <div class="col-sm-2">
-            <div class="cardEnAttente" >
-              <a>
-                <div class="card-image">
-                  <img
-                    src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000/https://www.shopmaman.com/wp-content/uploads/2019/07/7427763_Nos-conseils-pour-des-cadeaux-de-No%C3%ABl-sympas-et-pas-chers_1000x625.jpg">
-                </div>
-                <div class="card-body">
-                  <!--<div class="card-date">
-                    <time>Date</time>
-                  </div>-->
-                  <div class="card-title">
-                    <h3>{{e.evenement.nomSSanta}}</h3>
+            <div *ngFor="let e of eventsenAttente">
+              <div class="text-center">
+                <div class="col-sm-2">
+                  <div class="cardEnAttente" >
+                    <a>
+                      <div class="card-image">
+                        <img
+                          src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000/https://www.shopmaman.com/wp-content/uploads/2019/07/7427763_Nos-conseils-pour-des-cadeaux-de-No%C3%ABl-sympas-et-pas-chers_1000x625.jpg">
+                      </div>
+                      <div class="card-body">
+                        <!--<div class="card-date">
+                          <time>Date</time>
+                        </div>-->
+                        <div class="card-title">
+                          <h3>{{e.evenement.nomSSanta}}</h3>
+                        </div>
+                        <div class="card-excerpt">
+                          <p> Créateur de l'évènement : {{e.evenement.createur.pseudo}}
+                          </p>
+                          <button class="btn btn-block text-center" (click)="confirmParticipation(e.evenement)">Participer à l'event</button>
+                          <button class="btn btn-block text-center" (click)="nonConfirmParticipation(e.evenement)">Ne pas participer à l'event</button>
+                          <button class="btn btn-block text-center" (click)="goSanta(e.evenement)" >Voir ce Secret Santa</button>
+                        </div>
+                      </div>
+                    </a>
                   </div>
-                  <div class="card-excerpt">
-                    <p> Créateur de l'évènement : {{e.evenement.createur.pseudo}}
-                    </p>
-                    <button class="btn btn-block text-center" (click)="confirmParticipation(e.evenement)">Participer à l'event</button>
-                    <button class="btn btn-block text-center" (click)="nonConfirmParticipation(e.evenement)">Ne pas participer à l'event</button>
-                    <button class="btn btn-block text-center" (click)="goSanta(e.evenement)" >Voir ce Secret Santa</button>
-                  </div>
                 </div>
-              </a>
+              </div>
+              <br><br>
             </div>
-          </div>
-        </div>
-        <br><br>
-      </div>
 
 
     </div>

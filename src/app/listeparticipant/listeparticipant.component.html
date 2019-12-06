@@ -1,35 +1,30 @@
-<mat-nav-list>
-    <table class="table">
-        <thead>
-            <th scope="col"></th>
-            <th scope="col">Pseudo</th>
-            <th scope="col">Souhaits</th>
-            <th scope="col" *ngIf="myback.utilisateurProprio">Supprimer</th>
-        </thead>
-        <tbody> 
-            <tr *ngFor="let p of participants">
-                <th>
-                    <mat-icon class="example-tab-icon">face icon</mat-icon>
-                </th>
-                <th (click)=afficherDetails(p.participant.id)><strong> {{p.participant.pseudo}}</strong></th>              
+           <mat-nav-list>
+        <table class="table">
+            <thead>
+                <th scope="col"></th>
+                <th scope="col">Pseudo</th>
+                <th scope="col">Souhaits</th>
+                <th scope="col" *ngIf="myback.utilisateurProprio">Supprimer</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of participants" >
+                    <th>
+                        <mat-icon class="example-tab-icon">face icon</mat-icon>
+                    </th>
+                    <th (click)=afficherDetails(p.participant.id)><strong> {{p.participant.pseudo}}</strong></th>
 
-                <th> <button mat-icon-button (click)=afficherSouhaits(p.participant.id)>
-                        <mat-icon>view_list</mat-icon>
-                    </button></th>
-                <th> <button mat-icon-button *ngIf="myback.utilisateurProprio" (click)=delete(p.participant.id)>
-                        <mat-icon>delete</mat-icon>
-                    </button></th>
-            </tr>
-        </tbody>
-    </table>
-    <form #forme="ngForm" (ngSubmit)="tirage()"><button type="submit" id="boutontirage" class="btn btn-danger"
-            *ngIf="myback.boutonTirageVisible">Faire le tirage</button></form>
+                    <th> <button mat-icon-button (click)=afficherSouhaits(p.participant.id)>
+                            <mat-icon>view_list</mat-icon>
+                        </button></th>
+                    <th> <button mat-icon-button *ngIf="myback.utilisateurProprio" (click)=delete(p.participant.id)>
+                            <mat-icon>delete</mat-icon>
+                        </button></th>
+                </tr>
 
+            </tbody>
 
-
-
-
-
-
-
-</mat-nav-list>
+        </table>
+        <form #forme = "ngForm" (ngSubmit)="tirage()"><button type="submit" id="boutontirage" class="btn btn-danger" *ngIf="myback.boutonTirageVisible">Faire le tirage</button></form>
+        <br>
+        <form #forme = "ngForm" (ngSubmit)="cloture()"><button type="submit" id="boutoncloture" class="btn btn-danger" *ngIf="myback.utilisateurProprio">Fermer un Santa</button></form>
+    </mat-nav-list>

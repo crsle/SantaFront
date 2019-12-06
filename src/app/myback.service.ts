@@ -17,6 +17,7 @@ export class MybackService {
   idParticipantSelectionne;
   msgErr;
   utilisateurProprio = false
+  boutonTirageVisible;
 
   idEventClickInv;
   constructor() {

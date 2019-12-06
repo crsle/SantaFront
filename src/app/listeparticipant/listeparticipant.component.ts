@@ -6,6 +6,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { PopupsouhaitComponent } from '../popupsouhait/popupsouhait.component';
 import { PopupdetailparticipantComponent } from '../popupdetailparticipant/popupdetailparticipant.component';
 import { SSanta } from '../model/SSanta';
+import { Participation } from '../model/Participation';
+import { Button } from 'protractor';
 
 @Component({
   selector: 'app-listeparticipant',
@@ -16,6 +18,11 @@ export class ListeparticipantComponent implements OnInit {
   participants;
   santa;
   cible;
+  toutLeMondeAccepte = true;
+
+  participant = new Participation();
+  tirageFait = false;
+  boutonTirage;
 
   constructor(private myback: MybackService, private route: Router, private http: HttpClient, private dialog: MatDialog) {
     if (myback.user.mail == null) {
@@ -23,10 +30,20 @@ export class ListeparticipantComponent implements OnInit {
       this.route.navigate(['login']);
     }
     this.isProprio();
-  
-   }
+
+  }
 
   ngOnInit() {
+    
+    
+    this.recupParticipants();
+    this.verificationTirageFait();
+    console.log(this.myback.boutonTirageVisible);
+    
+    
+  }
+
+  recupParticipants() {
     this.http.get(this.myback.lienHTTP + 'santa/participants/' + this.myback.santa.id)
       .subscribe(data => {
         this.participants = data;
@@ -34,13 +51,42 @@ export class ListeparticipantComponent implements OnInit {
         console.log(err);
       });
   }
-  tirage(){
+
+  verificationTirageFait() {
+    this.http.get(this.myback.lienHTTP + 'ssanta/' + this.myback.santa.id)
+      .subscribe(data => {
+        this.santa = data;
+        this.tirageFait = this.santa.tirageFait;
+        console.log('titage fait' + this.tirageFait);
+        console.log('proprio ' + this.myback.utilisateurProprio);
+        if (this.myback.utilisateurProprio && this.tirageFait==false) {
+          this.myback.boutonTirageVisible = true;
+        }
+        else {
+          this.myback.boutonTirageVisible = false;
+        }
+        console.log('bouton visible', this.myback.boutonTirageVisible)
+      }, err2 => {
+        console.log(err2);
+      });
+  }
+
+
+
+  tirage() {
     this.http.get(this.myback.lienHTTP + 'santa/tirage/' + this.myback.santa.id)
-    .subscribe(data =>{
-      console.log('data',data)
-    },err =>{
-      console.log(err);
-    });
+      .subscribe(data => {
+      }, err => {
+        console.log(err);
+      });
+    this.myback.santa.tirageFait = true;
+    this.http.post(this.myback.lienHTTP + 'ssanta', this.myback.santa)
+      .subscribe(data => {
+        this.ngOnInit();
+      }, err => {
+        
+      });
+
   }
 
   afficherSouhaits(id) {
@@ -48,13 +94,13 @@ export class ListeparticipantComponent implements OnInit {
     const mydial = this.dialog.open(PopupsouhaitComponent);
   }
 
-  afficherDetails(id:number){
-    this.myback.idParticipantSelectionne=id;
+  afficherDetails(id: number) {
+    this.myback.idParticipantSelectionne = id;
     const mydial = this.dialog.open(PopupdetailparticipantComponent);
   }
 
-  isProprio(){
-    if(this.myback.user.id == this.myback.santa.createur.id){
+  isProprio() {
+    if (this.myback.user.id == this.myback.santa.createur.id) {
       this.myback.utilisateurProprio = true;
     }
     else {

@@ -14,7 +14,7 @@ export class PopupdetailparticipantComponent implements OnInit {
   details = new User();
   detailbis;
 
-  constructor(private myback: MybackService, private route: Router, private http: HttpClient) { 
+  constructor(public myback: MybackService, private route: Router, private http: HttpClient) { 
     if (myback.user.mail == null) {
       this.myback.msgErr = 'Vous devez vous connectez';
       this.route.navigate(['login']);

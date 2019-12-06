@@ -15,7 +15,7 @@ export class PopupcreationsouhaitComponent implements OnInit {
   nvOrdre;
   nvDescription;
 
-  constructor(private mys :MybackService,private route :Router,private http: HttpClient, private dialogRef: MatDialogRef<PopupcreationsouhaitComponent>) { }
+  constructor(public mys :MybackService,private route :Router,private http: HttpClient, private dialogRef: MatDialogRef<PopupcreationsouhaitComponent>) { }
 
   ngOnInit() {
   }

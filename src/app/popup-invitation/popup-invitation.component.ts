@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 export class PopupInvitationComponent implements OnInit {
   user : User = new User();
 
-  constructor(private myback: MybackService, private route :Router, private http: HttpClient) { }
+  constructor(public myback: MybackService, private route :Router, private http: HttpClient) { }
 
   ngOnInit() {
   }

@@ -25,7 +25,7 @@ parti;
 p :Participation= new Participation();
 boutonInviterMembreVisible;
 
-  constructor(private myback: MybackService,private route :Router,private http: HttpClient,private dialog: MatDialog) {
+  constructor(public myback: MybackService,private route :Router,private http: HttpClient,private dialog: MatDialog) {
     
      if(myback.recupUserC().mail != null){
        this.myback.user = this.myback.recupUserC();
@@ -44,7 +44,14 @@ boutonInviterMembreVisible;
   recupSanta(){
     this.http.get(this.myback.lienHTTP+'participantsanta/'+ this.myback.user.id + '/' + true+ '/' + true)
     .subscribe(data => {
-      this.eventsAccepte = data;
+      if (data ==null) {
+        this.myback.aucunEvenement = true;
+      }
+      else {
+        this.myback.aucunEvenement = false;
+        this.eventsAccepte = data;
+      }
+      
     }, err => {
       console.log(err);
     });

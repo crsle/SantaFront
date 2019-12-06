@@ -12,7 +12,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class PopupCreaSantaComponent implements OnInit {
   ssanta : SSanta = new SSanta();
-  constructor(private mys :MybackService,private route :Router,private http: HttpClient, private dialogRef: MatDialogRef<PopupCreaSantaComponent>) { }
+  constructor(public mys :MybackService,private route :Router,private http: HttpClient, private dialogRef: MatDialogRef<PopupCreaSantaComponent>) { }
 
   ngOnInit() {
   }

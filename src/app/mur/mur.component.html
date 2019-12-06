@@ -29,18 +29,26 @@
 -->
 
 
-
+<br>
 <div class="container">
 
 
     <div *ngFor="let m of mursanta">
+
+
+
         <table>
-        <th>
-            <mat-icon class="example-tab-icon">face icon</mat-icon>
-            <p> {{m.participation.participant.pseudo}}
-            </p>
-        </th>
-    </table>
+            <tr>
+                <th>
+                    <mat-icon class="example-tab-icon">face icon</mat-icon>
+                </th>
+                <th>
+                    <p> {{m.participation.participant.pseudo}}
+                    </p>
+                </th>
+
+            </tr>
+        </table>
 
 
 
@@ -52,26 +60,15 @@
         <div class="card-title">
             <h6>{{m.message}}</h6>
         </div>
-
-
         <div class="container">
             <div class="row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-8">
                     <hr>
                 </div>
-
-               
-
             </div>
         </div>
-        
-
-
-
     </div>
-
-
 
 </div>
 

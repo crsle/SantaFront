@@ -26,4 +26,6 @@
 
         </table>
         <form #forme = "ngForm" (ngSubmit)="tirage()"><button type="submit" id="boutontirage" class="btn btn-danger" *ngIf="myback.boutonTirageVisible">Faire le tirage</button></form>
+        <br>
+        <form #forme = "ngForm" (ngSubmit)="cloture()"><button type="submit" id="boutoncloture" class="btn btn-danger" *ngIf="myback.utilisateurProprio">Fermer un Santa</button></form>
     </mat-nav-list>

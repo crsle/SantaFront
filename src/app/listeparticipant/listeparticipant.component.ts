@@ -112,9 +112,17 @@ export class ListeparticipantComponent implements OnInit {
       this.ngOnInit()
     },err =>{
       console.log(err);
-    });
-  //this.route.navigate(['santa']);
-    
+    });    
+  }
+
+  cloture(){
+    this.http.post(this.myback.lienHTTP + '/clotureSanta' , this.myback.santa)
+    .subscribe(data =>{
+      this.ngOnInit()
+    },err =>{
+      console.log(err);
+    });  
+
   }
 
 }

@@ -14,13 +14,15 @@ export class HistoriqueComponent implements OnInit {
   eventsHistorique;
   eventsHistoriquebis;
 
-  constructor(private myback: MybackService,private route :Router,private http: HttpClient,private dialog: MatDialog) { }
+  constructor(private myback: MybackService,private route :Router,private http: HttpClient,private dialog: MatDialog) {
+    if (myback.user.mail == null) {
+      this.myback.msgErr = 'Vous devez vous connectez';
+      this.route.navigate(['login']);
+    }
+  }
 
   ngOnInit() {
     this.recupSantaHistorique();
-    this.recupSantaHistoriquebis();
-  
-
   }
 
   recupSantaHistorique(){
@@ -32,15 +34,7 @@ export class HistoriqueComponent implements OnInit {
       console.log(err);
     });
   }
-  recupSantaHistoriquebis(){
-    this.http.get(this.myback.lienHTTP+'participantsanta/'+ this.myback.user.id + '/' + false+ '/' + false)
-    .subscribe(data => {
-      
-      this.eventsHistoriquebis = data;
-    }, err => {
-      console.log(err);
-    });
-  }
+  
   goSanta(s:SSanta) {
     this.myback.santa=s;
     this.route.navigate(['santa']);

@@ -21,6 +21,6 @@ export class HistoriqueComponent implements OnInit {
   //   }, err => {
   //     console.log(err);
   //   });
-  // }
+  }
 
 }

@@ -42,6 +42,23 @@ export class ListeparticipantComponent implements OnInit {
       console.log(err);
     });
   }
+  cibleCadeau(participants){
+    console.log (this.myback.user.id);
+    console.log (this.myback.santa.id);
+
+    // this.http.get(this.myback.lienHTTP + 'santa/cible/'+this.myback.user.id+'/'+this.myback.santa.id).subscribe(data =>{
+    //   this.cible = data;
+    //  /* if (participants.participant.id==this.cible.id){
+    //     return true;
+    //   }else{
+    //     return false;
+    //   }*/return true
+
+    // }, err =>{
+    //   console.log(err);
+    //   return false;
+    // });
+  }
 
   afficherSouhaits(id) {
     this.myback.idParticipantSelectionne = id;

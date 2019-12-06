@@ -13,7 +13,6 @@ export class InscriptionComponent implements OnInit {
   user: User = new User();
   err;
   bool;
-
   msg;
   msgV;
 

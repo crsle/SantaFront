@@ -70,7 +70,6 @@ boutonInviterMembreVisible;
 
   isProprio(s:Participation ){
     this.ssanta = s.evenement;
-    //console.log(s);
     if(this.myback.user.id == this.ssanta.createur.id){
       return true;
     }
@@ -107,7 +106,6 @@ boutonInviterMembreVisible;
     }, err => {
       console.log(err);
     });
-    console.log(this.p);
 
   }
 
@@ -119,6 +117,14 @@ boutonInviterMembreVisible;
       this.ngOnInit();
     });
   }
+  nonConfirmParticipation(s:SSanta){
 
+    this.http.delete(this.myback.lienHTTP + '/SupprimerParticipation/' +this.myback.user.id+'/'+ s.id)
+    .subscribe(data =>{
+      this.ngOnInit()
+    },err =>{
+      console.log(err);
+    });
+  }
   
 }

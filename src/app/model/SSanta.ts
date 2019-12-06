@@ -6,6 +6,7 @@ export class SSanta{
         createur: User;    
         
         enCours : boolean;
+        tirageFait:boolean;
     
         constructor(){}
     }

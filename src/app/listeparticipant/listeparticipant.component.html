@@ -24,11 +24,18 @@
 
             </tr>
 
-        </tbody>
+                    <th> <button mat-icon-button (click)=afficherSouhaits(p.participant.id)>
+                            <mat-icon>view_list</mat-icon>
+                        </button></th>
+                    <th> <button mat-icon-button *ngIf="myback.utilisateurProprio" (click)=delete(p.participant.id)>
+                            <mat-icon>delete</mat-icon>
+                        </button></th>
+                </tr>
 
     </table>
     <form #forme="ngForm" (ngSubmit)="tirage()"><button type="submit" class="btn btn-danger">Faire le tirage</button>
     <form #forme="ngForm" (ngSubmit)="tirage()"><button type="submit" class="btn btn-danger">Afficher </button>
 
-    </form>
-</mat-nav-list>
+        </table>
+        <form #forme = "ngForm" (ngSubmit)="tirage()"><button type="submit" id="boutontirage" class="btn btn-danger" *ngIf="myback.boutonTirageVisible">Faire le tirage</button></form>
+    </mat-nav-list>

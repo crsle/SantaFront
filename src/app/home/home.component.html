@@ -75,6 +75,7 @@
                     <p> Créateur de l'évènement : {{e.evenement.createur.pseudo}}
                     </p>
                     <button class="btn btn-block text-center" (click)="confirmParticipation(e.evenement)">Participer à l'event</button>
+                    <button class="btn btn-block text-center" (click)="nonConfirmParticipation(e.evenement)">Ne pas participer à l'event</button>
                     <button class="btn btn-block text-center" (click)="goSanta(e.evenement)" >Voir ce Secret Santa</button>
                   </div>
                 </div>

@@ -42,7 +42,7 @@ boutonInviterMembreVisible;
   }
 
   recupSanta(){
-    this.http.get(this.myback.lienHTTP+'participantsanta/'+ this.myback.user.id + '/' + true)
+    this.http.get(this.myback.lienHTTP+'participantsanta/'+ this.myback.user.id + '/' + true+ '/' + true)
     .subscribe(data => {
       this.eventsAccepte = data;
     }, err => {
@@ -52,7 +52,7 @@ boutonInviterMembreVisible;
   }
 
   recupSantaenAttente(){
-    this.http.get(this.myback.lienHTTP+'participantsanta/'+ this.myback.user.id + '/' + false)
+    this.http.get(this.myback.lienHTTP+'participantsanta/'+ this.myback.user.id + '/' + false+ '/' + true)
     .subscribe(data => {
       this.eventsenAttente = data;
     }, err => { 

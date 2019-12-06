@@ -27,6 +27,7 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 import { ListeparticipantComponent } from './listeparticipant/listeparticipant.component';
 import { ListesouhaitComponent } from './listesouhait/listesouhait.component';
 import { PopupdetailparticipantComponent } from './popupdetailparticipant/popupdetailparticipant.component';
+import { HistoriqueComponent } from './historique/historique.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { PopupdetailparticipantComponent } from './popupdetailparticipant/popupd
     UploadimageComponent,
     ListeparticipantComponent,
     ListesouhaitComponent,
-    PopupdetailparticipantComponent
+    PopupdetailparticipantComponent,
+    HistoriqueComponent
   ],
   
   entryComponents: [PopupCreaSantaComponent,PopupsouhaitComponent,PopupcreationsouhaitComponent, PopupInvitationComponent,PopupdetailparticipantComponent,UploadimageComponent],

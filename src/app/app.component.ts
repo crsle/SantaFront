@@ -28,4 +28,8 @@ export class AppComponent {
     this.route.navigate(['login']);
     this.myserv.menuVisible=false;
   }
+
+  goHistorique() {
+    this.route.navigate(['historique']);
+  }
 }

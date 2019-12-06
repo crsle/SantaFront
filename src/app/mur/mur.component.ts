@@ -27,15 +27,11 @@ export class MurComponent implements OnInit {
     }
   }
   ngOnInit() {
-    console.log(this.myback.user);
-    console.log(this.myback.santa);
     this.http.get(this.myback.lienHTTP+'/participation/'+this.myback.user.id+'/'+this.myback.santa.id)
     .subscribe(data => {
       this.parti=data;
       this.p=this.parti;
       
-     
-      console.log(this.p);
 
       this.http.get(this.myback.lienHTTP+'/mur/messages/'+ this.p.evenement.id)
       .subscribe(data2 => {
@@ -53,7 +49,6 @@ export class MurComponent implements OnInit {
     }, err => {
       console.log(err);
     });
-    console.log(this.p);
 
 
     this.http.get(this.myback.lienHTTP + 'mur/messages/2/7').subscribe( data => {

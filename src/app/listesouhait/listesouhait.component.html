@@ -25,12 +25,12 @@
             </tbody>
 
         </table> -->
-        <div cdkDropList id = "droplist" class="example-list" (cdkDropListDropped)="drop($event)">
-            <div class="example-box" *ngFor="let s of souhaits" cdkDrag>
+        <div  cdkDropList id = "droplist" class="example-list" (cdkDropListDropped)="drop($event)">
+            <div  class="example-box" *ngFor="let s of souhaits" cdkDrag>
                 <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
-                {{s.ordre}}.
+                <h6>{{s.ordre}}. </h6>
                 <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
-                 {{s.description}}
+                 <h6 style="overflow: hidden; text-overflow: ellipsis; word-wrap: break-word;">{{s.description}}</h6>
             </div>
         </div>
 
@@ -39,8 +39,8 @@
         <br>
 
         <div class="text-center">
-            <button mat-mini-fab color="primary" (click)="openPopupCreaSouhait()"
-                style="color: lightgray; background-color: rgb(0, 0, 0);">
+            <button mat-raised-button (click)="openPopupCreaSouhait()"
+                style="color: lightgray; background-color: rgb(230, 100, 77); width: fit-content;">
                 <mat-icon>add</mat-icon>
             </button>
         </div>

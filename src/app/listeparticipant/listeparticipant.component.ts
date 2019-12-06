@@ -24,7 +24,7 @@ export class ListeparticipantComponent implements OnInit {
   tirageFait = false;
   boutonTirage;
 
-  constructor(private myback: MybackService, private route: Router, private http: HttpClient, private dialog: MatDialog) {
+  constructor(public myback: MybackService, private route: Router, private http: HttpClient, private dialog: MatDialog) {
     if (myback.user.mail == null) {
       this.myback.msgErr = 'Vous devez vous connectez';
       this.route.navigate(['login']);

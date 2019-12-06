@@ -25,7 +25,7 @@ parti;
 p :Participation= new Participation();
 boutonInviterMembreVisible;
 
-  constructor(private myback: MybackService,private route :Router,private http: HttpClient,private dialog: MatDialog) {
+  constructor(public myback: MybackService,private route :Router,private http: HttpClient,private dialog: MatDialog) {
     
      if(myback.recupUserC().mail != null){
        this.myback.user = this.myback.recupUserC();

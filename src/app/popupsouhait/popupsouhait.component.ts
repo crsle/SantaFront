@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class PopupsouhaitComponent implements OnInit {
   psouhaits;
 
-  constructor(private myback: MybackService, private route: Router, private http: HttpClient) {
+  constructor(public myback: MybackService, private route: Router, private http: HttpClient) {
 
     if (myback.user.mail == null) {
       this.myback.msgErr = 'Vous devez vous connectez';

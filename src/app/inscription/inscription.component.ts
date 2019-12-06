@@ -17,7 +17,7 @@ export class InscriptionComponent implements OnInit {
   msg;
   msgV;
 
-  constructor(private mys: MybackService, private route: Router, private http: HttpClient) { }
+  constructor(public mys: MybackService, private route: Router, private http: HttpClient) { }
 
   ngOnInit() {
   }

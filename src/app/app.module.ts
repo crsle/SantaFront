@@ -28,6 +28,7 @@ import { ListeparticipantComponent } from './listeparticipant/listeparticipant.c
 import { ListesouhaitComponent } from './listesouhait/listesouhait.component';
 import { PopupdetailparticipantComponent } from './popupdetailparticipant/popupdetailparticipant.component';
 import { HistoriqueComponent } from './historique/historique.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { HistoriqueComponent } from './historique/historique.component';
     ListeparticipantComponent,
     ListesouhaitComponent,
     PopupdetailparticipantComponent,
-    HistoriqueComponent
+    HistoriqueComponent,
+    AboutComponent
   ],
   
   entryComponents: [PopupCreaSantaComponent,PopupsouhaitComponent,PopupcreationsouhaitComponent, PopupInvitationComponent,PopupdetailparticipantComponent,UploadimageComponent],

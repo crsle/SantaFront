@@ -32,4 +32,7 @@ export class AppComponent {
   goHistorique() {
     this.route.navigate(['historique']);
   }
+  goAbout(){
+    this.route.navigate(['about']);
+  }
 }

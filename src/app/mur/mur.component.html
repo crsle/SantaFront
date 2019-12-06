@@ -19,10 +19,10 @@
             <th >{{m.message}}</th>
             
 
-            
+            <!-- *ngIf="imageExist(m.image)"   -->
 
             <th >
-                    <img [src]="changeImForm(m.image)" width="200px" *ngIf="imageExist(m.image)">
+                    <img [src]="changeImForm(m.image)" width="200px" *ngIf="imageExist(m.image)" >
             </th>
        
 

@@ -58,7 +58,12 @@ export class MurComponent implements OnInit {
 
     this.http.get(this.myback.lienHTTP + 'mur/messages/2/7').subscribe( data => {
       this.test = data;
-      this.imgConv = window.atob(this.test.image);
+      if (this.imgConv==null){
+
+      }else{
+        this.imgConv = window.atob(this.test.image);
+      }
+      
     }, err => {
       console.log(err);
     })

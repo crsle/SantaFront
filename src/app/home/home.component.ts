@@ -77,6 +77,8 @@ boutonInviterMembreVisible;
 
   isProprio(s:Participation ){
     this.ssanta = s.evenement;
+    console.log('id créateur', this.ssanta.createur.id)
+    console.log('utilisateur actuel', this.myback.user.id)
     if(this.myback.user.id == this.ssanta.createur.id){
       return true;
     }

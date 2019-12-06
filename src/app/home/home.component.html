@@ -37,12 +37,13 @@
                   <h4>Bienvenue sur Secret Santa !</h4>
                 </div>
                 <div class="card-excerpt">
-                  <p> Vous n'avez aucun Secret Santa en cours actuellement. Vous pouvez en créer un via la bouton + ci-dessus, ou bien attendre une invitation qui s'affichera ici-même !
+                  <p> Vous n'avez aucun Secret Santa en cours actuellement. Vous pouvez en créer un via la bouton + ci-dessus, ou bien attendre une invitation qui s'affichera ci-dessous !
                   </p>
                 </div>
               </div>
             </a>
           </div>
+          <br><br>
 
           <div *ngFor="let e of eventsAccepte">
               <div class="text-center">
@@ -59,9 +60,9 @@
                           <h3>{{e.evenement.nomSSanta}}</h3>
                         </div>
                         <div class="card-excerpt">
-                          <p> Créateur de l'évènement : {{e.evenement.createur.pseudo}}
+                          <p> Ce Secret Santa a été créé par : {{e.evenement.createur.pseudo}}
                           </p>
-                          <button class="btn btn-success btn-block text-center" (click)="callPopupInv(e.evenement.id)" *ngIf=isProprio(e) >Inviter des membres</button>
+                          <button class="btn btn-success btn-block text-center" (click)="callPopupInv(e.evenement.id)" [disabled]=!isProprio(e)>Inviter des membres</button>
                           <button class="btn btn-block text-center" (click)="goSanta(e.evenement)" >Voir ce Secret Santa</button>
                         </div>
                       </div>

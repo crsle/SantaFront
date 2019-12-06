@@ -30,22 +30,14 @@ export class MurComponent implements OnInit {
     this.http.get(this.myback.lienHTTP+'/participation/'+this.myback.user.id+'/'+this.myback.santa.id)
     .subscribe(data => {
       this.parti=data;
-      this.p=this.parti;
-      
+      this.p=this.parti;     
 
       this.http.get(this.myback.lienHTTP+'/mur/messages/'+ this.p.evenement.id)
       .subscribe(data2 => {
         this.mursanta = data2;
-
-
-
-
       },err => {
         console.log(err);
       });
-
-
-
     }, err => {
       console.log(err);
     });

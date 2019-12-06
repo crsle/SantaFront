@@ -6,7 +6,7 @@
                 <form #form (ngSubmit)="onUpload(messageimage.value)">
     
                     <div class="text-center">
-                        <img [src]="imgURL" height="100" *ngIf="imgURL">
+                        <img [src]="imgURL" height="80" *ngIf="imgURL">
                     </div>
                     <br>
                     <div class="text-center">
@@ -17,16 +17,13 @@
                         <textarea type="text" class="text-center" placeholder="Message" #messageimage
                             style="width: 100%;"></textarea>
                     </div>
-                    <br><br><br>
+                    <br><br>
     
                     <div class="text-center">
                         <button (click)="trueFalse()">Envoyer</button>
                     </div>
                     <p *ngIf="visibleimgenvoye" style="color: rgb(35, 190, 56);" class="text-center">Image bien envoyée !</p>
-                    <br>
-                    <div class="text-center">
-                        <button (click) = "closeDialog()">Retour</button>
-                    </div>
+                                       
                 </form>
             </div>
         </div>

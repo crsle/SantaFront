@@ -10,7 +10,7 @@ import { User } from './model/User';
 })
 export class AppComponent {
   title = 'santa';
-  constructor(private myserv: MybackService, private route :Router){
+  constructor(public myserv: MybackService, private route :Router){
 
   }
 

@@ -25,7 +25,7 @@ export class UploadimageComponent implements OnInit {
   }
 
 
-  constructor(private myback: MybackService,private http: HttpClient, private route: Router, private dialogRef: MatDialogRef<UploadimageComponent>) { }
+  constructor(public myback: MybackService,private http: HttpClient, private route: Router, private dialogRef: MatDialogRef<UploadimageComponent>) { }
 
   ngOnInit() {
   }

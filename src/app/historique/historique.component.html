@@ -2,38 +2,38 @@
 <br><br>
 <br><br>
 
-  <!--debut card-->
-  <div class="container">
-    <div class="row">
+<!--debut card-->
+<div class="container">
+  <div class="row">
 
-      <div *ngFor="let e of eventsHistorique">
-        <div class="text-center">
-          <div class="col-sm-2">
-            <div class="card">
-              <a>
-                <div class="card-image">
-                  <img
-                    src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000/https://www.shopmaman.com/wp-content/uploads/2019/07/7427763_Nos-conseils-pour-des-cadeaux-de-No%C3%ABl-sympas-et-pas-chers_1000x625.jpg">
-                </div>
-                <div class="card-body">
-                   <!--<div class="card-date">
+    <div *ngFor="let e of eventsHistorique">
+      <div class="text-center">
+        <div class="col-sm-2">
+          <div class="card">
+            <a>
+              <div class="card-image">
+                <img
+                  src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000/https://www.shopmaman.com/wp-content/uploads/2019/07/7427763_Nos-conseils-pour-des-cadeaux-de-No%C3%ABl-sympas-et-pas-chers_1000x625.jpg">
+              </div>
+              <div class="card-body">
+                <!--<div class="card-date">
                     <time>Date</time>
                   </div>-->
-                  <div class="card-title">
-                    <h3>{{e.evenement.nomSSanta}}</h3>
-                  </div>
-                  <div class="card-excerpt">
-                    <p> Créateur de l'évènement : {{e.evenement.createur.pseudo}}
-                    </p>
-                    <button class="btn btn-block text-center" (click)="goSanta(e.evenement)" >Voir ce Secret Santa</button>
-                  </div>
+                <div class="card-title">
+                  <h3>{{e.evenement.nomSSanta}}</h3>
                 </div>
-              </a>
-            </div>
+                <div class="card-excerpt">
+                  <p> Créateur de l'évènement : {{e.evenement.createur.pseudo}}
+                  </p>
+                  <button class="btn btn-block text-center" (click)="goSanta(e.evenement)">Voir ce Secret Santa</button>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
-        <br><br>
       </div>
+      <br><br>
+    </div>
 
 
     

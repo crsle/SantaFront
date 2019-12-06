@@ -13,7 +13,7 @@ export class ConnexionComponent implements OnInit {
 user: User = new User();
   u;
   msgErrorConnect;
-  constructor(private mys: MybackService, private route: Router, private http: HttpClient) { }
+  constructor(public mys: MybackService, private route: Router, private http: HttpClient) { }
 
   ngOnInit() {
    this.dejaCo();

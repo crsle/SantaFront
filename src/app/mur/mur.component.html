@@ -1,25 +1,24 @@
-
 <table class="table">
     <thead>
-        
+
         <th scope="col">Pseudo</th>
         <th scope="col">Message</th>
         <th scope="col">Image</th>
     </thead>
     <tbody>
         <tr *ngFor="let m of mursanta">
-            
-            <th ><strong> {{m.participation.participant.pseudo}}</strong></th>
 
-            <th >{{m.message}}</th>
-            
+            <th><strong> {{m.participation.participant.pseudo}}</strong></th>
+
+            <th>{{m.message}}</th>
+
 
             <!-- *ngIf="imageExist(m.image)"   -->
 
-            <th >
-                    <img [src]="changeImForm(m.image)" width="200px" *ngIf="imageExist(m.image)" >
+            <th>
+                <img [src]="changeImForm(m.image)" width="200px" *ngIf="imageExist(m.image)">
             </th>
-       
+
 
 
         </tr>
@@ -27,9 +26,49 @@
     </tbody>
 </table>
 
-<div class="text-center " >
+<div class="text-center ">
     <button mat-fab color="primary" (click)="openUploadImage()"
         style="color: lightgray; background-color: rgb(230, 100, 77);">
         <mat-icon>add</mat-icon>
     </button>
 </div>
+
+
+<!--debut card-->
+<div class="container">
+
+
+    <div *ngFor="let m of mursanta">
+
+
+
+        <div class="card text-center" width="100%">
+            <a>
+                <div class="card-image">
+                    <img [src]="changeImForm(m.image)" *ngIf="imageExist(m.image)" width="100%">
+                </div>
+                <div class="card-body">
+                    <!--<div class="card-date">
+                        <time>Date</time>
+                      </div>-->
+                    <div class="card-title">
+                        <h6>{{m.message}}</h6>
+                    </div>
+                    <div class="card-excerpt">
+                        <p> {{m.participation.participant.pseudo}}
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+            <br>
+        
+
+
+    </div>
+
+
+
+</div>
+
+<!--fin card-->

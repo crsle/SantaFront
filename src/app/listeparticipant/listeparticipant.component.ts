@@ -37,12 +37,12 @@ export class ListeparticipantComponent implements OnInit {
   }
 
   ngOnInit() {
-    
-    
+
+
     this.recupParticipants();
     this.verificationTirageFait();
-    
-    
+
+
   }
 
   recupParticipants() {
@@ -59,7 +59,7 @@ export class ListeparticipantComponent implements OnInit {
       .subscribe(data => {
         this.santa = data;
         this.tirageFait = this.santa.tirageFait;
-        if (this.myback.utilisateurProprio && this.tirageFait==false) {
+        if (this.myback.utilisateurProprio && this.tirageFait == false) {
           this.myback.boutonTirageVisible = true;
         }
         else {
@@ -76,18 +76,28 @@ export class ListeparticipantComponent implements OnInit {
   tirage() {
     this.http.get(this.myback.lienHTTP + 'santa/tirage/' + this.myback.santa.id)
       .subscribe(data => {
+        this.myback.santa.tirageFait = true;
+        this.http.post(this.myback.lienHTTP + 'ssanta', this.myback.santa)
+          .subscribe(data => {
+            this.ngOnInit();
+          }, err => {
+
+          });
       }, err => {
         console.log(err);
       });
-    this.myback.santa.tirageFait = true;
-    this.http.post(this.myback.lienHTTP + 'ssanta', this.myback.santa)
-      .subscribe(data => {
-        this.ngOnInit();
-      }, err => {
-        
-      });
+    
+
 
   }
+  // cibleCadeau(){
+  //   this.http.get(this.myback.lienHTTP + 'santa/cible/'+this.myback.user.id+'/'+this.myback.santa.id).subscribe(data =>{
+  //     this.cible = data;
+  //    }, err =>{
+  //     console.log(err);
+  //      return false;
+  //    });
+  // }
 
   afficherSouhaits(id) {
     this.myback.idParticipantSelectionne = id;
@@ -109,22 +119,22 @@ export class ListeparticipantComponent implements OnInit {
   }
 
 
-  delete(idparticipant){
-    this.http.delete(this.myback.lienHTTP + '/SupprimerParticipation/' +idparticipant+'/'+ this.myback.santa.id)
-    .subscribe(data =>{
-      this.ngOnInit()
-    },err =>{
-      console.log(err);
-    });    
+  delete(idparticipant) {
+    this.http.delete(this.myback.lienHTTP + '/SupprimerParticipation/' + idparticipant + '/' + this.myback.santa.id)
+      .subscribe(data => {
+        this.ngOnInit()
+      }, err => {
+        console.log(err);
+      });
   }
 
-  cloture(){
-    this.http.post(this.myback.lienHTTP + '/clotureSanta' , this.myback.santa)
-    .subscribe(data =>{
-      //this.ngOnInit()
-    },err =>{
-      console.log(err);
-    });  
+  cloture() {
+    this.http.post(this.myback.lienHTTP + '/clotureSanta', this.myback.santa)
+      .subscribe(data => {
+        //this.ngOnInit()
+      }, err => {
+        console.log(err);
+      });
 
   }
   
@@ -142,9 +152,8 @@ export class ListeparticipantComponent implements OnInit {
     }
   }
 
-  popupconfirmation(){
+  popupconfirmation() {
     const mydial = this.dialog.open(ConfirmationpopupComponent);
-    this.ngOnInit();
 
   }
 

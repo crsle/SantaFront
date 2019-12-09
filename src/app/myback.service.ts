@@ -18,6 +18,7 @@ export class MybackService {
   utilisateurProprio = false
   boutonTirageVisible;
   aucunEvenement;
+  cible : Participation = new Participation();
   boutonCreaSantaVisible = true;
 
   idEventClickInv;

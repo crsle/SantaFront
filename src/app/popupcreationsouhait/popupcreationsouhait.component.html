@@ -1,14 +1,19 @@
-<form (ngSubmit)="creaSouhait()">
-    <div class="form-group">
-        <input type="text" placeholder="Mon souhait" required="" id="descsouhait" class="form-control">
-        <input type="text" placeholder="Ordre du souhait" required="" id="ordreSouhait" class="form-control">
-    </div>
-    <br>
+<mat-dialog-content class="mat-typography">
+    <form (ngSubmit)="creaSouhait()">
+        <div class="form-group text-center">
+            <input type="text" placeholder="Mon souhait" required="" id="descsouhait" class="form-control text-center">
+        </div>
+        <br>
 
-    <br>
-    <button type="submit" class="btn btn-danger">
-        Creer
-    </button>
+        <br>
+        <div class="text-center">
+            <button type="submit" class="btn" style="background-color: rgb(230, 100, 77);color: lightgray;">
+                Creer
+            </button>
+
+        </div>
 
 
-</form>
+
+    </form>
+</mat-dialog-content>

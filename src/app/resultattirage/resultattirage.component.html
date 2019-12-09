@@ -1,1 +1,25 @@
-<p>resultattirage works!</p>
+<mat-nav-list>
+    <table class="table">
+        <thead>
+            <th style="color:lightgray">#</th>
+            <th style="color:lightgray;">Pseudo</th>
+            <th style="color: lightgray;">Souhaits</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>
+                    <mat-icon class="example-tab-icon">face icon</mat-icon>
+                </th>
+                <th (click)=afficherDetails(myback?.cible?.participant?.id)><strong> {{myback?.cible?.participant?.pseudo}}</strong></th>
+
+                <th> <button mat-icon-button (click)=afficherSouhaits(myback?.cible?.participant?.id)>
+                        <mat-icon>view_list</mat-icon>
+                    </button></th>
+            </tr>
+
+        </tbody>
+
+    </table>
+</mat-nav-list>
+
+<p>Vous avez tiré {{myback?.cible?.participant?.pseudo}}</p>

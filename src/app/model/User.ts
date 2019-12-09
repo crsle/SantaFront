@@ -5,6 +5,7 @@ export class User{
     prenom :string;
     mail: String;    
     mdp: String;
+    
     inscriptionEnd : boolean;
 
     constructor(){}

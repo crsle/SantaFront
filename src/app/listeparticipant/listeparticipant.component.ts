@@ -22,6 +22,8 @@ export class ListeparticipantComponent implements OnInit {
   toutLeMondeAccepte = true;
   
   participant = new Participation();
+  ppp;
+  pp = new Participation();
   tirageFait = false;
   boutonTirage;
 
@@ -143,6 +145,26 @@ export class ListeparticipantComponent implements OnInit {
   popupconfirmation(){
     const mydial = this.dialog.open(ConfirmationpopupComponent);
     this.ngOnInit();
+
+  }
+
+  afficherVisage(idd : number){
+    this.http.get(this.myback.lienHTTP + '/santa/cible/'+this.myback.user.id+'/'+this.myback.santa.id)
+    .subscribe(data =>{    
+      this.ppp=data;  
+      
+        if (this.ppp.participant.id==idd){
+          return false;
+        } else{
+          return true;
+        }
+     
+      
+
+
+    },err =>{
+      console.log(err);
+    }); 
 
   }
 

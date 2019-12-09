@@ -22,4 +22,9 @@
     </table>
 </mat-nav-list>
 
-<p>Vous avez tiré {{myback?.cible?.participant?.pseudo}}</p>
+<p>Vous avez tiré {{myback?.cible?.participant?.prenom}} {{myback?.cible?.participant?.nom}}, aussi appelé {{myback?.cible?.participant?.pseudo}}</p>
+<button mat-icon-button (click)=afficherSouhaits(myback?.cible?.participant?.id)>
+        <mat-icon><button mat-icon-button (click)=afficherSouhaits(myback?.cible?.participant?.id)>
+                        <mat-icon>cake</mat-icon>
+                    </button></mat-icon>    Découvrez quoi lui offrir !
+    </button>

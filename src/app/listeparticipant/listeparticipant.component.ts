@@ -125,4 +125,8 @@ export class ListeparticipantComponent implements OnInit {
 
   }
 
+  popupconfirmation(){
+    const mydial = this.dialog.open(PopupdetailparticipantComponent);
+  }
+
 }

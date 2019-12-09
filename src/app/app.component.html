@@ -1,7 +1,7 @@
 <router-outlet></router-outlet>
 <div *ngIf="myserv.menuVisible">
     <nav class=" navbar fixed-top navbar-expand-lg navbar-light  menu">
-        <a class="navbar-brand" style="color: lightgray;"> Salut {{giveNom()}} </a>
+        <a class="navbar-brand" style="color: lightgray;"> {{giveNom()}} </a>
         
         <button (click)="bartoide()" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"

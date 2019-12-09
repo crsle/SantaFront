@@ -88,7 +88,6 @@ export class ListeparticipantComponent implements OnInit {
   }
 
 
-
   tirage() {
     this.http.get(this.myback.lienHTTP + 'santa/tirage/' + this.myback.santa.id)
       .subscribe(data => {
@@ -133,13 +132,14 @@ export class ListeparticipantComponent implements OnInit {
       });
   }
 
-  cloture() {
-    this.http.post(this.myback.lienHTTP + '/clotureSanta', this.myback.santa)
-      .subscribe(data => {
-        //this.ngOnInit()
-      }, err => {
-        console.log(err);
-      });
+  cloture(){
+    this.http.post(this.myback.lienHTTP + '/clotureSanta' , this.myback.santa)
+    .subscribe(data =>{
+      //this.ngOnInit()
+    },err =>{
+      console.log(err);
+    });  
+ 
   }
 
   deleteVisilble(id: number) {

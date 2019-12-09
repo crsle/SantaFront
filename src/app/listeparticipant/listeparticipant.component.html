@@ -9,14 +9,14 @@
         <tbody>
             <tr *ngFor="let p of participants">
                 <th>
-                    <mat-icon class="example-tab-icon">face icon</mat-icon>
+                    <img width="30px" src="https://img.icons8.com/ios-filled/50/000000/santa.png">
                 </th>
                 <th (click)=afficherDetails(p.participant.id)><strong> {{p.participant.pseudo}}</strong></th>
 
                 <th> <button mat-icon-button (click)=afficherSouhaits(p.participant.id)>
                         <mat-icon>view_list</mat-icon>
                     </button></th>
-                <th> <button mat-icon-button *ngIf="myback.utilisateurProprio && myback.boutonTirageVisible" (click)=delete(p.participant.id)>
+                <th> <button mat-icon-button [disabled]="!(myback.utilisateurProprio && myback.boutonTirageVisible)" (click)=delete(p.participant.id)>
                         <mat-icon>delete</mat-icon>
                     </button></th>
             </tr>

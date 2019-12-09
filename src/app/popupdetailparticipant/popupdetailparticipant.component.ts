@@ -26,7 +26,6 @@ export class PopupdetailparticipantComponent implements OnInit {
       .subscribe(data => {
         this.detailbis = data;
         this.details = this.detailbis;
-        console.log(this.details);
       }, err => {
         console.log(err);
 

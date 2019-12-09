@@ -10,6 +10,7 @@ import { User } from './model/User';
 })
 export class AppComponent {
   title = 'santa';
+  
   constructor(public myserv: MybackService, private route :Router){
 
   }
@@ -34,5 +35,9 @@ export class AppComponent {
   }
   goAbout(){
     this.route.navigate(['about']);
+  }
+
+  giveNom(){
+    return this.myserv.user.pseudo;
   }
 }

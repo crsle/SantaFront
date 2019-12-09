@@ -19,7 +19,7 @@ export class ListeparticipantComponent implements OnInit {
   santa;
   cible;
   toutLeMondeAccepte = true;
-
+  
   participant = new Participation();
   tirageFait = false;
   boutonTirage;
@@ -123,6 +123,20 @@ export class ListeparticipantComponent implements OnInit {
       console.log(err);
     });  
 
+  }
+  
+  deleteVisilble(id : number){
+    
+    if (this.myback.utilisateurProprio){
+      if(id==this.myback.user.id){
+        return false;
+      }else{
+        return true;
+      }
+
+    }else{
+      return false;
+    }
   }
 
 }

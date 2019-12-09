@@ -16,7 +16,7 @@
                 <th> <button mat-icon-button (click)=afficherSouhaits(p.participant.id)>
                         <mat-icon>view_list</mat-icon>
                     </button></th>
-                <th> <button mat-icon-button *ngIf="myback.utilisateurProprio" (click)=delete(p.participant.id)>
+                <th> <button mat-icon-button *ngIf="myback.utilisateurProprio && myback.boutonTirageVisible" (click)=delete(p.participant.id)>
                         <mat-icon>delete</mat-icon>
                     </button></th>
             </tr>
@@ -29,7 +29,15 @@
             <form #forme="ngForm" (ngSubmit)="tirage()"><button mat-raised-button
                     style="color: lightgray; background-color: rgb(230, 100, 77); width: fit-content;" type="submit"
                     id="boutontirage" class="btn btn-block" *ngIf="myback.boutonTirageVisible">
-                    <mat-icon>check_circle_outline</mat-icon>Lancer le tirage
+                    <mat-icon>check_circle_outline</mat-icon> Lancer le tirage
+                </button></form>
+        </div>
+
+        <div class="text-center">
+            <form #forme="ngForm" (ngSubmit)="popupconfirmation()"><button mat-raised-button
+                    style="color: lightgray; background-color: rgb(230, 100, 77); width: fit-content;" type="submit"
+                    id="boutontirage" class="btn btn-block" *ngIf="!myback.boutonTirageVisible">
+                    <mat-icon>cancel</mat-icon> Annuler le tirage
                 </button></form>
         </div>
 
@@ -40,7 +48,7 @@
                 <form #forme="ngForm" (ngSubmit)="cloture()"><button mat-raised-button
                         style="color: lightgray; background-color: rgb(230, 100, 77); width: fit-content;" type="submit"
                         id="boutoncloture" class="btn btn-block" *ngIf="myback.utilisateurProprio">
-                        <mat-icon>delete</mat-icon>Fermer le Santa
+                        <mat-icon>delete</mat-icon>Clôturer le Santa
                     </button></form>
             </div>
 

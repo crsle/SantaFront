@@ -6,7 +6,7 @@
   <br><br><br><br>
   <!--debut bt + (create)-->
 
-  <div class="text-center fixed-top" style="margin-top: 70px;" *ngIf="myback.bartoi">
+  <div class="text-center fixed-top" style="margin-top: 70px;" *ngIf="myback.boutonCreaSantaVisible">
     <button mat-fab color="primary" (click)="openPopupCreaSanta()"
       style="color: lightgray; background-color: rgb(230, 100, 77);">
       <mat-icon>add</mat-icon>
@@ -45,9 +45,9 @@
           </div>
           <br><br>
 
-          <div *ngFor="let e of eventsAccepte">
-              <div class="text-center">
-                <div class="col-sm-2">
+          <div class="col-sm-4" *ngFor="let e of eventsAccepte">
+           
+             
                   <div class="card">
                     <a>
                       <div class="card-image">
@@ -67,9 +67,9 @@
                         </div>
                       </div>
                     </a>
-                  </div>
+                
+           
                 </div>
-              </div>
               <br><br>
             </div>
             <div *ngFor="let e of eventsenAttente">

@@ -10,15 +10,16 @@ import { User } from './model/User';
 })
 export class AppComponent {
   title = 'santa';
+  
   constructor(public myserv: MybackService, private route :Router){
 
   }
 
   bartoide() {
-    if(this.myserv.bartoi == true){
-      this.myserv.bartoi = false
+    if(this.myserv.boutonCreaSantaVisible == true){
+      this.myserv.boutonCreaSantaVisible = false
     } else{
-      this.myserv.bartoi = true;
+      this.myserv.boutonCreaSantaVisible = true;
     }
   }
 
@@ -34,5 +35,9 @@ export class AppComponent {
   }
   goAbout(){
     this.route.navigate(['about']);
+  }
+
+  giveNom(){
+    return this.myserv.user.pseudo;
   }
 }

@@ -148,25 +148,7 @@ export class ListeparticipantComponent implements OnInit {
 
   }
 
-  afficherVisage(idd : number){
-    this.http.get(this.myback.lienHTTP + '/santa/cible/'+this.myback.user.id+'/'+this.myback.santa.id)
-    .subscribe(data =>{    
-      this.ppp=data;  
-      
-        if (this.ppp.participant.id==idd){
-          return false;
-        } else{
-          return true;
-        }
-     
-      
-
-
-    },err =>{
-      console.log(err);
-    }); 
-
-  }
+  
 
 
 }

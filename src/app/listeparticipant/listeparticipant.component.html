@@ -29,7 +29,7 @@
         <div class="text-center">
             <form #forme="ngForm" (ngSubmit)="tirage()"><button mat-raised-button
                     style="color: lightgray; background-color: rgb(230, 100, 77); width: fit-content;" type="submit"
-                    id="boutontirage" class="btn btn-block" *ngIf="myback.boutonTirageVisible">
+                    id="boutontirage" class="btn btn-block" *ngIf="myback.utilisateurProprio && myback.boutonTirageVisible">
                     <mat-icon>check_circle_outline</mat-icon> Lancer le tirage
                 </button></form>
                 
@@ -38,7 +38,7 @@
         <div class="text-center">
             <form #forme="ngForm" (ngSubmit)="popupconfirmation()"><button mat-raised-button
                     style="color: lightgray; background-color: rgb(230, 100, 77); width: fit-content;" type="submit"
-                    id="boutontirage" class="btn btn-block" *ngIf="!myback.boutonTirageVisible">
+                    id="boutontirage" class="btn btn-block" *ngIf="!myback.boutonTirageVisible && myback.utilisateurProprio">
                     <mat-icon>cancel</mat-icon> Annuler le tirage
                 </button></form>
         </div>

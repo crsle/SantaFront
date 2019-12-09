@@ -8,7 +8,6 @@ import { Participation } from './model/Participation';
 })
 export class MybackService {
 
-  bartoi = true;
   menuVisible = false;
   user :User =new User();
   santa : SSanta = new SSanta();
@@ -19,6 +18,7 @@ export class MybackService {
   utilisateurProprio = false
   boutonTirageVisible;
   aucunEvenement;
+  boutonCreaSantaVisible = true;
 
   idEventClickInv;
   constructor() {

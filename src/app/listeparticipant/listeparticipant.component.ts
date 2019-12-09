@@ -20,8 +20,10 @@ export class ListeparticipantComponent implements OnInit {
   santa;
   cible;
   toutLeMondeAccepte = true;
-
+  
   participant = new Participation();
+  ppp;
+  pp = new Participation();
   tirageFait = false;
   boutonTirage;
 
@@ -125,12 +127,28 @@ export class ListeparticipantComponent implements OnInit {
     });  
 
   }
+  
+  deleteVisilble(id : number){
+    
+    if (this.myback.utilisateurProprio && this.myback.boutonTirageVisible){
+      if(id==this.myback.user.id){
+        return true;
+      }else{
+        return false;
+      }
+
+    }else{
+      return true;
+    }
+  }
 
   popupconfirmation(){
     const mydial = this.dialog.open(ConfirmationpopupComponent);
     this.ngOnInit();
 
   }
+
+  
 
 
 }

@@ -30,6 +30,7 @@ import { PopupdetailparticipantComponent } from './popupdetailparticipant/popupd
 import { HistoriqueComponent } from './historique/historique.component';
 import { AboutComponent } from './about/about.component';
 import { ConfirmationpopupComponent } from './confirmationpopup/confirmationpopup.component';
+import { ResultattirageComponent } from './resultattirage/resultattirage.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { ConfirmationpopupComponent } from './confirmationpopup/confirmationpopu
     PopupdetailparticipantComponent,
     HistoriqueComponent,
     AboutComponent,
-    ConfirmationpopupComponent
+    ConfirmationpopupComponent,
+    ResultattirageComponent
   ],
   
   entryComponents: [PopupCreaSantaComponent,PopupsouhaitComponent,PopupcreationsouhaitComponent, PopupInvitationComponent,PopupdetailparticipantComponent,UploadimageComponent,ConfirmationpopupComponent],

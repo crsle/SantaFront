@@ -12,28 +12,34 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class PopupcreationsouhaitComponent implements OnInit {
   souhait = new Souhait();
+  derniersouhait;
   nvOrdre;
   nvDescription;
 
-  constructor(public mys :MybackService,private route :Router,private http: HttpClient, private dialogRef: MatDialogRef<PopupcreationsouhaitComponent>) { }
+  constructor(public mys: MybackService, private route: Router, private http: HttpClient, private dialogRef: MatDialogRef<PopupcreationsouhaitComponent>) { }
 
   ngOnInit() {
   }
 
-  creaSouhait(){
-    this.souhait.personne=this.mys.user;
-    this.souhait.santa = this.mys.santa;
-    this.nvOrdre = document.getElementById("ordreSouhait");
-    this.souhait.ordre = this.nvOrdre.value;
-    this.nvDescription= document.getElementById("descsouhait");
-    this.souhait.description = this.nvDescription.value;
-    console.log('souhait',this.souhait)
-    this.http.post(this.mys.lienHTTP+'souhait',this.souhait)
-    .subscribe(data => {
-      this.dialogRef.close();
-    }, err => {
-      console.log(err);
-    });
+  creaSouhait() {
+    this.http.get(this.mys.lienHTTP + 'user/santa/derniersouhait/' + this.mys.user.id + '/' + this.mys.santa.id)
+      .subscribe(data => {
+        this.derniersouhait = data;
+        this.nvOrdre = this.derniersouhait.ordre + 1;
+        this.souhait.personne = this.mys.user;
+        this.souhait.santa = this.mys.santa;
+        this.souhait.ordre = this.nvOrdre;
+        this.nvDescription = document.getElementById("descsouhait");
+        this.souhait.description = this.nvDescription.value;
+        this.http.post(this.mys.lienHTTP + 'souhait', this.souhait)
+          .subscribe(data => {
+            this.dialogRef.close();
+          }, err => {
+            console.log(err);
+          });
+      }, err => {
+
+      });
   }
 
 }

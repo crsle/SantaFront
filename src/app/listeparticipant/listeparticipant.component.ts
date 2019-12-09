@@ -130,15 +130,15 @@ export class ListeparticipantComponent implements OnInit {
   
   deleteVisilble(id : number){
     
-    if (this.myback.utilisateurProprio){
+    if (this.myback.utilisateurProprio && this.myback.boutonTirageVisible){
       if(id==this.myback.user.id){
-        return false;
-      }else{
         return true;
+      }else{
+        return false;
       }
 
     }else{
-      return false;
+      return true;
     }
   }
 

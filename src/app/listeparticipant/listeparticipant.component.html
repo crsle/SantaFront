@@ -1,31 +1,41 @@
+<mat-nav-list>
+    <table class="table">
+        <thead>
+            <th style="color:lightgray">#</th>
+            <th style="color:lightgray;">Pseudo</th>
+            <th style="color: lightgray;">Souhaits</th>
+            <th style="color: lightgray;" *ngIf="myback.utilisateurProprio">Supp</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of participants">
+                <th>
+                    <mat-icon class="example-tab-icon">face icon</mat-icon>
+                </th>
+                <th (click)=afficherDetails(p.participant.id)><strong> {{p.participant.pseudo}}</strong></th>
 
-    <mat-nav-list>
-        <table class="table">
-            <thead>
-                <th scope="col"></th>
-                <th scope="col">Pseudo</th>
-                <th scope="col">Souhaits</th>
-                <th scope="col" *ngIf="myback.utilisateurProprio">Supprimer</th>
-            </thead>
-            <tbody>
-                <tr *ngFor="let p of participants" >
-                    <th>
-                        <mat-icon class="example-tab-icon">face icon</mat-icon>
-                    </th>
-                    <th (click)=afficherDetails(p.participant.id)><strong> {{p.participant.pseudo}}</strong></th>
+                <th> <button mat-icon-button (click)=afficherSouhaits(p.participant.id)>
+                        <mat-icon>view_list</mat-icon>
+                    </button></th>
+                <th> <button mat-icon-button *ngIf="myback.utilisateurProprio" (click)=delete(p.participant.id)>
+                        <mat-icon>delete</mat-icon>
+                    </button></th>
+            </tr>
 
-                    <th> <button mat-icon-button (click)=afficherSouhaits(p.participant.id)>
-                            <mat-icon>view_list</mat-icon>
-                        </button></th>
-                    <th> <button mat-icon-button *ngIf="myback.utilisateurProprio" (click)=delete(p.participant.id)>
-                            <mat-icon>delete</mat-icon>
-                        </button></th>
-                </tr>
+        </tbody>
 
-            </tbody>
+    </table>
+    <div>
+        <div class="text-center">
+            <form #forme="ngForm" (ngSubmit)="tirage()"><button mat-raised-button
+                    style="color: lightgray; background-color: rgb(230, 100, 77); width: fit-content;" type="submit"
+                    id="boutontirage" class="btn btn-block" *ngIf="myback.boutonTirageVisible">
+                    <mat-icon>check_circle_outline</mat-icon>Lancer le tirage
+                </button></form>
+        </div>
 
-        </table>
-        <form #forme = "ngForm" (ngSubmit)="tirage()"><button type="submit" id="boutontirage" class="btn btn-danger" *ngIf="myback.boutonTirageVisible">Faire le tirage</button></form>
+
         <br>
-        <form #forme = "ngForm" (ngSubmit)="cloture()"><button type="submit" id="boutoncloture" class="btn btn-danger" *ngIf="myback.utilisateurProprio">Fermer un Santa</button></form>
-    </mat-nav-list>
+        <form #forme="ngForm" (ngSubmit)="cloture()"><button type="submit" id="boutoncloture" class="btn btn-danger"
+                *ngIf="myback.utilisateurProprio">Fermer un Santa</button></form>
+    </div>
+</mat-nav-list>

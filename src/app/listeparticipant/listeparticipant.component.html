@@ -35,7 +35,15 @@
 
 
         <br>
-        <form #forme="ngForm" (ngSubmit)="cloture()"><button type="submit" id="boutoncloture" class="btn btn-danger"
-                *ngIf="myback.utilisateurProprio">Fermer un Santa</button></form>
+
+        <div class="text-center">
+                <form #forme="ngForm" (ngSubmit)="cloture()"><button mat-raised-button
+                        style="color: lightgray; background-color: rgb(230, 100, 77); width: fit-content;" type="submit"
+                        id="boutoncloture" class="btn btn-block" *ngIf="myback.utilisateurProprio">
+                        <mat-icon>delete</mat-icon>Fermer le Santa
+                    </button></form>
+            </div>
+
+        
     </div>
 </mat-nav-list>

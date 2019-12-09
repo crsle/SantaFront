@@ -1,5 +1,4 @@
-
-<div class="container">
+<!-- <div class="container">
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
@@ -27,4 +26,37 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
+
+<br>
+<div>
+    <form #form (ngSubmit)="onUpload(messageimage.value)">
+
+            <div class="text-center">
+                    <img [src]="imgURL" height="80" *ngIf="imgURL">
+                </div>
+                <br>
+
+        <div class="input-group mb-3">
+            <input type="text" class="form-control text-center" placeholder="Quoi de neuf ? ☺☺" #messageimage>
+            <div class="input-group-append">
+                <button type="submit" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+                    <mat-icon>send</mat-icon>
+                </button>
+            </div>
+        </div>
+        <input type="file" [hidden]="true" name="pic" (change)="onFileChanged($event)" accept="image/*" #file>
+        
+    </form>
+
+    <div class="text-center">
+            <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon"
+                (click)="file.click()">
+                <mat-icon>perm_media</mat-icon>
+            </button>
+            &nbsp; &nbsp;
+            <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+                <mat-icon>gif</mat-icon>
+            </button>
+        </div>
+</div>

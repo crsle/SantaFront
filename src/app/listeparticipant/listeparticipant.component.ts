@@ -5,9 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupsouhaitComponent } from '../popupsouhait/popupsouhait.component';
 import { PopupdetailparticipantComponent } from '../popupdetailparticipant/popupdetailparticipant.component';
-import { SSanta } from '../model/SSanta';
 import { Participation } from '../model/Participation';
-import { Button } from 'protractor';
 import { ConfirmationpopupComponent } from '../confirmationpopup/confirmationpopup.component';
 
 @Component({
@@ -15,17 +13,19 @@ import { ConfirmationpopupComponent } from '../confirmationpopup/confirmationpop
   templateUrl: './listeparticipant.component.html',
   styleUrls: ['./listeparticipant.component.css']
 })
+
 export class ListeparticipantComponent implements OnInit {
-  participants;
+  participantsPresents;
+  participantsEnAttente;
   santa;
   cible;
-  toutLeMondeAccepte = true;
-  
+
   participant = new Participation();
   ppp;
   pp = new Participation();
   tirageFait = false;
   boutonTirage;
+  allAccepted = true;
 
   constructor(public myback: MybackService, private route: Router, private http: HttpClient, private dialog: MatDialog) {
     if (myback.user.mail == null) {
@@ -33,22 +33,38 @@ export class ListeparticipantComponent implements OnInit {
       this.route.navigate(['login']);
     }
     this.isProprio();
-
   }
 
   ngOnInit() {
-
-
-    this.recupParticipants();
+    this.recupParticipantsPresents();
+    this.recupParticipantsEnAttente();
     this.verificationTirageFait();
-
-
   }
 
-  recupParticipants() {
-    this.http.get(this.myback.lienHTTP + 'santa/participants/' + this.myback.santa.id)
+  recupParticipantsPresents() {
+    this.http.get(this.myback.lienHTTP + 'santa/participants/' + this.myback.santa.id + '/1')
       .subscribe(data => {
-        this.participants = data;
+        this.participantsPresents = data;
+        this.allAccepted=true;
+        this.participantsPresents.forEach(p => {
+          if (p.present == false) {
+            console.log('partcicipant : ' + p.participant)
+            console.log('present : ' + p.present)
+            this.allAccepted = false;
+          }
+        });
+      }, err => {
+        console.log(err);
+      });
+  }
+
+  recupParticipantsEnAttente() {
+    this.http.get(this.myback.lienHTTP + 'santa/participants/' + this.myback.santa.id + '/0')
+      .subscribe(data => {
+        this.participantsEnAttente = data;
+        if (this.participantsEnAttente != null) {
+          this.allAccepted = false
+        }
       }, err => {
         console.log(err);
       });
@@ -86,18 +102,7 @@ export class ListeparticipantComponent implements OnInit {
       }, err => {
         console.log(err);
       });
-    
-
-
   }
-  // cibleCadeau(){
-  //   this.http.get(this.myback.lienHTTP + 'santa/cible/'+this.myback.user.id+'/'+this.myback.santa.id).subscribe(data =>{
-  //     this.cible = data;
-  //    }, err =>{
-  //     console.log(err);
-  //      return false;
-  //    });
-  // }
 
   afficherSouhaits(id) {
     this.myback.idParticipantSelectionne = id;
@@ -135,29 +140,22 @@ export class ListeparticipantComponent implements OnInit {
       }, err => {
         console.log(err);
       });
-
   }
-  
-  deleteVisilble(id : number){
-    
-    if (this.myback.utilisateurProprio && this.myback.boutonTirageVisible){
-      if(id==this.myback.user.id){
+
+  deleteVisilble(id: number) {
+    if (this.myback.utilisateurProprio && this.myback.boutonTirageVisible) {
+      if (id == this.myback.user.id) {
         return true;
-      }else{
+      } else {
         return false;
       }
-
-    }else{
+    } else {
       return true;
     }
   }
 
   popupconfirmation() {
     const mydial = this.dialog.open(ConfirmationpopupComponent);
-
   }
-
-  
-
 
 }

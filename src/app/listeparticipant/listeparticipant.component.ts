@@ -88,7 +88,6 @@ export class ListeparticipantComponent implements OnInit {
   }
 
 
-
   tirage() {
     this.http.get(this.myback.lienHTTP + 'santa/tirage/' + this.myback.santa.id)
       .subscribe(data => {

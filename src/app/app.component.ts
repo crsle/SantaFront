@@ -15,10 +15,10 @@ export class AppComponent {
   }
 
   bartoide() {
-    if(this.myserv.bartoi == true){
-      this.myserv.bartoi = false
+    if(this.myserv.boutonCreaSantaVisible == true){
+      this.myserv.boutonCreaSantaVisible = false
     } else{
-      this.myserv.bartoi = true;
+      this.myserv.boutonCreaSantaVisible = true;
     }
   }
 

@@ -70,8 +70,10 @@ boutonInviterMembreVisible;
 
   openPopupCreaSanta() {
     const mydial =this.dialog.open(PopupCreaSantaComponent);
+    this.myback.boutonCreaSantaVisible = false;
     mydial.afterClosed().subscribe(result => {
       this.ngOnInit();
+      this.myback.boutonCreaSantaVisible = true;
     });
   }
 
@@ -119,13 +121,15 @@ boutonInviterMembreVisible;
 
   callPopupInv(id) {
     this.myback.idEventClickInv = id;
+    this.myback.boutonCreaSantaVisible = false
     const mydial =this.dialog.open(PopupInvitationComponent);
     mydial.afterClosed().subscribe(result => {
       this.ngOnInit();
+      this.myback.boutonCreaSantaVisible = true;
     });
   }
-  nonConfirmParticipation(s:SSanta){
 
+  nonConfirmParticipation(s:SSanta){
     this.http.delete(this.myback.lienHTTP + '/SupprimerParticipation/' +this.myback.user.id+'/'+ s.id)
     .subscribe(data =>{
       this.ngOnInit()

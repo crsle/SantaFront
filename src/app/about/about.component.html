@@ -1,1 +1,82 @@
-<p>about works!</p>
+<!--fin bt + (create)-->
+
+<br><br> <br>
+
+<!--debut card-->
+<div class="container" >
+    <div class="row">
+        <div class="card text-center" *ngIf="myback.aucuneInvit">
+            <a>
+                <div class="card-image">
+                    <img src="https://cdn.laredoute.com/products/362by362/0/3/a/03acba92d2a8ec71e59b9b0ca79d05ef.jpg">
+                </div>
+                <div class="card-body">
+
+                    <div class="card-title">
+                        <h4>Bienvenue sur Secret Santa !</h4>
+                    </div>
+                    <div class="card-excerpt">
+                        <p> Vous n'avez aucune invitation Secret Santa en cours actuellement. Si t'as pas d'amis prends un curly!
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <br><br>
+
+        
+        <div *ngFor="let e of eventsenAttente">
+            <div class="text-center">
+                <div class="col-sm-2">
+                    <div class="card">
+                        <a>
+                            <div class="card-image">
+                                <img
+                                    src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000/https://www.shopmaman.com/wp-content/uploads/2019/07/7427763_Nos-conseils-pour-des-cadeaux-de-No%C3%ABl-sympas-et-pas-chers_1000x625.jpg">
+                            </div>
+                            <div class="card-body">
+                                <!--<div class="card-date">
+                        
+                      </div>-->
+                                <div class="card-title">
+                                    <h6>Vous avez été invité par {{e.evenement.createur.pseudo}} à l'event
+                                        {{e.evenement.nomSSanta}} </h6>
+                                </div>
+
+
+                                <div class="card-excerpt">
+
+
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class=" col-sm-6">
+                                                <button class="btn btn-block btn-success text-center"
+                                                    (click)="confirmParticipation(e.evenement)">
+                                                    <mat-icon>done_outline</mat-icon>
+                                                </button>
+                                            </div>
+                                            <div class=" col-sm-6">
+                                                <button class="btn btn-block btn-danger text-center"
+                                                    (click)="nonConfirmParticipation(e.evenement)">
+                                                    <mat-icon>delete</mat-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-block btn-info text-center"
+                                        (click)="goSanta(e.evenement)">Détail du Secret Santa</button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+        </div>
+
+
+    </div>
+
+</div>
+<!--fin card-->

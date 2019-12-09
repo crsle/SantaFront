@@ -25,8 +25,9 @@
             </ul>
             
         </div>
-        <button mat-mini-fab color="primary" [matMenuTriggerFor]="menu" style="color: rgb(230, 100, 77);; background-color: lightgray;">
-                <mat-icon>account_circle </mat-icon>
+        <button mat-mini-fab color="primary" [matMenuTriggerFor]="menu" style="color: rgb(230, 100, 77);; background-color: lightgray;"
+        matBadge={{myserv.nbInvitations}} matBadgePosition="before" matBadgeColor="accent">
+                <mat-icon >account_circle </mat-icon>
             </button>
     </nav>
 
@@ -37,8 +38,8 @@
               <span>Profil</span>
             </button>
             <button mat-menu-item (click)="goAbout()">
-              <mat-icon style="color: rgb(230, 100, 77);">info</mat-icon>
-              <span>About </span>
+              <mat-icon matBadge={{myserv.nbInvitations}} matBadgePosition="before" matBadgeColor="accent" style="color: rgb(230, 100, 77);" >info</mat-icon>
+              <span>Invitations </span>
             </button>
             <button mat-menu-item (click)="goDeco()">
               <mat-icon style="color: rgb(230, 100, 77);">power_settings_new</mat-icon>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {MybackService} from './myback.service';
 import { Router } from '@angular/router';
 import { User } from './model/User';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,9 @@ import { User } from './model/User';
 })
 export class AppComponent {
   title = 'santa';
+ 
   
-  constructor(public myserv: MybackService, private route :Router){
+  constructor(public myserv: MybackService, private route :Router,private http: HttpClient){
 
   }
 
@@ -40,4 +42,9 @@ export class AppComponent {
   giveNom(){
     return this.myserv.user.pseudo;
   }
+
+  
+
+
+
 }

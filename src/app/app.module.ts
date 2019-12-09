@@ -30,6 +30,9 @@ import { PopupdetailparticipantComponent } from './popupdetailparticipant/popupd
 import { HistoriqueComponent } from './historique/historique.component';
 import { AboutComponent } from './about/about.component';
 import { ConfirmationpopupComponent } from './confirmationpopup/confirmationpopup.component';
+import {MatBadgeModule} from '@angular/material/badge';
+
+
 
 
 @NgModule({
@@ -68,6 +71,7 @@ import { ConfirmationpopupComponent } from './confirmationpopup/confirmationpopu
     MatListModule,
     MatMenuModule,
     DragDropModule,
+    MatBadgeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

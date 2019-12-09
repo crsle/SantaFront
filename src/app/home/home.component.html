@@ -46,27 +46,33 @@
       <br><br>
 
       <div class="col-sm-4" *ngFor="let e of eventsAccepte">
-            <div class="card">
-              <a>
-                <div class="card-image">
-                  <img
-                    src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000/https://www.shopmaman.com/wp-content/uploads/2019/07/7427763_Nos-conseils-pour-des-cadeaux-de-No%C3%ABl-sympas-et-pas-chers_1000x625.jpg">
-                </div>
-                <div class="card-body">
-                  <div class="card-title">
-                    <h3>{{e.evenement.nomSSanta}}</h3>
-                  </div>
-                  <div class="card-excerpt">
-                    <p> Ce Secret Santa a été créé par : {{e.evenement.createur.pseudo}}
-                    </p>
-                    <button class="btn btn-success btn-block text-center" (click)="callPopupInv(e.evenement.id)"
-                      [disabled]=!isProprio(e)>Inviter des membres</button>
-                    <button class="btn btn-block btn-info text-center" (click)="goSanta(e.evenement)">Voir ce Secret
-                      Santa</button>
-                  </div>
-                </div>
-              </a>
+        <div class="card">
+          <a>
+            <div class="card-image">
+              <img
+                src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000/https://www.shopmaman.com/wp-content/uploads/2019/07/7427763_Nos-conseils-pour-des-cadeaux-de-No%C3%ABl-sympas-et-pas-chers_1000x625.jpg">
             </div>
+            <div class="card-body">
+              <div class="card-title">
+                <h3>{{e.evenement.nomSSanta}}</h3>
+              </div>
+              <div class="card-excerpt">
+                <p> Ce Secret Santa a été créé par : {{e.evenement.createur.pseudo}}
+                </p>
+                <div class="text-center row" ><button mat-mini-fab class="text-center" (click)="callPopupInv(e.evenement.id)"
+                    [disabled]=!isProprio(e) style="background-color: white; color: rgb(54, 170, 31);">
+                    <mat-icon>person_add</mat-icon>
+                  </button></div><br>
+                <div class="text-center"><button mat-mini-fab class="text-center" (click)="goSanta(e.evenement)"
+                    style="background-color: white; color: rgb(42, 169, 201);">
+                    <mat-icon>remove_red_eye</mat-icon>
+                  </button></div>
+
+
+              </div>
+            </div>
+          </a>
+        </div>
         <br><br>
       </div>
     </div>

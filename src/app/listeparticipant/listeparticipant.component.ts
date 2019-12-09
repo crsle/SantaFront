@@ -8,6 +8,7 @@ import { PopupdetailparticipantComponent } from '../popupdetailparticipant/popup
 import { SSanta } from '../model/SSanta';
 import { Participation } from '../model/Participation';
 import { Button } from 'protractor';
+import { ConfirmationpopupComponent } from '../confirmationpopup/confirmationpopup.component';
 
 @Component({
   selector: 'app-listeparticipant',
@@ -118,7 +119,7 @@ export class ListeparticipantComponent implements OnInit {
   cloture(){
     this.http.post(this.myback.lienHTTP + '/clotureSanta' , this.myback.santa)
     .subscribe(data =>{
-      this.ngOnInit()
+      //this.ngOnInit()
     },err =>{
       console.log(err);
     });  
@@ -138,5 +139,12 @@ export class ListeparticipantComponent implements OnInit {
       return false;
     }
   }
+
+  popupconfirmation(){
+    const mydial = this.dialog.open(ConfirmationpopupComponent);
+    this.ngOnInit();
+
+  }
+
 
 }

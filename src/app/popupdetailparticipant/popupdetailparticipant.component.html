@@ -1,14 +1,21 @@
+
+<mat-dialog-content class="mat-typography">
+    <h2>Vous visualisez : {{details.pseudo}}</h2>
 <table class="table">
-    <thead>
-        <th>Prénom</th>
-        <th>Nom</th>
-        <th>Mail</th>
+    <thead >
+        <th class="colorentete">Prénom</th>
+        <th class="colorentete">Nom</th>
+        <th class="colorentete">Mail</th>
     </thead>
     <tbody>
         <tr>
             <th>{{details.prenom}}</th>
             <th>{{details.nom}}</th>
-            <th>{{details.pseudo}}</th>
+            <th>{{details.mail}}</th>
         </tr>
     </tbody>
 </table>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Fermer</button>
+</mat-dialog-actions>

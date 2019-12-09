@@ -28,18 +28,4 @@ export class PopupInvitationComponent implements OnInit {
   }
 
 
-  /*invitation(){
-    this.http.get(this.myback.lienHTTP+'invitation').subscribe(date =>{
-
-    }, err =>{
-      console.log(err);
-    }
-    this.invitationParticipant();
-    );
-
-
-  }
-  invitationParticipant(){
-    this.http.get(this.myback.lienHTTP+'inv', this.user).subscribe (data )
-  }*/
 }

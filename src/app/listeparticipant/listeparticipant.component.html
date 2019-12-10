@@ -1,80 +1,85 @@
 <mat-nav-list>
     <!-- <font size="2"><i style="font-size: 55;">Participants validés</i></font> -->
-    <table class="table">
-        <thead>
-            <th style="color:lightgray">#</th>
-            <th style="color:lightgray;">Pseudo</th>
-            <th style="color: lightgray;">Souhaits</th>
-            <th style="color: lightgray;" *ngIf="myback.utilisateurProprio">Supp</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let p of participantsPresents">
-                <th>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <th style="color:lightgray">#</th>
+                <th style="color:lightgray;">Pseudo</th>
+                <th style="color: lightgray;">Souhaits</th>
+                <th style="color: lightgray;" *ngIf="myback.utilisateurProprio">Supp</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of participantsPresents">
+                    <th>
 
-                    <img width="30px" src="https://img.icons8.com/ios-filled/50/000000/santa.png">
-                </th>
-                <th (click)=afficherDetails(p.participant.id)><strong> {{p.participant.pseudo}}</strong></th>
+                        <img width="30px" src="https://img.icons8.com/ios-filled/50/000000/santa.png">
+                    </th>
+                    <th (click)=afficherDetails(p.participant.id)><strong> {{p.participant.pseudo}}</strong></th>
 
-                <th> <button mat-icon-button (click)=afficherSouhaits(p.participant.id)>
-                        <mat-icon>view_list</mat-icon>
-                    </button></th>
-                <th> <button mat-icon-button [disabled]=deleteVisilble(p.participant.id)
-                        (click)=delete(p.participant.id)>
-                        <mat-icon>delete</mat-icon>
-                    </button></th>
-            </tr>
-            <tr *ngFor="let p of participantsEnAttente" style="background-color: rgb(248, 245, 245);">
-                <th>
-                    <img width="25px" src="https://img.icons8.com/material/30/000000/question-mark--v1.png">
-                </th>
-                <th (click)=afficherDetails(p.participant.id)><strong> {{p.participant.mail}}</strong></th>
+                    <th> <button mat-icon-button (click)=afficherSouhaits(p.participant.id)>
+                            <mat-icon>view_list</mat-icon>
+                        </button></th>
+                    <th> <button mat-icon-button [disabled]=deleteVisilble(p.participant.id)
+                            (click)=delete(p.participant.id)>
+                            <mat-icon>delete</mat-icon>
+                        </button></th>
+                </tr>
 
-                <th> <button mat-icon-button (click)=afficherSouhaits(p.participant.id)>
-                        <mat-icon>view_list</mat-icon>
-                    </button></th>
-                <th> <button mat-icon-button [disabled]=deleteVisilble(p.participant.id)
-                        (click)=delete(p.participant.id)>
-                        <mat-icon>delete</mat-icon>
-                    </button></th>
-            </tr>
-        </tbody>
-    </table>
+                <tr *ngFor="let p of participantsEnAttente" style="background-color: rgb(248, 245, 245);">
+                    <th>
+                        <img width="25px" src="https://img.icons8.com/material/30/000000/question-mark--v1.png">
+                    </th>
+                    <th (click)=afficherDetails(p.participant.id)><strong> {{p.participant.mail}}</strong></th>
 
-
-
+                    <th> <button mat-icon-button (click)=afficherSouhaits(p.participant.id)>
+                            <mat-icon>view_list</mat-icon>
+                        </button></th>
+                    <th> <button mat-icon-button [disabled]=deleteVisilble(p.participant.id)
+                            (click)=delete(p.participant.id)>
+                            <mat-icon>delete</mat-icon>
+                        </button></th>
+                </tr>
+            </tbody>
+        </table>
 
 
-    <div>
-        <div class="text-center">
-            <form #forme="ngForm" (ngSubmit)="tirage()"><button mat-raised-button
-                    style="color: lightgray; background-color: rgb(230, 100, 77); width: fit-content;" type="submit"
-                    id="boutontirage" class="btn btn-block"
-                    *ngIf="myback.utilisateurProprio && myback.boutonTirageVisible" [disabled]="!allAccepted">
-                    <mat-icon>check_circle_outline</mat-icon> Lancer le tirage
-                </button></form>
+
+
+
+        <div>
+            <div class="text-center">
+                <form #forme="ngForm" (ngSubmit)="tirage()"><button mat-raised-button
+                        style="color: lightgray; background-color: rgb(230, 100, 77); width: fit-content;" type="submit"
+                        id="boutontirage" class="btn btn-block"
+                        *ngIf="myback.utilisateurProprio && myback.boutonTirageVisible" [disabled]="!allAccepted">
+                        <mat-icon>check_circle_outline</mat-icon> Lancer le tirage
+                    </button></form>
+
+            </div>
+
+            <div class="text-center">
+                <form #forme="ngForm" (ngSubmit)="popupconfirmation()"><button mat-raised-button
+                        style="color: lightgray; background-color: rgb(230, 100, 77); width: fit-content;" type="submit"
+                        id="boutontirage" class="btn btn-block"
+                        *ngIf="!myback.boutonTirageVisible && myback.utilisateurProprio">
+                        <mat-icon>cancel</mat-icon> Annuler le tirage
+                    </button></form>
+            </div>
+
+
+            <br>
+
+            <div class="text-center">
+                <form #forme="ngForm" (ngSubmit)="cloture()"><button mat-raised-button
+                        style="color: lightgray; background-color: rgb(230, 100, 77); width: fit-content;" type="submit"
+                        id="boutoncloture" class="btn btn-block" *ngIf="myback.utilisateurProprio">
+                        <mat-icon>delete</mat-icon>Clôturer le Santa
+                    </button></form>
+            </div>
+
 
         </div>
-
-        <div class="text-center">
-            <form #forme="ngForm" (ngSubmit)="popupconfirmation()"><button mat-raised-button
-                    style="color: lightgray; background-color: rgb(230, 100, 77); width: fit-content;" type="submit"
-                    id="boutontirage" class="btn btn-block"
-                    *ngIf="!myback.boutonTirageVisible && myback.utilisateurProprio">
-                    <mat-icon>cancel</mat-icon> Annuler le tirage
-                </button></form>
-        </div>
-
-
-        <br>
-
-        <div class="text-center">
-            <form #forme="ngForm" (ngSubmit)="cloture()"><button mat-raised-button
-                    style="color: lightgray; background-color: rgb(230, 100, 77); width: fit-content;" type="submit"
-                    id="boutoncloture" class="btn btn-block" *ngIf="myback.utilisateurProprio">
-                    <mat-icon>delete</mat-icon>Clôturer le Santa
-                </button></form>
-        </div>
-
 
     </div>
+
 </mat-nav-list>

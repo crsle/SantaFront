@@ -2,3 +2,10 @@
     color: lightgray;
     background-color: rgb(230, 100, 77);
 }
+
+.myscroll{
+    width: 100%;
+    height: 330px;
+    scrollbar-width: thin;
+    overflow: auto;
+}

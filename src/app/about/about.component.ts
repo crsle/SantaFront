@@ -15,35 +15,43 @@ export class AboutComponent implements OnInit {
   eventsenAttente;
   parti;
   p: Participation = new Participation();
-  constructor(public myback: MybackService, private route: Router, private http: HttpClient) { }
+  constructor(public myback: MybackService, private route: Router, private http: HttpClient) {
+    if (myback.recupUserC().mail != null) {
+      this.myback.user = this.myback.recupUserC();
+      this.myback.menuVisible = true;
+    } else {
+      this.myback.msgErr = 'Vous devez vous connectez';
+      this.route.navigate(['login']);
+    }
+  }
 
   ngOnInit() {
     this.recupSantaenAttente();
     this.recupNbSantaenAttente()
   }
 
-  recupNbSantaenAttente(){
-    this.http.get(this.myback.lienHTTP+'nbSanta/'+ this.myback.user.id + '/' + false+ '/' + true)
-    .subscribe(data => {
-      console.log(data);      
-      this.myback.nbInvitations=data;
-    }, err => { 
-      console.log(err);
-    });
+  recupNbSantaenAttente() {
+    this.http.get(this.myback.lienHTTP + 'nbSanta/' + this.myback.user.id + '/' + false + '/' + true)
+      .subscribe(data => {
+        console.log(data);
+        this.myback.nbInvitations = data;
+      }, err => {
+        console.log(err);
+      });
 
   }
 
   recupSantaenAttente() {
     this.http.get(this.myback.lienHTTP + 'participantsanta/' + this.myback.user.id + '/' + false + '/' + true)
       .subscribe(data => {
-        if (data ==null) {
+        if (data == null) {
           this.myback.aucuneInvit = true;
         }
         else {
           this.myback.aucuneInvit = false;
           this.eventsenAttente = data;
         }
-        
+
       }, err => {
         console.log(err);
       });
@@ -68,17 +76,17 @@ export class AboutComponent implements OnInit {
       });
   }
 
-  nonConfirmParticipation(s:SSanta){
-    this.http.delete(this.myback.lienHTTP + '/SupprimerParticipation/' +this.myback.user.id+'/'+ s.id)
-    .subscribe(data =>{
-      this.ngOnInit()
-    },err =>{
-      console.log(err);
-    });
+  nonConfirmParticipation(s: SSanta) {
+    this.http.delete(this.myback.lienHTTP + '/SupprimerParticipation/' + this.myback.user.id + '/' + s.id)
+      .subscribe(data => {
+        this.ngOnInit()
+      }, err => {
+        console.log(err);
+      });
   }
 
-  goSanta(s:SSanta) {
-    this.myback.santa=s;
+  goSanta(s: SSanta) {
+    this.myback.santa = s;
     this.route.navigate(['santa']);
   }
 

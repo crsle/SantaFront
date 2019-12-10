@@ -53,11 +53,27 @@ export class ListesouhaitComponent implements OnInit {
 
   
 
-  supprSouhait(s) {
+  deletesouhait(s) {
     this.http.delete(this.myback.lienHTTP + 'souhait/' + s.id)
       .subscribe(data => {
-        console.log('suppression souhait : ', data)
-        this.ngOnInit();
+        this.http.get(this.myback.lienHTTP + 'souhaitEnDessous/' + this.myback.user.id + '/' + this.myback.santa.id + '/' + s.ordre)
+        .subscribe(data2 => {
+          this.souhaits = data2;
+          this.souhaits.forEach(s => {
+            console.log('Souhait à la place ' + s.ordre +' déplacé de 1 place')
+            s.ordre = s.ordre-1;
+            console.log('Devenu ' + s)
+            this.http.post(this.myback.lienHTTP + 'souhait/', s)
+            .subscribe(data3 => {
+              this.ngOnInit();
+            }, err3 => {
+              console.log(err3)
+            })
+          });
+        }, err2 => {
+          console.log(err2)
+        });
+        
       }, err => {
         console.log(err);
       });

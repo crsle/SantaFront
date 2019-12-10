@@ -57,7 +57,7 @@
                 <h3>{{e.evenement.nomSSanta}}</h3>
               </div>
               <div class="card-excerpt">
-                <p> Ce Secret Santa a été créé par : {{e.evenement.createur.pseudo}}
+                <p> Créé par {{e.evenement.createur.pseudo}}
                 </p>
                 <div class="text-center" ><button mat-mini-fab class="text-center" (click)="callPopupInv(e.evenement.id)"
                     [disabled]=!isProprio(e) style="background-color: white; color: rgb(54, 170, 31);">

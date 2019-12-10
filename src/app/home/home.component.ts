@@ -39,7 +39,20 @@ boutonInviterMembreVisible;
   ngOnInit() {
     this.recupSanta();
     this.recupSantaenAttente();
+    this.recupNbSantaenAttente()
   }
+
+  recupNbSantaenAttente(){
+    this.http.get(this.myback.lienHTTP+'nbSanta/'+ this.myback.user.id + '/' + false+ '/' + true)
+    .subscribe(data => {
+      console.log(data);      
+      this.myback.nbInvitations=data;
+    }, err => { 
+      console.log(err);
+    });
+
+  }
+
 
   recupSanta(){
     this.http.get(this.myback.lienHTTP+'participantsanta/'+ this.myback.user.id + '/' + true+ '/' + true)

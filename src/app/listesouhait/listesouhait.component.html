@@ -1,4 +1,4 @@
-<mat-nav-list>
+<mat-nav-list >
         <!-- <table class="table" style="zoom: 85%;">
             <thead>
                 <th style="max-width: 10px;">#</th>
@@ -25,12 +25,13 @@
             </tbody>
 
         </table> -->
-        <div  cdkDropList id = "droplist" class="example-list" (cdkDropListDropped)="drop($event)">
+        <div  cdkDropList id = "droplist" class="example-list" (cdkDropListDropped)="drop($event)" style="align-content: center;">
             <div  class="example-box" *ngFor="let s of souhaits" cdkDrag>
                 <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
                 <h6>{{s.ordre}}. </h6>
                 <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
                  <h6 style="overflow: hidden; text-overflow: ellipsis; word-wrap: break-word;">{{s.description}}</h6>
+                 <button mat-icon-button (click)="deletesouhait(s)"><mat-icon>delete</mat-icon></button>
             </div>
         </div>
 

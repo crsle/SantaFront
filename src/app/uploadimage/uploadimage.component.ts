@@ -69,20 +69,13 @@ export class UploadimageComponent implements OnInit {
       this.http.post(this.myback.lienHTTP+'/uploadMur', this.import)
       .subscribe(data2 => {
         this.dialogRef.close();
-
       },err => {
         console.log(err);
       });
-
-
-
     }, err => {
       console.log(err);
     });
-    console.log(this.p);
-
-
-    
+    console.log(this.p);    
   }
 
   closeDialog() {

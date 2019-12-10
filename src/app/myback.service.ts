@@ -18,9 +18,10 @@ export class MybackService {
   utilisateurProprio = false
   boutonTirageVisible;
   aucunEvenement;
+  aucuneInvit;
   cible : Participation = new Participation();
   boutonCreaSantaVisible = true;
-
+  nbInvitations;
   idEventClickInv;
   constructor() {
  

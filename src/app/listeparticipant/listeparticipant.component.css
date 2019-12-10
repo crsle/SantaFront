@@ -1,0 +1,4 @@
+.hachure{
+    background-color: whitesmoke;
+background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(235, 229, 229, 0.801) 20px, rgba(235, 229, 229, 0.801) 20px);
+}

@@ -24,8 +24,14 @@ export class PopupcreationsouhaitComponent implements OnInit {
   creaSouhait() {
     this.http.get(this.mys.lienHTTP + 'user/santa/derniersouhait/' + this.mys.user.id + '/' + this.mys.santa.id)
       .subscribe(data => {
-        this.derniersouhait = data;
-        this.nvOrdre = this.derniersouhait.ordre + 1;
+        if (data == null) {
+          this.nvOrdre = 1;
+        }
+        else {
+          this.derniersouhait = data;
+          this.nvOrdre = this.derniersouhait.ordre + 1;
+        }
+
         this.souhait.personne = this.mys.user;
         this.souhait.santa = this.mys.santa;
         this.souhait.ordre = this.nvOrdre;

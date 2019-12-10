@@ -48,20 +48,13 @@ export class ResultattirageComponent implements OnInit {
   cibleCadeau(){
     this.http.get(this.myback.lienHTTP + 'santa/cible/'+this.myback.user.id+'/'+this.myback.santa.id).subscribe(data =>{
       
+      
       this.participation = data;
       
       this.myback.cible = this.participation;
-      
-      
-      // if (this.cible.participant.id == p.participant.id ){
-      //   return true;
-      // }
-      // else{
-      //   return false;
-      // }
+
      }, err =>{
       console.log(err);
-       return false;
      });
      
   }

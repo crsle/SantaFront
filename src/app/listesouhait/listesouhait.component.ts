@@ -58,18 +58,21 @@ export class ListesouhaitComponent implements OnInit {
       .subscribe(data => {
         this.http.get(this.myback.lienHTTP + 'souhaitEnDessous/' + this.myback.user.id + '/' + this.myback.santa.id + '/' + s.ordre)
         .subscribe(data2 => {
-          this.souhaits = data2;
+          if (data2 != null) {
+            this.souhaits = data2;
           this.souhaits.forEach(s => {
-            console.log('Souhait à la place ' + s.ordre +' déplacé de 1 place')
             s.ordre = s.ordre-1;
-            console.log('Devenu ' + s)
             this.http.post(this.myback.lienHTTP + 'souhait/', s)
             .subscribe(data3 => {
-              this.ngOnInit();
+              
             }, err3 => {
               console.log(err3)
             })
+            this.ngOnInit();
           });
+          
+          }
+          this.ngOnInit();
         }, err2 => {
           console.log(err2)
         });

@@ -31,6 +31,7 @@ import { HistoriqueComponent } from './historique/historique.component';
 import { AboutComponent } from './about/about.component';
 import { ConfirmationpopupComponent } from './confirmationpopup/confirmationpopup.component';
 import { ResultattirageComponent } from './resultattirage/resultattirage.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { ResultattirageComponent } from './resultattirage/resultattirage.compone
     MatListModule,
     MatMenuModule,
     DragDropModule,
+    MatAutocompleteModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

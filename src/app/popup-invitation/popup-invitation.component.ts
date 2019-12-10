@@ -3,6 +3,7 @@ import { User } from '../model/User';
 import { MybackService } from '../myback.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @Component({
   selector: 'app-popup-invitation',
@@ -11,10 +12,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PopupInvitationComponent implements OnInit {
   user : User = new User();
+  users;
 
-  constructor(public myback: MybackService, private route :Router, private http: HttpClient) { }
+  constructor(public myback: MybackService, private route :Router, private http: HttpClient, private autocomplete: MatAutocompleteModule) { }
 
   ngOnInit() {
+    this.recupUsers();
   }
 
   invitation() {
@@ -27,5 +30,12 @@ export class PopupInvitationComponent implements OnInit {
     )
   }
 
-
+  recupUsers() {
+    this.http.get(this.myback.lienHTTP + 'invitationAutoComplete')
+      .subscribe(data => {
+        this.users = data;
+      }, err => {
+        console.log(err);
+      });
+  }
 }

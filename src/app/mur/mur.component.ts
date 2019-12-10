@@ -23,7 +23,7 @@ export class MurComponent implements OnInit {
   ok;
   visibleimgenvoye = false;
 
-
+  aime = 1;
   mursanta;
   parti;
   test;
@@ -103,6 +103,12 @@ export class MurComponent implements OnInit {
   scrollToElement($element): void {
     console.log($element);
     $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  }
+
+  
+
+  aimeC(){
+    this.aime = this.aime + 1;
   }
 
 }

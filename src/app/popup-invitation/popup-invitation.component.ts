@@ -33,7 +33,9 @@ export class PopupInvitationComponent implements OnInit {
   recupUsers() {
     this.http.get(this.myback.lienHTTP + 'invitationAutoComplete')
       .subscribe(data => {
+        console.log('liste ' , data);
         this.users = data;
+        console.log('users ' , this.users);
       }, err => {
         console.log(err);
       });

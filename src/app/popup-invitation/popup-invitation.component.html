@@ -4,10 +4,10 @@
           <form #forme="ngForm" (ngSubmit)="invitation()">
           
             <div class="form-group">
-              <input required="required" name="loginC" type="email" placeholder="mail" class="form-control" [(ngModel)]="user.mail" [matAutocomplete]="auto">
+              <input required="required" name="loginC" type="email" placeholder="mail" class="form-control"  [(ngModel)]="user.mail" [matAutocomplete]="auto">
               <mat-autocomplete #auto="matAutocomplete">
-                  <mat-option *ngFor="let p of users | async" [value]="p.user.mail">
-                    {{p?.user?.mail}}
+                  <mat-option *ngFor="let p of users " [value]="p.mail">
+                    {{p.mail}}
                   </mat-option>
                 </mat-autocomplete>
             </div>

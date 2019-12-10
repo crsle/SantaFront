@@ -1,6 +1,6 @@
 <div>
-<mat-nav-list>
-    <!-- <table class="table" style="zoom: 85%;">
+    <mat-nav-list>
+        <!-- <table class="table" style="zoom: 85%;">
             <thead>
                 <th style="max-width: 10px;">#</th>
                 <th style="width: fit-content;"></th>
@@ -26,31 +26,47 @@
             </tbody>
 
         </table> -->
-    
-        <div cdkDropList id="droplist" class="example-list" (cdkDropListDropped)="drop($event)"
-            style="align-content: center;">
-            <div class="example-box" *ngFor="let s of souhaits" cdkDrag>
-                <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
-                <h6>{{s.ordre}}. </h6>
-                <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
-                <h6 style="overflow: hidden; text-overflow: ellipsis; word-wrap: break-word;">{{s.description}}</h6>
-                <button mat-icon-button (click)="deletesouhait(s)">
-                    <mat-icon>delete</mat-icon>
-                </button>
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-6">
+                <div style="text-align: center;">
+                    <div cdkDropList id="droplist" class="example-list" (cdkDropListDropped)="drop($event)">
+                        <div class="example-box" *ngFor="let s of souhaits" cdkDrag>
+                            <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                            <h6>{{s.ordre}}. </h6>
+                            <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                            <h6 style="overflow: hidden; text-overflow: ellipsis; word-wrap: break-word;">
+                                {{s.description}}
+                            </h6>
+                            <button mat-icon-button (click)="deletesouhait(s)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
 
 
 
-    <hr>
-    <br>
 
-    <div class="text-center">
-        <button mat-raised-button (click)="openPopupCreaSouhait()"
-            style="color: lightgray; background-color: rgb(230, 100, 77); width: fit-content;">
-            <mat-icon>add</mat-icon>
-        </button>
-    </div>
 
-</mat-nav-list>
+
+
+
+
+
+
+        <hr>
+        <br>
+
+        <div class="text-center">
+            <button mat-raised-button (click)="openPopupCreaSouhait()"
+                style="color: lightgray; background-color: rgb(230, 100, 77); width: fit-content;">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+
+    </mat-nav-list>
 </div>

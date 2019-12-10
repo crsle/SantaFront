@@ -18,13 +18,19 @@ export class PopupInvitationComponent implements OnInit {
   }
 
   invitation() {
-    this.http.post(this.myback.lienHTTP + 'participation/invitation/' + this.myback.idEventClickInv , this.user).subscribe(
-      data => {
-        console.log('invitation part ' , data);
-      }, err => {
-        console.log(err);
+    this.http.get(this.myback.lienHTTP + 'participationmail/' + this.user.mail + '/' + this.myback.idEventClickInv)
+    .subscribe(data => {
+      if (data == null) {
+        //console.log(data)
+        this.http.post(this.myback.lienHTTP + 'participation/invitation/' + this.myback.idEventClickInv , this.user).subscribe(
+          data => {
+          }, err => {
+            console.log(err);
+          }
+        )
       }
-    )
+    })
+
   }
 
 
